@@ -10,17 +10,122 @@
 
 
 <Ontology xmlns="http://www.w3.org/2002/07/owl#"
-     xml:base="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4"
+     xml:base="http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     ontologyIRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4">
+     ontologyIRI="http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio">
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Import>http://www.w3.org/2006/time</Import>
+    <Declaration>
+        <Class IRI="#OWLClass_10c2efa6_2df4_4880_b3d0_36a428549582"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OWLClass_41a7d7ac_4f53_403c_bcda_57ccfe6f0aa6"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OWLClass_5ea99eb9_0fe9_4630_900b_6a977476f5d8"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OWLClass_78a8a800_0e33_4880_a584_ea671d1c0e65"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OWLClass_7db9fcaa_e813_4856_a591_d1f84ff6c52b"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OWLClass_92a38a30_5d84_4778_a72c_ee356a12d219"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OWLClass_9a3f8356_f400_4923_9f59_e54891f70ed8"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OWLClass_ac9d1cd7_2b8e_4cda_80c0_2bdef4954c25"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#OWLClass_91e0841e_4ad5_43dd_9554_ccb7d00bb3fa"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#OWLClass_10c2efa6_2df4_4880_b3d0_36a428549582"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#OWLClass_91e0841e_4ad5_43dd_9554_ccb7d00bb3fa"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OWLClass_41a7d7ac_4f53_403c_bcda_57ccfe6f0aa6"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#OWLClass_91e0841e_4ad5_43dd_9554_ccb7d00bb3fa"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OWLClass_5ea99eb9_0fe9_4630_900b_6a977476f5d8"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#OWLClass_91e0841e_4ad5_43dd_9554_ccb7d00bb3fa"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OWLClass_78a8a800_0e33_4880_a584_ea671d1c0e65"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#OWLClass_91e0841e_4ad5_43dd_9554_ccb7d00bb3fa"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OWLClass_7db9fcaa_e813_4856_a591_d1f84ff6c52b"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#OWLClass_91e0841e_4ad5_43dd_9554_ccb7d00bb3fa"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OWLClass_92a38a30_5d84_4778_a72c_ee356a12d219"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#OWLClass_91e0841e_4ad5_43dd_9554_ccb7d00bb3fa"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OWLClass_9a3f8356_f400_4923_9f59_e54891f70ed8"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#OWLClass_91e0841e_4ad5_43dd_9554_ccb7d00bb3fa"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OWLClass_ac9d1cd7_2b8e_4cda_80c0_2bdef4954c25"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#OWLClass_91e0841e_4ad5_43dd_9554_ccb7d00bb3fa"/>
+    </SubClassOf>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLClass_10c2efa6_2df4_4880_b3d0_36a428549582</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Chemical</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLClass_41a7d7ac_4f53_403c_bcda_57ccfe6f0aa6</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Metallurgy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLClass_5ea99eb9_0fe9_4630_900b_6a977476f5d8</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Wood</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLClass_78a8a800_0e33_4880_a584_ea671d1c0e65</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Plastic</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLClass_7db9fcaa_e813_4856_a591_d1f84ff6c52b</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Siderurgy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLClass_92a38a30_5d84_4778_a72c_ee356a12d219</IRI>
+        <Literal xml:lang="es" datatypeIRI="&rdf;PlainLiteral">Textile</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLClass_9a3f8356_f400_4923_9f59_e54891f70ed8</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Food
+</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLClass_ac9d1cd7_2b8e_4cda_80c0_2bdef4954c25</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Paper</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#OWLClass_91e0841e_4ad5_43dd_9554_ccb7d00bb3fa</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Industry</Literal>
+    </AnnotationAssertion>
 </Ontology>
 
 
