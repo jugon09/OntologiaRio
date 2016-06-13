@@ -21,11 +21,15 @@
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Import>http://www.w3.org/2006/time</Import>
     <Declaration>
         <Class IRI="#CleanWaterMass"/>
     </Declaration>
     <Declaration>
         <Class IRI="#OWLClass_10c2efa6_2df4_4880_b3d0_36a428549582"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OWLClass_24b302c7_b7f0_4581_85c8_38c6deaae608"/>
     </Declaration>
     <Declaration>
         <Class IRI="#OWLClass_3487a351_5665_4fbf_ab3e_e823a62c463a"/>
@@ -35,6 +39,9 @@
     </Declaration>
     <Declaration>
         <Class IRI="#OWLClass_5ea99eb9_0fe9_4630_900b_6a977476f5d8"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OWLClass_65e7421c_eaea_4390_b770_001351a069f4"/>
     </Declaration>
     <Declaration>
         <Class IRI="#OWLClass_78a8a800_0e33_4880_a584_ea671d1c0e65"/>
@@ -64,6 +71,12 @@
         <ObjectProperty IRI="#OWLObjectProperty_0199ebbc_d0e0_4323_8671_40fe2d01b3f2"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#OWLObjectProperty_29392eeb_ea60_4388_b252_f95f7abe4b8d"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#OWLObjectProperty_e8b718fc_300c_4b6b_81ff_065d244dc168"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#OWLDataProperty_08f222cb_0cd3_4091_9e8b_de6003f8be0a"/>
     </Declaration>
     <Declaration>
@@ -77,6 +90,9 @@
     </Declaration>
     <Declaration>
         <DataProperty IRI="#OWLDataProperty_8f9ca72a_7b41_4af8_bb18_d5176c4192d8"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#OWLDataProperty_92d314bb_94e4_46ed_ba18_c5d5d9401f16"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#OWLDataProperty_a1f1e921_bb3c_46c1_ac4a_0906376592ae"/>
@@ -93,6 +109,15 @@
     <Declaration>
         <NamedIndividual IRI="#CleanWater"/>
     </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OWLNamedIndividual_090f6a11_8c01_4bdf_9ee7_dd4ddd89ea75"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OWLNamedIndividual_98e587cd_bf54_425f_8d9d_1d09d6f377bb"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OWLNamedIndividual_e9d4e8c4_32fa_4fc9_a44d_8076f5b0ee08"/>
+    </Declaration>
     <EquivalentClasses>
         <Class IRI="#CleanWaterMass"/>
         <ObjectIntersectionOf>
@@ -100,25 +125,58 @@
             <DataAllValuesFrom>
                 <DataProperty IRI="#OWLDataProperty_8c348e2a_2203_4d6e_a153_3c112f8b48cc"/>
                 <DatatypeRestriction>
-                    <Datatype abbreviatedIRI="xsd:float"/>
+                    <Datatype abbreviatedIRI="xsd:double"/>
                     <FacetRestriction facet="&xsd;minInclusive">
-                        <Literal datatypeIRI="&xsd;float">0.0</Literal>
+                        <Literal datatypeIRI="&xsd;double">0.0</Literal>
                     </FacetRestriction>
                 </DatatypeRestriction>
             </DataAllValuesFrom>
             <DataAllValuesFrom>
                 <DataProperty IRI="#OWLDataProperty_ef6b984b_53be_4f9d_a00e_a52829e230e5"/>
                 <DatatypeRestriction>
-                    <Datatype abbreviatedIRI="xsd:float"/>
-                    <FacetRestriction facet="&xsd;maxInclusive">
-                        <Literal datatypeIRI="&xsd;float">0.4</Literal>
-                    </FacetRestriction>
+                    <Datatype abbreviatedIRI="xsd:double"/>
                     <FacetRestriction facet="&xsd;minInclusive">
-                        <Literal datatypeIRI="&xsd;float">0.0</Literal>
+                        <Literal datatypeIRI="&xsd;double">0.0</Literal>
+                    </FacetRestriction>
+                    <FacetRestriction facet="&xsd;maxInclusive">
+                        <Literal datatypeIRI="&xsd;double">0.4</Literal>
                     </FacetRestriction>
                 </DatatypeRestriction>
             </DataAllValuesFrom>
         </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#OWLClass_24b302c7_b7f0_4581_85c8_38c6deaae608"/>
+        <ObjectExactCardinality cardinality="2">
+            <ObjectProperty IRI="#OWLObjectProperty_29392eeb_ea60_4388_b252_f95f7abe4b8d"/>
+            <Class IRI="#OWLClass_3487a351_5665_4fbf_ab3e_e823a62c463a"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#OWLClass_24b302c7_b7f0_4581_85c8_38c6deaae608"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#OWLObjectProperty_e8b718fc_300c_4b6b_81ff_065d244dc168"/>
+            <Class IRI="#OWLClass_3487a351_5665_4fbf_ab3e_e823a62c463a"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#OWLClass_65e7421c_eaea_4390_b770_001351a069f4"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#OWLObjectProperty_29392eeb_ea60_4388_b252_f95f7abe4b8d"/>
+        </ObjectMinCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#OWLClass_65e7421c_eaea_4390_b770_001351a069f4"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#OWLObjectProperty_e8b718fc_300c_4b6b_81ff_065d244dc168"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#OWLClass_65e7421c_eaea_4390_b770_001351a069f4"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#OWLDataProperty_92d314bb_94e4_46ed_ba18_c5d5d9401f16"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataExactCardinality>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="#PollutedWaterMass"/>
@@ -127,21 +185,21 @@
             <DataAllValuesFrom>
                 <DataProperty IRI="#OWLDataProperty_8c348e2a_2203_4d6e_a153_3c112f8b48cc"/>
                 <DatatypeRestriction>
-                    <Datatype abbreviatedIRI="xsd:float"/>
+                    <Datatype abbreviatedIRI="xsd:double"/>
                     <FacetRestriction facet="&xsd;minInclusive">
-                        <Literal datatypeIRI="&xsd;float">0.0</Literal>
+                        <Literal datatypeIRI="&xsd;double">0.0</Literal>
                     </FacetRestriction>
                 </DatatypeRestriction>
             </DataAllValuesFrom>
             <DataAllValuesFrom>
                 <DataProperty IRI="#OWLDataProperty_ef6b984b_53be_4f9d_a00e_a52829e230e5"/>
                 <DatatypeRestriction>
-                    <Datatype abbreviatedIRI="xsd:float"/>
+                    <Datatype abbreviatedIRI="xsd:double"/>
                     <FacetRestriction facet="&xsd;maxInclusive">
-                        <Literal datatypeIRI="&xsd;float">100.0</Literal>
+                        <Literal datatypeIRI="&xsd;double">100.0</Literal>
                     </FacetRestriction>
                     <FacetRestriction facet="&xsd;minExclusive">
-                        <Literal datatypeIRI="&xsd;float">0.4</Literal>
+                        <Literal datatypeIRI="&xsd;double">0.4</Literal>
                     </FacetRestriction>
                 </DatatypeRestriction>
             </DataAllValuesFrom>
@@ -150,6 +208,10 @@
     <SubClassOf>
         <Class IRI="#OWLClass_10c2efa6_2df4_4880_b3d0_36a428549582"/>
         <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#OWLClass_91e0841e_4ad5_43dd_9554_ccb7d00bb3fa"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OWLClass_24b302c7_b7f0_4581_85c8_38c6deaae608"/>
+        <Class IRI="#OWLClass_65e7421c_eaea_4390_b770_001351a069f4"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#OWLClass_3487a351_5665_4fbf_ab3e_e823a62c463a"/>
@@ -191,6 +253,14 @@
         <Class IRI="#CleanWaterMass"/>
         <Class IRI="#PollutedWaterMass"/>
     </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="#OWLClass_3487a351_5665_4fbf_ab3e_e823a62c463a"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_e9d4e8c4_32fa_4fc9_a44d_8076f5b0ee08"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PollutedWaterMass"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_e9d4e8c4_32fa_4fc9_a44d_8076f5b0ee08"/>
+    </ClassAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#OWLDataProperty_8c348e2a_2203_4d6e_a153_3c112f8b48cc"/>
         <NamedIndividual IRI="#CleanWater"/>
@@ -201,13 +271,59 @@
         <NamedIndividual IRI="#CleanWater"/>
         <Literal datatypeIRI="&xsd;float">0.2</Literal>
     </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#OWLDataProperty_8c348e2a_2203_4d6e_a153_3c112f8b48cc"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_090f6a11_8c01_4bdf_9ee7_dd4ddd89ea75"/>
+        <Literal datatypeIRI="&xsd;double">5000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#OWLDataProperty_ef6b984b_53be_4f9d_a00e_a52829e230e5"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_090f6a11_8c01_4bdf_9ee7_dd4ddd89ea75"/>
+        <Literal datatypeIRI="&xsd;double">80.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#OWLDataProperty_8c348e2a_2203_4d6e_a153_3c112f8b48cc"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_98e587cd_bf54_425f_8d9d_1d09d6f377bb"/>
+        <Literal datatypeIRI="&xsd;double">600.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#OWLDataProperty_ef6b984b_53be_4f9d_a00e_a52829e230e5"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_98e587cd_bf54_425f_8d9d_1d09d6f377bb"/>
+        <Literal datatypeIRI="&xsd;double">0.3</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#OWLDataProperty_8c348e2a_2203_4d6e_a153_3c112f8b48cc"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_e9d4e8c4_32fa_4fc9_a44d_8076f5b0ee08"/>
+        <Literal datatypeIRI="&xsd;double">2000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#OWLDataProperty_ef6b984b_53be_4f9d_a00e_a52829e230e5"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_e9d4e8c4_32fa_4fc9_a44d_8076f5b0ee08"/>
+        <Literal datatypeIRI="&xsd;double">45.0</Literal>
+    </DataPropertyAssertion>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#OWLObjectProperty_0199ebbc_d0e0_4323_8671_40fe2d01b3f2"/>
         <Class IRI="#OWLClass_efe0a743_5b01_41b3_8045_9b48811ce57d"/>
     </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#OWLObjectProperty_29392eeb_ea60_4388_b252_f95f7abe4b8d"/>
+        <Class IRI="#OWLClass_65e7421c_eaea_4390_b770_001351a069f4"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#OWLObjectProperty_e8b718fc_300c_4b6b_81ff_065d244dc168"/>
+        <Class IRI="#OWLClass_65e7421c_eaea_4390_b770_001351a069f4"/>
+    </ObjectPropertyDomain>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#OWLObjectProperty_0199ebbc_d0e0_4323_8671_40fe2d01b3f2"/>
         <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#OWLClass_91e0841e_4ad5_43dd_9554_ccb7d00bb3fa"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#OWLObjectProperty_29392eeb_ea60_4388_b252_f95f7abe4b8d"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#OWLObjectProperty_e8b718fc_300c_4b6b_81ff_065d244dc168"/>
+        <Class abbreviatedIRI="owl:Thing"/>
     </ObjectPropertyRange>
     <SubDataPropertyOf>
         <DataProperty IRI="#OWLDataProperty_61021701_7ea9_44a6_b7bf_aa27d052a7d9"/>
@@ -281,20 +397,28 @@
         <Class IRI="#OWLClass_efe0a743_5b01_41b3_8045_9b48811ce57d"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
+        <DataProperty IRI="#OWLDataProperty_92d314bb_94e4_46ed_ba18_c5d5d9401f16"/>
+        <Class IRI="#OWLClass_65e7421c_eaea_4390_b770_001351a069f4"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
         <DataProperty IRI="#OWLDataProperty_be334a81_d618_4adc_b157_1d97d971ce79"/>
         <Class IRI="#OWLClass_efe0a743_5b01_41b3_8045_9b48811ce57d"/>
     </DataPropertyDomain>
     <DataPropertyRange>
         <DataProperty IRI="#OWLDataProperty_08f222cb_0cd3_4091_9e8b_de6003f8be0a"/>
-        <Datatype abbreviatedIRI="xsd:float"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#OWLDataProperty_8c348e2a_2203_4d6e_a153_3c112f8b48cc"/>
-        <Datatype abbreviatedIRI="xsd:float"/>
+        <DataProperty IRI="#OWLDataProperty_1540f225_7078_4cea_b819_8511391380b7"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#OWLDataProperty_8f9ca72a_7b41_4af8_bb18_d5176c4192d8"/>
         <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#OWLDataProperty_92d314bb_94e4_46ed_ba18_c5d5d9401f16"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#OWLDataProperty_a1f1e921_bb3c_46c1_ac4a_0906376592ae"/>
@@ -311,6 +435,11 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLClass_24b302c7_b7f0_4581_85c8_38c6deaae608</IRI>
+        <Literal xml:lang="es" datatypeIRI="&rdf;PlainLiteral">Merge_water</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#OWLClass_3487a351_5665_4fbf_ab3e_e823a62c463a</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">WaterMass</Literal>
     </AnnotationAssertion>
@@ -323,6 +452,11 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#OWLClass_5ea99eb9_0fe9_4630_900b_6a977476f5d8</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">Wood</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLClass_65e7421c_eaea_4390_b770_001351a069f4</IRI>
+        <Literal xml:lang="es" datatypeIRI="&rdf;PlainLiteral">Process</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -382,6 +516,11 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLDataProperty_92d314bb_94e4_46ed_ba18_c5d5d9401f16</IRI>
+        <Literal xml:lang="es" datatypeIRI="&rdf;PlainLiteral">hasCode</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#OWLDataProperty_a1f1e921_bb3c_46c1_ac4a_0906376592ae</IRI>
         <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasCapacityTreatment</Literal>
     </AnnotationAssertion>
@@ -402,8 +541,33 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLNamedIndividual_090f6a11_8c01_4bdf_9ee7_dd4ddd89ea75</IRI>
+        <Literal xml:lang="es" datatypeIRI="&rdf;PlainLiteral">polluted_2</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLNamedIndividual_98e587cd_bf54_425f_8d9d_1d09d6f377bb</IRI>
+        <Literal xml:lang="es" datatypeIRI="&rdf;PlainLiteral">clean_1</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLNamedIndividual_e9d4e8c4_32fa_4fc9_a44d_8076f5b0ee08</IRI>
+        <Literal xml:lang="es" datatypeIRI="&rdf;PlainLiteral">polluted_1</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#OWLObjectProperty_0199ebbc_d0e0_4323_8671_40fe2d01b3f2</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">BelongTo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLObjectProperty_29392eeb_ea60_4388_b252_f95f7abe4b8d</IRI>
+        <Literal xml:lang="es" datatypeIRI="&rdf;PlainLiteral">hasInput</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLObjectProperty_e8b718fc_300c_4b6b_81ff_065d244dc168</IRI>
+        <Literal xml:lang="es" datatypeIRI="&rdf;PlainLiteral">hasOutput</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
