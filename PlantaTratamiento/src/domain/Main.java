@@ -3,36 +3,40 @@ package domain;
 import java.io.FileNotFoundException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.List;
 
 public class Main {
 	public static void main(String[] args) throws FileNotFoundException {
-		String ontologyPath = "./resources/ontoprac.owl";
-		String NamingContext = "http://www.semanticweb.org/luisoliva/ontologies/2016/4/ontoprac#";
+		String ontologyPath = "./resources/onto1.owl";
+		String NamingContext = "http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#";
 
 		System.out.println("----------------Starting program -------------");
 
-		JenaManager tester = new JenaManager(ontologyPath, NamingContext);
+		JenaManager jManager = new JenaManager(ontologyPath, NamingContext);
 
-		tester.loadOntology();
+		jManager.loadOntology();
+		
+		
 
-		String nameF = tester.executeQuery();
-		System.out.println(nameF);
-		tester.getWater();
-		Watermass w2 = tester.reifyWater(NamingContext + "water_mass_2");
-		Watermass w1 = tester.reifyWater(NamingContext + "water_mass_1");
-		System.out.println(w1.toString());
-		System.out.println(w2.toString());
+		List<WaterMass> listOfWater = jManager.getAllWatermassIndividuals();
+		for (WaterMass watermass : listOfWater)
+			System.out.println(watermass.toString());
+
+		String nameProcess = jManager.executeQuery();
+		System.out.println(nameProcess);
 
 		Method method = null;
 		Processes p = new Processes();
 		try {
-			method = p.getClass().getMethod(nameF, Watermass.class, Watermass.class);
+			method = p.getClass().getMethod(nameProcess, WaterMass.class, WaterMass.class);
+
 		} catch (SecurityException e) {
 		} catch (NoSuchMethodException e) {
 		}
-		Watermass w3 = null;
+
+		WaterMass w3 = null;
 		try {
-			w3 = (Watermass) method.invoke(null, w1, w2);
+			w3 = (WaterMass) method.invoke(null, listOfWater.get(0), listOfWater.get(1));
 		} catch (IllegalArgumentException e) {
 		} catch (IllegalAccessException e) {
 		} catch (InvocationTargetException e) {
@@ -40,11 +44,11 @@ public class Main {
 
 		// Watermass w3 = Processes.mergeWater(w1, w2);
 		if (w3 != null) {
-			tester.addWatermass(w3);
+			jManager.addWatermassIndividual(w3);
 			System.out.println(w3.toString());
 		}
 
-		tester.releaseOntology();
+		jManager.releaseOntology();
 
 		System.out.println("--------- Program terminated --------------------");
 	}
