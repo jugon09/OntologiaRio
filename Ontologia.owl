@@ -23,116 +23,107 @@
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Import>http://www.w3.org/2006/time</Import>
     <Declaration>
+        <Class IRI="#Chemical"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#CleanWaterMass"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#OWLClass_10c2efa6_2df4_4880_b3d0_36a428549582"/>
+        <Class IRI="#Factory"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#OWLClass_24b302c7_b7f0_4581_85c8_38c6deaae608"/>
+        <Class IRI="#Food"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#OWLClass_3487a351_5665_4fbf_ab3e_e823a62c463a"/>
+        <Class IRI="#Merge_water"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#OWLClass_41a7d7ac_4f53_403c_bcda_57ccfe6f0aa6"/>
+        <Class IRI="#Metallurgy"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#OWLClass_5ea99eb9_0fe9_4630_900b_6a977476f5d8"/>
+        <Class IRI="#Paper"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#OWLClass_65e7421c_eaea_4390_b770_001351a069f4"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#OWLClass_78a8a800_0e33_4880_a584_ea671d1c0e65"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#OWLClass_7db9fcaa_e813_4856_a591_d1f84ff6c52b"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#OWLClass_92a38a30_5d84_4778_a72c_ee356a12d219"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#OWLClass_9a3f8356_f400_4923_9f59_e54891f70ed8"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#OWLClass_ac9d1cd7_2b8e_4cda_80c0_2bdef4954c25"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#OWLClass_efe0a743_5b01_41b3_8045_9b48811ce57d"/>
+        <Class IRI="#Plastic"/>
     </Declaration>
     <Declaration>
         <Class IRI="#PollutedWaterMass"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#OWLClass_91e0841e_4ad5_43dd_9554_ccb7d00bb3fa"/>
+        <Class IRI="#Process"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#OWLObjectProperty_0199ebbc_d0e0_4323_8671_40fe2d01b3f2"/>
+        <Class IRI="#Siderurgy"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#OWLObjectProperty_29392eeb_ea60_4388_b252_f95f7abe4b8d"/>
+        <Class IRI="#Textile"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#OWLObjectProperty_e8b718fc_300c_4b6b_81ff_065d244dc168"/>
+        <Class IRI="#WaterMass"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#OWLDataProperty_08f222cb_0cd3_4091_9e8b_de6003f8be0a"/>
+        <Class IRI="#Wood"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#OWLDataProperty_1540f225_7078_4cea_b819_8511391380b7"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#OWLDataProperty_61021701_7ea9_44a6_b7bf_aa27d052a7d9"/>
+        <ObjectProperty IRI="#BelongTo"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#OWLDataProperty_8c348e2a_2203_4d6e_a153_3c112f8b48cc"/>
+        <ObjectProperty IRI="#hasInput"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#OWLDataProperty_8f9ca72a_7b41_4af8_bb18_d5176c4192d8"/>
+        <ObjectProperty IRI="#hasOutput"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#OWLDataProperty_92d314bb_94e4_46ed_ba18_c5d5d9401f16"/>
+        <DataProperty IRI="#Volume"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#OWLDataProperty_a1f1e921_bb3c_46c1_ac4a_0906376592ae"/>
+        <DataProperty IRI="#hasCapacity"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#OWLDataProperty_a42bef66_5195_4344_a871_2ccd7ac9a76f"/>
+        <DataProperty IRI="#hasCapacityFactory"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#OWLDataProperty_be334a81_d618_4adc_b157_1d97d971ce79"/>
+        <DataProperty IRI="#hasCapacityTreatment"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#OWLDataProperty_ef6b984b_53be_4f9d_a00e_a52829e230e5"/>
+        <DataProperty IRI="#hasCode"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasDBO"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasDQO"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasInternalPurifyingPlant"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasPollutant"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasVolume"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#CleanWater"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#OWLNamedIndividual_090f6a11_8c01_4bdf_9ee7_dd4ddd89ea75"/>
+        <NamedIndividual IRI="#clean_1"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#OWLNamedIndividual_98e587cd_bf54_425f_8d9d_1d09d6f377bb"/>
+        <NamedIndividual IRI="#polluted_1"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#OWLNamedIndividual_e9d4e8c4_32fa_4fc9_a44d_8076f5b0ee08"/>
+        <NamedIndividual IRI="#polluted_2"/>
     </Declaration>
     <EquivalentClasses>
         <Class IRI="#CleanWaterMass"/>
         <ObjectIntersectionOf>
-            <Class IRI="#OWLClass_3487a351_5665_4fbf_ab3e_e823a62c463a"/>
+            <Class IRI="#WaterMass"/>
             <DataAllValuesFrom>
-                <DataProperty IRI="#OWLDataProperty_8c348e2a_2203_4d6e_a153_3c112f8b48cc"/>
-                <DatatypeRestriction>
-                    <Datatype abbreviatedIRI="xsd:double"/>
-                    <FacetRestriction facet="&xsd;minInclusive">
-                        <Literal datatypeIRI="&xsd;double">0.0</Literal>
-                    </FacetRestriction>
-                </DatatypeRestriction>
-            </DataAllValuesFrom>
-            <DataAllValuesFrom>
-                <DataProperty IRI="#OWLDataProperty_ef6b984b_53be_4f9d_a00e_a52829e230e5"/>
+                <DataProperty IRI="#hasDBO"/>
                 <DatatypeRestriction>
                     <Datatype abbreviatedIRI="xsd:double"/>
                     <FacetRestriction facet="&xsd;minInclusive">
@@ -143,47 +134,8 @@
                     </FacetRestriction>
                 </DatatypeRestriction>
             </DataAllValuesFrom>
-        </ObjectIntersectionOf>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="#OWLClass_24b302c7_b7f0_4581_85c8_38c6deaae608"/>
-        <ObjectExactCardinality cardinality="2">
-            <ObjectProperty IRI="#OWLObjectProperty_29392eeb_ea60_4388_b252_f95f7abe4b8d"/>
-            <Class IRI="#OWLClass_3487a351_5665_4fbf_ab3e_e823a62c463a"/>
-        </ObjectExactCardinality>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="#OWLClass_24b302c7_b7f0_4581_85c8_38c6deaae608"/>
-        <ObjectExactCardinality cardinality="1">
-            <ObjectProperty IRI="#OWLObjectProperty_e8b718fc_300c_4b6b_81ff_065d244dc168"/>
-            <Class IRI="#OWLClass_3487a351_5665_4fbf_ab3e_e823a62c463a"/>
-        </ObjectExactCardinality>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="#OWLClass_65e7421c_eaea_4390_b770_001351a069f4"/>
-        <ObjectMinCardinality cardinality="1">
-            <ObjectProperty IRI="#OWLObjectProperty_29392eeb_ea60_4388_b252_f95f7abe4b8d"/>
-        </ObjectMinCardinality>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="#OWLClass_65e7421c_eaea_4390_b770_001351a069f4"/>
-        <ObjectExactCardinality cardinality="1">
-            <ObjectProperty IRI="#OWLObjectProperty_e8b718fc_300c_4b6b_81ff_065d244dc168"/>
-        </ObjectExactCardinality>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="#OWLClass_65e7421c_eaea_4390_b770_001351a069f4"/>
-        <DataExactCardinality cardinality="1">
-            <DataProperty IRI="#OWLDataProperty_92d314bb_94e4_46ed_ba18_c5d5d9401f16"/>
-            <Datatype abbreviatedIRI="xsd:string"/>
-        </DataExactCardinality>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="#PollutedWaterMass"/>
-        <ObjectIntersectionOf>
-            <Class IRI="#OWLClass_3487a351_5665_4fbf_ab3e_e823a62c463a"/>
             <DataAllValuesFrom>
-                <DataProperty IRI="#OWLDataProperty_8c348e2a_2203_4d6e_a153_3c112f8b48cc"/>
+                <DataProperty IRI="#hasVolume"/>
                 <DatatypeRestriction>
                     <Datatype abbreviatedIRI="xsd:double"/>
                     <FacetRestriction facet="&xsd;minInclusive">
@@ -191,8 +143,28 @@
                     </FacetRestriction>
                 </DatatypeRestriction>
             </DataAllValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Merge_water"/>
+        <ObjectExactCardinality cardinality="2">
+            <ObjectProperty IRI="#hasInput"/>
+            <Class IRI="#WaterMass"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Merge_water"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hasOutput"/>
+            <Class IRI="#WaterMass"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#PollutedWaterMass"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#WaterMass"/>
             <DataAllValuesFrom>
-                <DataProperty IRI="#OWLDataProperty_ef6b984b_53be_4f9d_a00e_a52829e230e5"/>
+                <DataProperty IRI="#hasDBO"/>
                 <DatatypeRestriction>
                     <Datatype abbreviatedIRI="xsd:double"/>
                     <FacetRestriction facet="&xsd;maxInclusive">
@@ -203,377 +175,259 @@
                     </FacetRestriction>
                 </DatatypeRestriction>
             </DataAllValuesFrom>
+            <DataAllValuesFrom>
+                <DataProperty IRI="#hasVolume"/>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:double"/>
+                    <FacetRestriction facet="&xsd;minInclusive">
+                        <Literal datatypeIRI="&xsd;double">0.0</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+            </DataAllValuesFrom>
         </ObjectIntersectionOf>
     </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Process"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#hasInput"/>
+        </ObjectMinCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Process"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hasOutput"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Process"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#hasCode"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataExactCardinality>
+    </EquivalentClasses>
     <SubClassOf>
-        <Class IRI="#OWLClass_10c2efa6_2df4_4880_b3d0_36a428549582"/>
-        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#OWLClass_91e0841e_4ad5_43dd_9554_ccb7d00bb3fa"/>
+        <Class IRI="#Chemical"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#OWLClass_24b302c7_b7f0_4581_85c8_38c6deaae608"/>
-        <Class IRI="#OWLClass_65e7421c_eaea_4390_b770_001351a069f4"/>
+        <Class IRI="#Food"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#OWLClass_3487a351_5665_4fbf_ab3e_e823a62c463a"/>
-        <Class abbreviatedIRI="owl:Thing"/>
+        <Class IRI="#Merge_water"/>
+        <Class IRI="#Process"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#OWLClass_41a7d7ac_4f53_403c_bcda_57ccfe6f0aa6"/>
-        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#OWLClass_91e0841e_4ad5_43dd_9554_ccb7d00bb3fa"/>
+        <Class IRI="#Metallurgy"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#OWLClass_5ea99eb9_0fe9_4630_900b_6a977476f5d8"/>
-        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#OWLClass_91e0841e_4ad5_43dd_9554_ccb7d00bb3fa"/>
+        <Class IRI="#Paper"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#OWLClass_78a8a800_0e33_4880_a584_ea671d1c0e65"/>
-        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#OWLClass_91e0841e_4ad5_43dd_9554_ccb7d00bb3fa"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#OWLClass_7db9fcaa_e813_4856_a591_d1f84ff6c52b"/>
-        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#OWLClass_91e0841e_4ad5_43dd_9554_ccb7d00bb3fa"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#OWLClass_92a38a30_5d84_4778_a72c_ee356a12d219"/>
-        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#OWLClass_91e0841e_4ad5_43dd_9554_ccb7d00bb3fa"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#OWLClass_9a3f8356_f400_4923_9f59_e54891f70ed8"/>
-        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#OWLClass_91e0841e_4ad5_43dd_9554_ccb7d00bb3fa"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#OWLClass_ac9d1cd7_2b8e_4cda_80c0_2bdef4954c25"/>
-        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#OWLClass_91e0841e_4ad5_43dd_9554_ccb7d00bb3fa"/>
+        <Class IRI="#Plastic"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#PollutedWaterMass"/>
-        <Class IRI="#OWLClass_3487a351_5665_4fbf_ab3e_e823a62c463a"/>
+        <Class IRI="#WaterMass"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Siderurgy"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Textile"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WaterMass"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Wood"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
     </SubClassOf>
     <DisjointClasses>
         <Class IRI="#CleanWaterMass"/>
         <Class IRI="#PollutedWaterMass"/>
     </DisjointClasses>
     <ClassAssertion>
-        <Class IRI="#OWLClass_3487a351_5665_4fbf_ab3e_e823a62c463a"/>
-        <NamedIndividual IRI="#OWLNamedIndividual_e9d4e8c4_32fa_4fc9_a44d_8076f5b0ee08"/>
+        <Class IRI="#PollutedWaterMass"/>
+        <NamedIndividual IRI="#polluted_1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#PollutedWaterMass"/>
-        <NamedIndividual IRI="#OWLNamedIndividual_e9d4e8c4_32fa_4fc9_a44d_8076f5b0ee08"/>
+        <Class IRI="#WaterMass"/>
+        <NamedIndividual IRI="#polluted_1"/>
     </ClassAssertion>
     <DataPropertyAssertion>
-        <DataProperty IRI="#OWLDataProperty_8c348e2a_2203_4d6e_a153_3c112f8b48cc"/>
+        <DataProperty IRI="#hasDBO"/>
         <NamedIndividual IRI="#CleanWater"/>
-        <Literal datatypeIRI="&xsd;float">10.0</Literal>
+        <Literal datatypeIRI="&xsd;double">0.2</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
-        <DataProperty IRI="#OWLDataProperty_ef6b984b_53be_4f9d_a00e_a52829e230e5"/>
+        <DataProperty IRI="#hasVolume"/>
         <NamedIndividual IRI="#CleanWater"/>
-        <Literal datatypeIRI="&xsd;float">0.2</Literal>
+        <Literal datatypeIRI="&xsd;double">10.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
-        <DataProperty IRI="#OWLDataProperty_8c348e2a_2203_4d6e_a153_3c112f8b48cc"/>
-        <NamedIndividual IRI="#OWLNamedIndividual_090f6a11_8c01_4bdf_9ee7_dd4ddd89ea75"/>
-        <Literal datatypeIRI="&xsd;double">5000.0</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#OWLDataProperty_ef6b984b_53be_4f9d_a00e_a52829e230e5"/>
-        <NamedIndividual IRI="#OWLNamedIndividual_090f6a11_8c01_4bdf_9ee7_dd4ddd89ea75"/>
-        <Literal datatypeIRI="&xsd;double">80.0</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#OWLDataProperty_8c348e2a_2203_4d6e_a153_3c112f8b48cc"/>
-        <NamedIndividual IRI="#OWLNamedIndividual_98e587cd_bf54_425f_8d9d_1d09d6f377bb"/>
-        <Literal datatypeIRI="&xsd;double">600.0</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#OWLDataProperty_ef6b984b_53be_4f9d_a00e_a52829e230e5"/>
-        <NamedIndividual IRI="#OWLNamedIndividual_98e587cd_bf54_425f_8d9d_1d09d6f377bb"/>
+        <DataProperty IRI="#hasDBO"/>
+        <NamedIndividual IRI="#clean_1"/>
         <Literal datatypeIRI="&xsd;double">0.3</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
-        <DataProperty IRI="#OWLDataProperty_8c348e2a_2203_4d6e_a153_3c112f8b48cc"/>
-        <NamedIndividual IRI="#OWLNamedIndividual_e9d4e8c4_32fa_4fc9_a44d_8076f5b0ee08"/>
+        <DataProperty IRI="#hasVolume"/>
+        <NamedIndividual IRI="#clean_1"/>
+        <Literal datatypeIRI="&xsd;double">600.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDBO"/>
+        <NamedIndividual IRI="#polluted_1"/>
+        <Literal datatypeIRI="&xsd;double">45.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVolume"/>
+        <NamedIndividual IRI="#polluted_1"/>
         <Literal datatypeIRI="&xsd;double">2000.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
-        <DataProperty IRI="#OWLDataProperty_ef6b984b_53be_4f9d_a00e_a52829e230e5"/>
-        <NamedIndividual IRI="#OWLNamedIndividual_e9d4e8c4_32fa_4fc9_a44d_8076f5b0ee08"/>
-        <Literal datatypeIRI="&xsd;double">45.0</Literal>
+        <DataProperty IRI="#hasDBO"/>
+        <NamedIndividual IRI="#polluted_2"/>
+        <Literal datatypeIRI="&xsd;double">80.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVolume"/>
+        <NamedIndividual IRI="#polluted_2"/>
+        <Literal datatypeIRI="&xsd;double">5000.0</Literal>
     </DataPropertyAssertion>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#OWLObjectProperty_0199ebbc_d0e0_4323_8671_40fe2d01b3f2"/>
-        <Class IRI="#OWLClass_efe0a743_5b01_41b3_8045_9b48811ce57d"/>
+        <ObjectProperty IRI="#BelongTo"/>
+        <Class IRI="#Factory"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#OWLObjectProperty_29392eeb_ea60_4388_b252_f95f7abe4b8d"/>
-        <Class IRI="#OWLClass_65e7421c_eaea_4390_b770_001351a069f4"/>
+        <ObjectProperty IRI="#hasInput"/>
+        <Class IRI="#Process"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#OWLObjectProperty_e8b718fc_300c_4b6b_81ff_065d244dc168"/>
-        <Class IRI="#OWLClass_65e7421c_eaea_4390_b770_001351a069f4"/>
+        <ObjectProperty IRI="#hasOutput"/>
+        <Class IRI="#Process"/>
     </ObjectPropertyDomain>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#OWLObjectProperty_0199ebbc_d0e0_4323_8671_40fe2d01b3f2"/>
-        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#OWLClass_91e0841e_4ad5_43dd_9554_ccb7d00bb3fa"/>
+        <ObjectProperty IRI="#BelongTo"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#OWLObjectProperty_29392eeb_ea60_4388_b252_f95f7abe4b8d"/>
+        <ObjectProperty IRI="#hasInput"/>
         <Class abbreviatedIRI="owl:Thing"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#OWLObjectProperty_e8b718fc_300c_4b6b_81ff_065d244dc168"/>
+        <ObjectProperty IRI="#hasOutput"/>
         <Class abbreviatedIRI="owl:Thing"/>
     </ObjectPropertyRange>
     <SubDataPropertyOf>
-        <DataProperty IRI="#OWLDataProperty_61021701_7ea9_44a6_b7bf_aa27d052a7d9"/>
-        <DataProperty IRI="#OWLDataProperty_1540f225_7078_4cea_b819_8511391380b7"/>
+        <DataProperty IRI="#hasCapacity"/>
+        <DataProperty IRI="#Volume"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
-        <DataProperty IRI="#OWLDataProperty_8c348e2a_2203_4d6e_a153_3c112f8b48cc"/>
-        <DataProperty IRI="#OWLDataProperty_1540f225_7078_4cea_b819_8511391380b7"/>
+        <DataProperty IRI="#hasCapacityFactory"/>
+        <DataProperty IRI="#hasCapacity"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
-        <DataProperty IRI="#OWLDataProperty_a1f1e921_bb3c_46c1_ac4a_0906376592ae"/>
-        <DataProperty IRI="#OWLDataProperty_61021701_7ea9_44a6_b7bf_aa27d052a7d9"/>
+        <DataProperty IRI="#hasCapacityTreatment"/>
+        <DataProperty IRI="#hasCapacity"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
-        <DataProperty IRI="#OWLDataProperty_a42bef66_5195_4344_a871_2ccd7ac9a76f"/>
-        <DataProperty IRI="#OWLDataProperty_08f222cb_0cd3_4091_9e8b_de6003f8be0a"/>
+        <DataProperty IRI="#hasDBO"/>
+        <DataProperty IRI="#hasPollutant"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
-        <DataProperty IRI="#OWLDataProperty_be334a81_d618_4adc_b157_1d97d971ce79"/>
-        <DataProperty IRI="#OWLDataProperty_61021701_7ea9_44a6_b7bf_aa27d052a7d9"/>
+        <DataProperty IRI="#hasDQO"/>
+        <DataProperty IRI="#hasPollutant"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
-        <DataProperty IRI="#OWLDataProperty_ef6b984b_53be_4f9d_a00e_a52829e230e5"/>
-        <DataProperty IRI="#OWLDataProperty_08f222cb_0cd3_4091_9e8b_de6003f8be0a"/>
+        <DataProperty IRI="#hasVolume"/>
+        <DataProperty IRI="#Volume"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
         <DataProperty IRI="http://www.w3.org/2006/time#week"/>
         <DataProperty IRI="http://www.w3.org/2006/time#weeks"/>
     </SubDataPropertyOf>
     <FunctionalDataProperty>
-        <DataProperty IRI="#OWLDataProperty_08f222cb_0cd3_4091_9e8b_de6003f8be0a"/>
+        <DataProperty IRI="#Volume"/>
     </FunctionalDataProperty>
     <FunctionalDataProperty>
-        <DataProperty IRI="#OWLDataProperty_1540f225_7078_4cea_b819_8511391380b7"/>
+        <DataProperty IRI="#hasCapacity"/>
     </FunctionalDataProperty>
     <FunctionalDataProperty>
-        <DataProperty IRI="#OWLDataProperty_61021701_7ea9_44a6_b7bf_aa27d052a7d9"/>
+        <DataProperty IRI="#hasCapacityFactory"/>
     </FunctionalDataProperty>
     <FunctionalDataProperty>
-        <DataProperty IRI="#OWLDataProperty_8c348e2a_2203_4d6e_a153_3c112f8b48cc"/>
+        <DataProperty IRI="#hasCapacityTreatment"/>
     </FunctionalDataProperty>
     <FunctionalDataProperty>
-        <DataProperty IRI="#OWLDataProperty_8f9ca72a_7b41_4af8_bb18_d5176c4192d8"/>
+        <DataProperty IRI="#hasDBO"/>
     </FunctionalDataProperty>
     <FunctionalDataProperty>
-        <DataProperty IRI="#OWLDataProperty_a1f1e921_bb3c_46c1_ac4a_0906376592ae"/>
+        <DataProperty IRI="#hasDQO"/>
     </FunctionalDataProperty>
     <FunctionalDataProperty>
-        <DataProperty IRI="#OWLDataProperty_a42bef66_5195_4344_a871_2ccd7ac9a76f"/>
+        <DataProperty IRI="#hasInternalPurifyingPlant"/>
     </FunctionalDataProperty>
     <FunctionalDataProperty>
-        <DataProperty IRI="#OWLDataProperty_be334a81_d618_4adc_b157_1d97d971ce79"/>
+        <DataProperty IRI="#hasPollutant"/>
     </FunctionalDataProperty>
     <FunctionalDataProperty>
-        <DataProperty IRI="#OWLDataProperty_ef6b984b_53be_4f9d_a00e_a52829e230e5"/>
+        <DataProperty IRI="#hasVolume"/>
     </FunctionalDataProperty>
     <DataPropertyDomain>
-        <DataProperty IRI="#OWLDataProperty_08f222cb_0cd3_4091_9e8b_de6003f8be0a"/>
-        <Class IRI="#OWLClass_3487a351_5665_4fbf_ab3e_e823a62c463a"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#OWLDataProperty_1540f225_7078_4cea_b819_8511391380b7"/>
+        <DataProperty IRI="#Volume"/>
         <Class abbreviatedIRI="owl:Thing"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#OWLDataProperty_8c348e2a_2203_4d6e_a153_3c112f8b48cc"/>
-        <Class IRI="#OWLClass_3487a351_5665_4fbf_ab3e_e823a62c463a"/>
+        <DataProperty IRI="#hasCapacityFactory"/>
+        <Class IRI="#Factory"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#OWLDataProperty_8f9ca72a_7b41_4af8_bb18_d5176c4192d8"/>
-        <Class IRI="#OWLClass_efe0a743_5b01_41b3_8045_9b48811ce57d"/>
+        <DataProperty IRI="#hasCode"/>
+        <Class IRI="#Process"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#OWLDataProperty_92d314bb_94e4_46ed_ba18_c5d5d9401f16"/>
-        <Class IRI="#OWLClass_65e7421c_eaea_4390_b770_001351a069f4"/>
+        <DataProperty IRI="#hasInternalPurifyingPlant"/>
+        <Class IRI="#Factory"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#OWLDataProperty_be334a81_d618_4adc_b157_1d97d971ce79"/>
-        <Class IRI="#OWLClass_efe0a743_5b01_41b3_8045_9b48811ce57d"/>
+        <DataProperty IRI="#hasPollutant"/>
+        <Class IRI="#WaterMass"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasVolume"/>
+        <Class IRI="#WaterMass"/>
     </DataPropertyDomain>
     <DataPropertyRange>
-        <DataProperty IRI="#OWLDataProperty_08f222cb_0cd3_4091_9e8b_de6003f8be0a"/>
+        <DataProperty IRI="#Volume"/>
         <Datatype abbreviatedIRI="xsd:double"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#OWLDataProperty_1540f225_7078_4cea_b819_8511391380b7"/>
-        <Datatype abbreviatedIRI="xsd:double"/>
+        <DataProperty IRI="#hasCapacityFactory"/>
+        <Datatype abbreviatedIRI="xsd:float"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#OWLDataProperty_8f9ca72a_7b41_4af8_bb18_d5176c4192d8"/>
-        <Datatype abbreviatedIRI="xsd:boolean"/>
+        <DataProperty IRI="#hasCapacityTreatment"/>
+        <Datatype abbreviatedIRI="xsd:float"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#OWLDataProperty_92d314bb_94e4_46ed_ba18_c5d5d9401f16"/>
+        <DataProperty IRI="#hasCode"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#OWLDataProperty_a1f1e921_bb3c_46c1_ac4a_0906376592ae"/>
-        <Datatype abbreviatedIRI="xsd:float"/>
+        <DataProperty IRI="#hasInternalPurifyingPlant"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#OWLDataProperty_be334a81_d618_4adc_b157_1d97d971ce79"/>
-        <Datatype abbreviatedIRI="xsd:float"/>
+        <DataProperty IRI="#hasPollutant"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
     </DataPropertyRange>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLClass_10c2efa6_2df4_4880_b3d0_36a428549582</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Chemical</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLClass_24b302c7_b7f0_4581_85c8_38c6deaae608</IRI>
-        <Literal xml:lang="es" datatypeIRI="&rdf;PlainLiteral">Merge_water</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLClass_3487a351_5665_4fbf_ab3e_e823a62c463a</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">WaterMass</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLClass_41a7d7ac_4f53_403c_bcda_57ccfe6f0aa6</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Metallurgy</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLClass_5ea99eb9_0fe9_4630_900b_6a977476f5d8</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Wood</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLClass_65e7421c_eaea_4390_b770_001351a069f4</IRI>
-        <Literal xml:lang="es" datatypeIRI="&rdf;PlainLiteral">Process</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLClass_78a8a800_0e33_4880_a584_ea671d1c0e65</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Plastic</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLClass_7db9fcaa_e813_4856_a591_d1f84ff6c52b</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Siderurgy</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLClass_92a38a30_5d84_4778_a72c_ee356a12d219</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Textile</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLClass_9a3f8356_f400_4923_9f59_e54891f70ed8</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Food
-</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLClass_ac9d1cd7_2b8e_4cda_80c0_2bdef4954c25</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Paper</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLClass_efe0a743_5b01_41b3_8045_9b48811ce57d</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Factory</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLDataProperty_08f222cb_0cd3_4091_9e8b_de6003f8be0a</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">hasPollutant</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLDataProperty_1540f225_7078_4cea_b819_8511391380b7</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Volume</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLDataProperty_61021701_7ea9_44a6_b7bf_aa27d052a7d9</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasCapacity</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLDataProperty_8c348e2a_2203_4d6e_a153_3c112f8b48cc</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasVolume</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLDataProperty_8f9ca72a_7b41_4af8_bb18_d5176c4192d8</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">HasInternalPurifyingPlant</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLDataProperty_92d314bb_94e4_46ed_ba18_c5d5d9401f16</IRI>
-        <Literal xml:lang="es" datatypeIRI="&rdf;PlainLiteral">hasCode</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLDataProperty_a1f1e921_bb3c_46c1_ac4a_0906376592ae</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasCapacityTreatment</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLDataProperty_a42bef66_5195_4344_a871_2ccd7ac9a76f</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasDQO</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLDataProperty_be334a81_d618_4adc_b157_1d97d971ce79</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasCapacityFactory</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLDataProperty_ef6b984b_53be_4f9d_a00e_a52829e230e5</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasDBO</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLNamedIndividual_090f6a11_8c01_4bdf_9ee7_dd4ddd89ea75</IRI>
-        <Literal xml:lang="es" datatypeIRI="&rdf;PlainLiteral">polluted_2</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLNamedIndividual_98e587cd_bf54_425f_8d9d_1d09d6f377bb</IRI>
-        <Literal xml:lang="es" datatypeIRI="&rdf;PlainLiteral">clean_1</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLNamedIndividual_e9d4e8c4_32fa_4fc9_a44d_8076f5b0ee08</IRI>
-        <Literal xml:lang="es" datatypeIRI="&rdf;PlainLiteral">polluted_1</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLObjectProperty_0199ebbc_d0e0_4323_8671_40fe2d01b3f2</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">BelongTo</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLObjectProperty_29392eeb_ea60_4388_b252_f95f7abe4b8d</IRI>
-        <Literal xml:lang="es" datatypeIRI="&rdf;PlainLiteral">hasInput</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#OWLObjectProperty_e8b718fc_300c_4b6b_81ff_065d244dc168</IRI>
-        <Literal xml:lang="es" datatypeIRI="&rdf;PlainLiteral">hasOutput</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#OWLClass_91e0841e_4ad5_43dd_9554_ccb7d00bb3fa</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Industry</Literal>
-    </AnnotationAssertion>
 </Ontology>
 
 
