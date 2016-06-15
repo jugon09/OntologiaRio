@@ -69,7 +69,25 @@ public class JenaManager {
 	}
 
 	private WaterMass getWatermassFromIndividual(Individual water) {
+		// Volum
+		Property propertyVolum = mModel.getProperty(NAMING_CONTEXT + "hasVolume");
+		RDFNode nodeVolume = water.getPropertyValue(propertyVolum);
+		double volum = nodeVolume.asLiteral().getDouble();
+		// DBO
+		Property propertyDBO = mModel.getProperty(NAMING_CONTEXT + "hasDBO");
+		RDFNode nodeDBO = water.getPropertyValue(propertyDBO);
+		double dbo = nodeDBO.asLiteral().getDouble();
+		// DBQ
+		/*
+		 * Property propertyDQO = mModel.getProperty(NAMING_CONTEXT + "hasDQO");
+		 * RDFNode nodeDQO = water.getPropertyValue(propertyDQO); double dqo =
+		 * nodeDQO.asLiteral().getDouble();
+		 */
+		// WaterMass
+		return new WaterMass(volum, dbo, 0);
+	}
 
+	private WaterMass getFactoryFromIndividual(Individual water) {
 		// Volum
 		Property propertyVolum = mModel.getProperty(NAMING_CONTEXT + "hasVolume");
 		RDFNode nodeVolume = water.getPropertyValue(propertyVolum);

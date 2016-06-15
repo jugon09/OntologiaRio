@@ -215,44 +215,6 @@
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#Chemical -->
 
     <Class rdf:about="&ontologiaRio;Chemical">
-        <equivalentClass>
-            <Class>
-                <intersectionOf rdf:parseType="Collection">
-                    <Restriction>
-                        <onProperty rdf:resource="&ontologiaRio;produceDBO"/>
-                        <allValuesFrom>
-                            <rdfs:Datatype>
-                                <onDatatype rdf:resource="&xsd;double"/>
-                                <withRestrictions rdf:parseType="Collection">
-                                    <rdf:Description>
-                                        <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
-                                    </rdf:Description>
-                                    <rdf:Description>
-                                        <xsd:maxInclusive rdf:datatype="&xsd;double">0.4</xsd:maxInclusive>
-                                    </rdf:Description>
-                                </withRestrictions>
-                            </rdfs:Datatype>
-                        </allValuesFrom>
-                    </Restriction>
-                    <Restriction>
-                        <onProperty rdf:resource="&ontologiaRio;produceDQO"/>
-                        <allValuesFrom>
-                            <rdfs:Datatype>
-                                <onDatatype rdf:resource="&xsd;double"/>
-                                <withRestrictions rdf:parseType="Collection">
-                                    <rdf:Description>
-                                        <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
-                                    </rdf:Description>
-                                    <rdf:Description>
-                                        <xsd:maxInclusive rdf:datatype="&xsd;double">0.4</xsd:maxInclusive>
-                                    </rdf:Description>
-                                </withRestrictions>
-                            </rdfs:Datatype>
-                        </allValuesFrom>
-                    </Restriction>
-                </intersectionOf>
-            </Class>
-        </equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
     </Class>
     
@@ -492,9 +454,7 @@
 
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry -->
 
-    <Class rdf:about="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry">
-        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
-    </Class>
+    <Class rdf:about="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
     
 
 
@@ -532,7 +492,7 @@
 
     <NamedIndividual rdf:about="&ontologiaRio;generate_industry_watermass_1">
         <rdf:type rdf:resource="&ontologiaRio;GenerateIndustryWaterMass"/>
-        <ontologiaRio:hasCode rdf:datatype="&xsd;string">generateIndustryWaterMass</ontologiaRio:hasCode>
+        <ontologiaRio:hasCode rdf:datatype="&xsd;string">generateIndustryWaterMassSimple</ontologiaRio:hasCode>
     </NamedIndividual>
     
 
