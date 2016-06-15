@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Main {
 
-	private static final String ONTO_PATH = "./resources/onto1.owl";
+	private static final String ONTO_PATH = "../Ontologia.owl";
 	private static final String NAMING_CONTEXT = "http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#";
 
 	private Scanner sc;
@@ -102,7 +102,7 @@ public class Main {
 
 	public void mergeWatermass() {
 		try {
-			String nameFunction = getFunctionOfProcess("Merge_water");
+			String nameFunction = getFunctionOfProcess("MergeWater");
 			if (nameFunction != null) {
 				System.out.println("Name of Function : " + nameFunction);
 				// parametros masas de agua
