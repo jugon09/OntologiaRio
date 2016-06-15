@@ -43,6 +43,7 @@ public class JenaManager {
 		mOntDM = mModel.getDocumentManager();
 		mOntDM.addAltEntry(NAMING_CONTEXT, "file:" + ONTOLOGY_PATH);
 		mModel.read(NAMING_CONTEXT);
+		System.out.println("Ontology Loaded succesfully");
 	}
 
 	public void releaseOntology() throws FileNotFoundException {
@@ -102,28 +103,26 @@ public class JenaManager {
 		particularWatermass.addLiteral(propertyDQO, DQO);
 	}
 
-	public String executeQuery() {
+	public List<String> findAllProcessesOf(String nameProcess) {
 		String queryString = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
 				+ "PREFIX owl: <http://www.w3.org/2002/07/owl#> " + "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> "
-				+ "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
-				+ "PREFIX prac: <http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#> "
-				+ "SELECT ?functionName " + "WHERE { " + "?s a prac:Merge_water ." + "?s prac:hasCode ?functionName }";
+				+ "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> " + "PREFIX prac: <" + NAMING_CONTEXT + "> "
+				+ "SELECT ?functionName " + "WHERE { " + "?s a prac:" + nameProcess + " . "
+				+ "?s prac:hasCode ?functionName }";
 		Query query = QueryFactory.create(queryString);
-		String nameFunction = "";
 		try (QueryExecution qe = QueryExecutionFactory.create(query, mModel)) {
 			ResultSet results = qe.execSelect();
 			results = ResultSetFactory.copyResults(results);
+			List<String> functions = new ArrayList<>();
 			while (results.hasNext()) {
 				QuerySolution sol = results.next();
 				RDFNode n = sol.get("functionName");
-				if (n.isLiteral()) {
-					nameFunction = n.asLiteral().toString();
-					break;
-				}
+				if (n.isLiteral())
+					functions.add(n.asLiteral().toString());
 			}
 			qe.close();
+			return functions;
 		}
-		return nameFunction;
 	}
 
 }
