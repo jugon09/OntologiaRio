@@ -1,0 +1,798 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio">
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Import>http://www.w3.org/2006/time</Import>
+    <Declaration>
+        <Class IRI="#Chemical"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ClassifyWaterNormative"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CleanWaterMass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Factory"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Food"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GenerateIndustryWaterMass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MergeWater"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Metallurgy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Paper"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Plastic"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PollutedWaterMass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PouredWater"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Process"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PurifiedWaterMass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PurifyWater"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Siderurgy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tank"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Textile"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TimeToReducePollutant"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TreatmentPlant"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TreatmentPlantEfficiency"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#WaterMass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Wood"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#BelongTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#has"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasInput"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasOutput"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasStored"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isMadeBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#madeA"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Volume"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasCapacity"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasCode"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasDBO"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasDQO"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasInternalPurifyingPlant"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasOutputDouble"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasPollutant"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasVolume"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#produceDBO"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#produceDQO"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#producePollutant"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#reduceDBO"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#reduceDQO"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#reducePollutant"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#clean_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#factory_food_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#generate_industry_watermass_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#industry_chemical_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#merge_water_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#merge_water_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#polluted_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#polluted_2"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#Chemical"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+            <DataAllValuesFrom>
+                <DataProperty IRI="#produceDBO"/>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:double"/>
+                    <FacetRestriction facet="&xsd;minInclusive">
+                        <Literal datatypeIRI="&xsd;double">0.0</Literal>
+                    </FacetRestriction>
+                    <FacetRestriction facet="&xsd;maxInclusive">
+                        <Literal datatypeIRI="&xsd;double">0.4</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+            </DataAllValuesFrom>
+            <DataAllValuesFrom>
+                <DataProperty IRI="#produceDQO"/>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:double"/>
+                    <FacetRestriction facet="&xsd;minInclusive">
+                        <Literal datatypeIRI="&xsd;double">0.0</Literal>
+                    </FacetRestriction>
+                    <FacetRestriction facet="&xsd;maxInclusive">
+                        <Literal datatypeIRI="&xsd;double">0.4</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+            </DataAllValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#ClassifyWaterNormative"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Process"/>
+            <ObjectExactCardinality cardinality="1">
+                <ObjectProperty IRI="#hasInput"/>
+                <Class IRI="#WaterMass"/>
+            </ObjectExactCardinality>
+            <ObjectExactCardinality cardinality="1">
+                <ObjectProperty IRI="#hasOutput"/>
+                <Class IRI="#WaterMass"/>
+            </ObjectExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#CleanWaterMass"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#WaterMass"/>
+            <DataAllValuesFrom>
+                <DataProperty IRI="#hasDBO"/>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:double"/>
+                    <FacetRestriction facet="&xsd;minInclusive">
+                        <Literal datatypeIRI="&xsd;double">0.0</Literal>
+                    </FacetRestriction>
+                    <FacetRestriction facet="&xsd;maxInclusive">
+                        <Literal datatypeIRI="&xsd;double">0.4</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+            </DataAllValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Factory"/>
+        <ObjectIntersectionOf>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty IRI="#BelongTo"/>
+                <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+            </ObjectMinCardinality>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty IRI="#has"/>
+                <Class IRI="#Tank"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#GenerateIndustryWaterMass"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Process"/>
+            <ObjectExactCardinality cardinality="1">
+                <ObjectProperty IRI="#hasInput"/>
+                <Class IRI="#Factory"/>
+            </ObjectExactCardinality>
+            <ObjectExactCardinality cardinality="1">
+                <ObjectProperty IRI="#hasOutput"/>
+                <Class IRI="#WaterMass"/>
+            </ObjectExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MergeWater"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Process"/>
+            <ObjectExactCardinality cardinality="2">
+                <ObjectProperty IRI="#hasInput"/>
+                <Class IRI="#WaterMass"/>
+            </ObjectExactCardinality>
+            <ObjectExactCardinality cardinality="1">
+                <ObjectProperty IRI="#hasOutput"/>
+                <Class IRI="#WaterMass"/>
+            </ObjectExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#PollutedWaterMass"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#WaterMass"/>
+            <DataAllValuesFrom>
+                <DataProperty IRI="#hasDBO"/>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:double"/>
+                    <FacetRestriction facet="&xsd;maxInclusive">
+                        <Literal datatypeIRI="&xsd;double">100.0</Literal>
+                    </FacetRestriction>
+                    <FacetRestriction facet="&xsd;minExclusive">
+                        <Literal datatypeIRI="&xsd;double">0.4</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+            </DataAllValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#PouredWater"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#WaterMass"/>
+            <ObjectExactCardinality cardinality="1">
+                <ObjectProperty IRI="#isMadeBy"/>
+                <Class IRI="#Factory"/>
+            </ObjectExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Process"/>
+        <ObjectIntersectionOf>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty IRI="#hasInput"/>
+            </ObjectMinCardinality>
+            <ObjectExactCardinality cardinality="1">
+                <ObjectProperty IRI="#hasOutput"/>
+            </ObjectExactCardinality>
+            <DataExactCardinality cardinality="1">
+                <DataProperty IRI="#hasCode"/>
+                <Datatype abbreviatedIRI="xsd:string"/>
+            </DataExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#PurifyWater"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Process"/>
+            <ObjectExactCardinality cardinality="1">
+                <ObjectProperty IRI="#hasInput"/>
+                <Class IRI="#PouredWater"/>
+            </ObjectExactCardinality>
+            <ObjectExactCardinality cardinality="1">
+                <ObjectProperty IRI="#hasOutput"/>
+                <Class IRI="#PurifiedWaterMass"/>
+            </ObjectExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Tank"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#BelongTo"/>
+            <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+        </ObjectMinCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Tank"/>
+        <DataAllValuesFrom>
+            <DataProperty IRI="#hasCapacity"/>
+            <DatatypeRestriction>
+                <Datatype abbreviatedIRI="xsd:double"/>
+                <FacetRestriction facet="&xsd;minExclusive">
+                    <Literal datatypeIRI="&xsd;double">0.0</Literal>
+                </FacetRestriction>
+            </DatatypeRestriction>
+        </DataAllValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#TimeToReducePollutant"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Process"/>
+            <ObjectExactCardinality cardinality="1">
+                <ObjectProperty IRI="#hasInput"/>
+                <Class IRI="#WaterMass"/>
+            </ObjectExactCardinality>
+            <ObjectExactCardinality cardinality="1">
+                <ObjectProperty IRI="#hasOutput"/>
+                <Class IRI="http://www.w3.org/2006/time#DurationDescription"/>
+            </ObjectExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#TreatmentPlant"/>
+        <ObjectIntersectionOf>
+            <DataAllValuesFrom>
+                <DataProperty IRI="#reduceDBO"/>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:double"/>
+                    <FacetRestriction facet="&xsd;minInclusive">
+                        <Literal datatypeIRI="&xsd;double">0.0</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+            </DataAllValuesFrom>
+            <DataAllValuesFrom>
+                <DataProperty IRI="#reduceDQO"/>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:double"/>
+                    <FacetRestriction facet="&xsd;minInclusive">
+                        <Literal datatypeIRI="&xsd;double">0.0</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+            </DataAllValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#TreatmentPlantEfficiency"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Process"/>
+            <ObjectExactCardinality cardinality="1">
+                <ObjectProperty IRI="#hasInput"/>
+                <Class IRI="#WaterMass"/>
+            </ObjectExactCardinality>
+            <DataExactCardinality cardinality="1">
+                <DataProperty IRI="#hasOutputDouble"/>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:double"/>
+                    <FacetRestriction facet="&xsd;maxInclusive">
+                        <Literal datatypeIRI="&xsd;double">100.0</Literal>
+                    </FacetRestriction>
+                    <FacetRestriction facet="&xsd;minInclusive">
+                        <Literal datatypeIRI="&xsd;double">0.0</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+            </DataExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#WaterMass"/>
+        <DataAllValuesFrom>
+            <DataProperty IRI="#hasVolume"/>
+            <DatatypeRestriction>
+                <Datatype abbreviatedIRI="xsd:double"/>
+                <FacetRestriction facet="&xsd;minExclusive">
+                    <Literal datatypeIRI="&xsd;double">0.0</Literal>
+                </FacetRestriction>
+            </DatatypeRestriction>
+        </DataAllValuesFrom>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#Chemical"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ClassifyWaterNormative"/>
+        <Class IRI="#Process"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Food"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GenerateIndustryWaterMass"/>
+        <Class IRI="#Process"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MergeWater"/>
+        <Class IRI="#Process"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Metallurgy"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Paper"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Plastic"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PollutedWaterMass"/>
+        <Class IRI="#WaterMass"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PouredWater"/>
+        <Class IRI="#WaterMass"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PurifiedWaterMass"/>
+        <Class IRI="#WaterMass"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PurifyWater"/>
+        <Class IRI="#Process"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Siderurgy"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Textile"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TimeToReducePollutant"/>
+        <Class IRI="#Process"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TreatmentPlantEfficiency"/>
+        <Class IRI="#Process"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WaterMass"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Wood"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#CleanWaterMass"/>
+        <Class IRI="#PollutedWaterMass"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="#WaterMass"/>
+        <NamedIndividual IRI="#clean_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Factory"/>
+        <NamedIndividual IRI="#factory_food_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#GenerateIndustryWaterMass"/>
+        <NamedIndividual IRI="#generate_industry_watermass_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+        <NamedIndividual IRI="#industry_chemical_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MergeWater"/>
+        <NamedIndividual IRI="#merge_water_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MergeWater"/>
+        <NamedIndividual IRI="#merge_water_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PollutedWaterMass"/>
+        <NamedIndividual IRI="#polluted_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#WaterMass"/>
+        <NamedIndividual IRI="#polluted_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#WaterMass"/>
+        <NamedIndividual IRI="#polluted_2"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#BelongTo"/>
+        <NamedIndividual IRI="#factory_food_1"/>
+        <NamedIndividual IRI="#industry_chemical_1"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDBO"/>
+        <NamedIndividual IRI="#clean_1"/>
+        <Literal datatypeIRI="&xsd;double">0.3</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVolume"/>
+        <NamedIndividual IRI="#clean_1"/>
+        <Literal datatypeIRI="&xsd;double">600.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCode"/>
+        <NamedIndividual IRI="#generate_industry_watermass_1"/>
+        <Literal datatypeIRI="&xsd;string">generateIndustryWaterMassSimple</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#produceDBO"/>
+        <NamedIndividual IRI="#industry_chemical_1"/>
+        <Literal datatypeIRI="&xsd;double">0.3</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#produceDQO"/>
+        <NamedIndividual IRI="#industry_chemical_1"/>
+        <Literal datatypeIRI="&xsd;double">0.7</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCode"/>
+        <NamedIndividual IRI="#merge_water_1"/>
+        <Literal datatypeIRI="&xsd;string">mergeWater</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCode"/>
+        <NamedIndividual IRI="#merge_water_2"/>
+        <Literal datatypeIRI="&xsd;string">mergeWaterEfficient</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDBO"/>
+        <NamedIndividual IRI="#polluted_1"/>
+        <Literal datatypeIRI="&xsd;double">45.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVolume"/>
+        <NamedIndividual IRI="#polluted_1"/>
+        <Literal datatypeIRI="&xsd;double">2000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDBO"/>
+        <NamedIndividual IRI="#polluted_2"/>
+        <Literal datatypeIRI="&xsd;double">80.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVolume"/>
+        <NamedIndividual IRI="#polluted_2"/>
+        <Literal datatypeIRI="&xsd;double">5000.0</Literal>
+    </DataPropertyAssertion>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#madeA"/>
+        <ObjectProperty IRI="#isMadeBy"/>
+    </InverseObjectProperties>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#isMadeBy"/>
+    </FunctionalObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#BelongTo"/>
+        <Class IRI="#Factory"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#has"/>
+        <Class IRI="#Factory"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasInput"/>
+        <Class IRI="#Process"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasOutput"/>
+        <Class IRI="#Process"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasStored"/>
+        <Class IRI="#Tank"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isMadeBy"/>
+        <Class IRI="#PouredWater"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#madeA"/>
+        <Class IRI="#Factory"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#BelongTo"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#has"/>
+        <Class IRI="#Tank"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasInput"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasOutput"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasStored"/>
+        <Class IRI="#WaterMass"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isMadeBy"/>
+        <Class IRI="#Factory"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#madeA"/>
+        <Class IRI="#PouredWater"/>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasCapacity"/>
+        <DataProperty IRI="#Volume"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasDBO"/>
+        <DataProperty IRI="#hasPollutant"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasDQO"/>
+        <DataProperty IRI="#hasPollutant"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasVolume"/>
+        <DataProperty IRI="#Volume"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#produceDBO"/>
+        <DataProperty IRI="#producePollutant"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#produceDQO"/>
+        <DataProperty IRI="#producePollutant"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#reduceDBO"/>
+        <DataProperty IRI="#reducePollutant"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#reduceDQO"/>
+        <DataProperty IRI="#reducePollutant"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="http://www.w3.org/2006/time#week"/>
+        <DataProperty IRI="http://www.w3.org/2006/time#weeks"/>
+    </SubDataPropertyOf>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#Volume"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasCapacity"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasDBO"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasDQO"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasInternalPurifyingPlant"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasPollutant"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasVolume"/>
+    </FunctionalDataProperty>
+    <DataPropertyDomain>
+        <DataProperty IRI="#Volume"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasCode"/>
+        <Class IRI="#Process"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasInternalPurifyingPlant"/>
+        <Class IRI="#Factory"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasOutputDouble"/>
+        <Class IRI="#Process"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasPollutant"/>
+        <Class IRI="#WaterMass"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasVolume"/>
+        <Class IRI="#WaterMass"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#producePollutant"/>
+        <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#reducePollutant"/>
+        <Class IRI="#TreatmentPlant"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#Volume"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasCode"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasInternalPurifyingPlant"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasOutputDouble"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasPollutant"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#producePollutant"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#reduceDBO"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#reduceDQO"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
