@@ -1,10 +1,16 @@
 package domain;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.UUID;
+
 import org.apache.jena.ontology.Individual;
 import org.apache.jena.ontology.OntClass;
 import org.apache.jena.ontology.OntDocumentManager;
 import org.apache.jena.ontology.OntModel;
-import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
@@ -14,14 +20,9 @@ import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.query.ResultSetFactory;
 import org.apache.jena.rdf.model.Literal;
+import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.RDFNode;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.UUID;
 
 public class JenaManager {
 
@@ -42,6 +43,7 @@ public class JenaManager {
 		mOntDM = mModel.getDocumentManager();
 		mOntDM.addAltEntry(NAMING_CONTEXT, "file:" + ONTOLOGY_PATH);
 		mModel.read(NAMING_CONTEXT);
+		System.out.println("Ontology Loaded succesfully");
 	}
 
 	public void releaseOntology() throws FileNotFoundException {
@@ -52,65 +54,75 @@ public class JenaManager {
 		}
 	}
 
-	public Watermass reifyWater(String URI) {
-		Individual water = mModel.getIndividual(URI);
-
-		Property volume = mModel.getProperty(NAMING_CONTEXT + "hasVolume");
-		RDFNode nodeVolume = water.getPropertyValue(volume);
-		float v = nodeVolume.asLiteral().getFloat();
-
-		Property dbo = mModel.getProperty(NAMING_CONTEXT + "hasDBO");
-		RDFNode nodeDBO = water.getPropertyValue(dbo);
-		float d = nodeDBO.asLiteral().getFloat();
-
-		return new Watermass(v, d);
+	public WaterMass getWatermassIndividual(String URI) {
+		return getWatermassFromIndividual(mModel.getIndividual(URI));
 	}
 
-	public List<Individual> getWater() {
-		List<Individual> result = new ArrayList<Individual>();
-		OntClass watermassClass = mModel.getOntClass(NAMING_CONTEXT + "Water_mass");
+	public List<WaterMass> getAllWatermassIndividuals() {
+		List<WaterMass> result = new ArrayList<WaterMass>();
+		OntClass watermassClass = mModel.getOntClass(NAMING_CONTEXT + "WaterMass");
 		for (Iterator<Individual> i = mModel.listIndividuals(watermassClass); i.hasNext();) {
 			Individual ind = i.next();
-			result.add(ind);
-			System.out.println("    · " + ind.toString());
+			result.add(getWatermassFromIndividual(ind));
 		}
 		return result;
 	}
 
-	public void addWatermass(Watermass w) {
-		OntClass watermassClass = mModel.getOntClass(NAMING_CONTEXT + "Water_mass");
-		Individual particularWatermass = watermassClass
-				.createIndividual(NAMING_CONTEXT + "water_mass_" + UUID.randomUUID());
-		Property volume = mModel.getProperty(NAMING_CONTEXT + "hasVolume");
-		Property dbo = mModel.getProperty(NAMING_CONTEXT + "hasDBO");
-		Literal vol = mModel.createTypedLiteral(new Float(w.volume));
-		Literal d = mModel.createTypedLiteral(new Float(w.dbo));
-		particularWatermass.addLiteral(volume, vol);
-		particularWatermass.addLiteral(dbo, d);
+	private WaterMass getWatermassFromIndividual(Individual water) {
+
+		// Volum
+		Property propertyVolum = mModel.getProperty(NAMING_CONTEXT + "hasVolume");
+		RDFNode nodeVolume = water.getPropertyValue(propertyVolum);
+		double volum = nodeVolume.asLiteral().getDouble();
+		// DBO
+		Property propertyDBO = mModel.getProperty(NAMING_CONTEXT + "hasDBO");
+		RDFNode nodeDBO = water.getPropertyValue(propertyDBO);
+		double dbo = nodeDBO.asLiteral().getDouble();
+		// DBQ
+		/*
+		 * Property propertyDQO = mModel.getProperty(NAMING_CONTEXT + "hasDQO");
+		 * RDFNode nodeDQO = water.getPropertyValue(propertyDQO); double dqo =
+		 * nodeDQO.asLiteral().getDouble();
+		 */
+		// WaterMass
+		return new WaterMass(volum, dbo, 0);
 	}
 
-	public String executeQuery() {
+	public void addWatermassIndividual(WaterMass w) {
+		OntClass watermassClass = mModel.getOntClass(NAMING_CONTEXT + "WaterMass");
+		Individual particularWatermass = watermassClass
+				.createIndividual(NAMING_CONTEXT + "watermass_" + UUID.randomUUID());
+		Property propertyVolum = mModel.getProperty(NAMING_CONTEXT + "hasVolume");
+		Property propertyDBO = mModel.getProperty(NAMING_CONTEXT + "hasDBO");
+		Property propertyDQO = mModel.getProperty(NAMING_CONTEXT + "hasDQO");
+		Literal volum = mModel.createTypedLiteral(new Float(w.volume));
+		Literal DBO = mModel.createTypedLiteral(new Float(w.DBO));
+		Literal DQO = mModel.createTypedLiteral(new Float(w.DQO));
+		particularWatermass.addLiteral(propertyVolum, volum);
+		particularWatermass.addLiteral(propertyDBO, DBO);
+		particularWatermass.addLiteral(propertyDQO, DQO);
+	}
+
+	public List<String> findAllProcessesOf(String nameProcess) {
 		String queryString = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
 				+ "PREFIX owl: <http://www.w3.org/2002/07/owl#> " + "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> "
-				+ "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
-				+ "PREFIX prac: <http://www.semanticweb.org/luisoliva/ontologies/2016/4/ontoprac#> "
-				+ "SELECT ?functionName " + "WHERE { " + "?s a prac:Merge_water ." + "?s prac:hasCode ?functionName }";
+				+ "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> " + "PREFIX prac: <" + NAMING_CONTEXT + "> "
+				+ "SELECT ?functionName " + "WHERE { " + "?s a prac:" + nameProcess + " . "
+				+ "?s prac:hasCode ?functionName }";
 		Query query = QueryFactory.create(queryString);
-		String nameFunction = "";
 		try (QueryExecution qe = QueryExecutionFactory.create(query, mModel)) {
 			ResultSet results = qe.execSelect();
 			results = ResultSetFactory.copyResults(results);
+			List<String> functions = new ArrayList<>();
 			while (results.hasNext()) {
 				QuerySolution sol = results.next();
 				RDFNode n = sol.get("functionName");
-				if (n.isLiteral()) {
-					nameFunction = n.asLiteral().toString();
-					break;
-				}
+				if (n.isLiteral())
+					functions.add(n.asLiteral().toString());
 			}
 			qe.close();
+			return functions;
 		}
-		return nameFunction;
 	}
 
 }

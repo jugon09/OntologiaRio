@@ -97,7 +97,11 @@
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:domain rdf:resource="&ontologiaRio;Factory"/>
         <rdfs:subPropertyOf rdf:resource="&ontologiaRio;hasCapacity"/>
+<<<<<<< HEAD
         <rdfs:range rdf:resource="&xsd;float"/>
+=======
+        <rdfs:range rdf:resource="&xsd;double"/>
+>>>>>>> 0991a85cbc0a7afa5ff2d43817e7a2ccf6215430
     </DatatypeProperty>
     
 
@@ -107,7 +111,10 @@
     <DatatypeProperty rdf:about="&ontologiaRio;hasCapacityTreatment">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:subPropertyOf rdf:resource="&ontologiaRio;hasCapacity"/>
+<<<<<<< HEAD
         <rdfs:range rdf:resource="&xsd;float"/>
+=======
+>>>>>>> 0991a85cbc0a7afa5ff2d43817e7a2ccf6215430
     </DatatypeProperty>
     
 
@@ -169,6 +176,34 @@
     
 
 
+<<<<<<< HEAD
+=======
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#produceDBO -->
+
+    <DatatypeProperty rdf:about="&ontologiaRio;produceDBO">
+        <rdfs:subPropertyOf rdf:resource="&ontologiaRio;producePollutant"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#produceDQO -->
+
+    <DatatypeProperty rdf:about="&ontologiaRio;produceDQO">
+        <rdfs:subPropertyOf rdf:resource="&ontologiaRio;producePollutant"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#producePollutant -->
+
+    <DatatypeProperty rdf:about="&ontologiaRio;producePollutant">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </DatatypeProperty>
+    
+
+
+>>>>>>> 0991a85cbc0a7afa5ff2d43817e7a2ccf6215430
     <!-- http://www.w3.org/2006/time#week -->
 
     <rdf:Description rdf:about="http://www.w3.org/2006/time#week">
@@ -191,6 +226,47 @@
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#Chemical -->
 
     <Class rdf:about="&ontologiaRio;Chemical">
+<<<<<<< HEAD
+=======
+        <equivalentClass>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="&ontologiaRio;produceDBO"/>
+                        <allValuesFrom>
+                            <rdfs:Datatype>
+                                <onDatatype rdf:resource="&xsd;double"/>
+                                <withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
+                                    </rdf:Description>
+                                    <rdf:Description>
+                                        <xsd:maxInclusive rdf:datatype="&xsd;double">0.4</xsd:maxInclusive>
+                                    </rdf:Description>
+                                </withRestrictions>
+                            </rdfs:Datatype>
+                        </allValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="&ontologiaRio;produceDQO"/>
+                        <allValuesFrom>
+                            <rdfs:Datatype>
+                                <onDatatype rdf:resource="&xsd;double"/>
+                                <withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
+                                    </rdf:Description>
+                                    <rdf:Description>
+                                        <xsd:maxInclusive rdf:datatype="&xsd;double">0.4</xsd:maxInclusive>
+                                    </rdf:Description>
+                                </withRestrictions>
+                            </rdfs:Datatype>
+                        </allValuesFrom>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </equivalentClass>
+>>>>>>> 0991a85cbc0a7afa5ff2d43817e7a2ccf6215430
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
     </Class>
     
@@ -254,6 +330,7 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#MergeWater -->
 
     <Class rdf:about="&ontologiaRio;MergeWater">
@@ -270,6 +347,50 @@
                 <onClass rdf:resource="&ontologiaRio;WaterMass"/>
                 <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</qualifiedCardinality>
             </Restriction>
+=======
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#GenerateIndustryWaterMass -->
+
+    <Class rdf:about="&ontologiaRio;GenerateIndustryWaterMass">
+        <equivalentClass>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="&ontologiaRio;hasInput"/>
+                        <onClass rdf:resource="&ontologiaRio;Factory"/>
+                        <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="&ontologiaRio;hasOutput"/>
+                        <onClass rdf:resource="&ontologiaRio;WaterMass"/>
+                        <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </equivalentClass>
+        <rdfs:subClassOf rdf:resource="&ontologiaRio;Process"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#MergeWater -->
+
+    <Class rdf:about="&ontologiaRio;MergeWater">
+        <equivalentClass>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="&ontologiaRio;hasInput"/>
+                        <onClass rdf:resource="&ontologiaRio;WaterMass"/>
+                        <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</qualifiedCardinality>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="&ontologiaRio;hasOutput"/>
+                        <onClass rdf:resource="&ontologiaRio;WaterMass"/>
+                        <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+>>>>>>> 0991a85cbc0a7afa5ff2d43817e7a2ccf6215430
         </equivalentClass>
         <rdfs:subClassOf rdf:resource="&ontologiaRio;Process"/>
     </Class>
@@ -314,10 +435,17 @@
                                 <onDatatype rdf:resource="&xsd;double"/>
                                 <withRestrictions rdf:parseType="Collection">
                                     <rdf:Description>
+<<<<<<< HEAD
                                         <xsd:maxInclusive rdf:datatype="&xsd;double">100.0</xsd:maxInclusive>
                                     </rdf:Description>
                                     <rdf:Description>
                                         <xsd:minExclusive rdf:datatype="&xsd;double">0.4</xsd:minExclusive>
+=======
+                                        <xsd:minExclusive rdf:datatype="&xsd;double">0.4</xsd:minExclusive>
+                                    </rdf:Description>
+                                    <rdf:Description>
+                                        <xsd:maxInclusive rdf:datatype="&xsd;double">100.0</xsd:maxInclusive>
+>>>>>>> 0991a85cbc0a7afa5ff2d43817e7a2ccf6215430
                                     </rdf:Description>
                                 </withRestrictions>
                             </rdfs:Datatype>
@@ -348,6 +476,7 @@
 
     <Class rdf:about="&ontologiaRio;Process">
         <equivalentClass>
+<<<<<<< HEAD
             <Restriction>
                 <onProperty rdf:resource="&ontologiaRio;hasOutput"/>
                 <cardinality rdf:datatype="&xsd;nonNegativeInteger">1</cardinality>
@@ -365,6 +494,25 @@
                 <onProperty rdf:resource="&ontologiaRio;hasInput"/>
                 <minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minCardinality>
             </Restriction>
+=======
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="&ontologiaRio;hasInput"/>
+                        <minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minCardinality>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="&ontologiaRio;hasOutput"/>
+                        <cardinality rdf:datatype="&xsd;nonNegativeInteger">1</cardinality>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="&ontologiaRio;hasCode"/>
+                        <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
+                        <onDataRange rdf:resource="&xsd;string"/>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+>>>>>>> 0991a85cbc0a7afa5ff2d43817e7a2ccf6215430
         </equivalentClass>
     </Class>
     
@@ -404,7 +552,13 @@
 
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry -->
 
+<<<<<<< HEAD
     <Class rdf:about="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+=======
+    <Class rdf:about="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </Class>
+>>>>>>> 0991a85cbc0a7afa5ff2d43817e7a2ccf6215430
     
 
 
@@ -419,20 +573,74 @@
     
 
 
+<<<<<<< HEAD
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#CleanWater -->
 
     <NamedIndividual rdf:about="&ontologiaRio;CleanWater">
         <ontologiaRio:hasDBO rdf:datatype="&xsd;double">0.2</ontologiaRio:hasDBO>
         <ontologiaRio:hasVolume rdf:datatype="&xsd;double">10.0</ontologiaRio:hasVolume>
+=======
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#clean_1 -->
+
+    <NamedIndividual rdf:about="&ontologiaRio;clean_1">
+        <rdf:type rdf:resource="&ontologiaRio;WaterMass"/>
+        <ontologiaRio:hasDBO rdf:datatype="&xsd;double">0.3</ontologiaRio:hasDBO>
+        <ontologiaRio:hasVolume rdf:datatype="&xsd;double">600.0</ontologiaRio:hasVolume>
+>>>>>>> 0991a85cbc0a7afa5ff2d43817e7a2ccf6215430
     </NamedIndividual>
     
 
 
+<<<<<<< HEAD
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#clean_1 -->
 
     <NamedIndividual rdf:about="&ontologiaRio;clean_1">
         <ontologiaRio:hasDBO rdf:datatype="&xsd;double">0.3</ontologiaRio:hasDBO>
         <ontologiaRio:hasVolume rdf:datatype="&xsd;double">600.0</ontologiaRio:hasVolume>
+=======
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#factory_food_1 -->
+
+    <NamedIndividual rdf:about="&ontologiaRio;factory_food_1">
+        <rdf:type rdf:resource="&ontologiaRio;Factory"/>
+        <ontologiaRio:BelongTo rdf:resource="&ontologiaRio;industry_chemical_1"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#generate_industry_watermass_1 -->
+
+    <NamedIndividual rdf:about="&ontologiaRio;generate_industry_watermass_1">
+        <rdf:type rdf:resource="&ontologiaRio;GenerateIndustryWaterMass"/>
+        <ontologiaRio:hasCode rdf:datatype="&xsd;string">generateIndustryWaterMass</ontologiaRio:hasCode>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#industry_chemical_1 -->
+
+    <NamedIndividual rdf:about="&ontologiaRio;industry_chemical_1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+        <ontologiaRio:produceDBO rdf:datatype="&xsd;double">0.3</ontologiaRio:produceDBO>
+        <ontologiaRio:produceDQO rdf:datatype="&xsd;double">0.7</ontologiaRio:produceDQO>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#merge_water_1 -->
+
+    <NamedIndividual rdf:about="&ontologiaRio;merge_water_1">
+        <rdf:type rdf:resource="&ontologiaRio;MergeWater"/>
+        <ontologiaRio:hasCode rdf:datatype="&xsd;string">mergeWater</ontologiaRio:hasCode>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#merge_water_2 -->
+
+    <NamedIndividual rdf:about="&ontologiaRio;merge_water_2">
+        <rdf:type rdf:resource="&ontologiaRio;MergeWater"/>
+        <ontologiaRio:hasCode rdf:datatype="&xsd;string">mergeWaterEfficient</ontologiaRio:hasCode>
+>>>>>>> 0991a85cbc0a7afa5ff2d43817e7a2ccf6215430
     </NamedIndividual>
     
 
@@ -451,6 +659,10 @@
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#polluted_2 -->
 
     <NamedIndividual rdf:about="&ontologiaRio;polluted_2">
+<<<<<<< HEAD
+=======
+        <rdf:type rdf:resource="&ontologiaRio;WaterMass"/>
+>>>>>>> 0991a85cbc0a7afa5ff2d43817e7a2ccf6215430
         <ontologiaRio:hasVolume rdf:datatype="&xsd;double">5000.0</ontologiaRio:hasVolume>
         <ontologiaRio:hasDBO rdf:datatype="&xsd;double">80.0</ontologiaRio:hasDBO>
     </NamedIndividual>
