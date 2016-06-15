@@ -96,7 +96,16 @@ public class Main {
 	}
 
 	public void generateWatermass() {
-		System.out.println();
+		try {
+			String nameFunction = getFunctionOfProcess("GenerateIndustryWaterMass");
+			if (nameFunction != null) {
+				// TODO
+
+			}
+		} catch (Exception e) {
+			System.out.print("Error : ");
+			e.printStackTrace();
+		}
 
 	}
 

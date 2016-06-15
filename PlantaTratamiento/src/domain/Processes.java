@@ -25,4 +25,14 @@ public class Processes {
 		return result;
 	}
 
+	public WaterMass mergeWaterEfficient(List<WaterMass> listOfWater) {
+		WaterMass result = null;
+		WaterMass tmp = listOfWater.get(0);
+		for (int i = 1; i < listOfWater.size(); i++) {
+			result = mergeWater(tmp, listOfWater.get(i));
+			tmp = result;
+		}
+		return result;
+	}
+
 }
