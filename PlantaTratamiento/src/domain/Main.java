@@ -1,6 +1,5 @@
 package domain;
 
-import java.io.FileNotFoundException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,14 +7,14 @@ import java.util.Scanner;
 
 public class Main {
 
-	private static final String ONTO_PATH = "../Ontologia.owl";
+	private static final String ONTO_PATH = "../Ont.owl";
 	private static final String NAMING_CONTEXT = "http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#";
 
 	private Scanner sc;
 	private JenaManager jManager;
 	private Processes processes;
 
-	public void start() {
+	public void start() throws Exception {
 		processes = new Processes();
 		sc = new Scanner(System.in);
 		jManager = new JenaManager(ONTO_PATH, NAMING_CONTEXT);
@@ -29,7 +28,6 @@ public class Main {
 			System.out.println();
 			switch (operation) {
 			case 0:
-				System.out.println(" -- Exit --");
 				break;
 			case 1:
 				System.out.println(" -- Generating a water mass of an industrial process --");
@@ -58,8 +56,10 @@ public class Main {
 			default:
 				System.out.println("Wrong operation");
 			}
-			System.out.print("\nPress Enter To Continue");
-			sc.nextLine();
+			if (operation > 0 && operation < 7) {
+				System.out.print("\nPress Enter To Continue");
+				sc.nextLine();
+			}
 			System.out.println();
 		}
 		// Save Ontology
@@ -95,72 +95,105 @@ public class Main {
 		return functionsNames.get(op);
 	}
 
-	public void generateWatermass() {
-		try {
-			String nameFunction = getFunctionOfProcess("GenerateIndustryWaterMass");
-			if (nameFunction != null) {
-				// TODO
-
-			}
-		} catch (Exception e) {
-			System.out.print("Error : ");
-			e.printStackTrace();
+	/**
+	 * Generación de una masa de agua resultante de un proceso industrial
+	 */
+	public void generateWatermass() throws Exception {
+		String nameFunction = getFunctionOfProcess("GenerateIndustryWaterMass");
+		if (nameFunction != null) {
+			System.out.println("Name of Function : " + nameFunction);
+			// Parametro factory
+			System.out.println("-Chose Factory-");
+			List<Factory> factories = jManager.getAllFactoryIndividuals();
+			for (int i = 0; i < factories.size(); i++)
+				System.out.println(i + ". " + factories.get(i).toString());
+			System.out.print("Factory : ");
+			int id = sc.nextInt();
+			sc.nextLine();
+			Factory factory = factories.get(id);
+			// generacion masas de agua de una fabrica
+			Method method = processes.getClass().getMethod(nameFunction, Factory.class);
+			WaterMass wm = (WaterMass) method.invoke(processes, factory);
+			if (wm != null) {
+				jManager.addWatermassIndividual(wm);
+				System.out.println("New Water Mass Generated : " + wm.toString());
+			} else
+				System.out.println("Not Generated");
 		}
 
 	}
 
-	public void mergeWatermass() {
-		try {
-			String nameFunction = getFunctionOfProcess("MergeWater");
-			if (nameFunction != null) {
-				System.out.println("Name of Function : " + nameFunction);
-				// parametros masas de agua
-				System.out.println("-Chose list of Watermasses-");
-				List<WaterMass> listOfWater = jManager.getAllWatermassIndividuals();
-				for (int i = 0; i < listOfWater.size(); i++)
-					System.out.println(i + ". " + listOfWater.get(i).toString());
-				sc.nextLine();
-				//
-				System.out.print("List of ids [0 1 4 5 . . .] : ");
-				String ids = sc.nextLine();
-				String[] splited = ids.split("\\s+");
-				List<WaterMass> parameters = new ArrayList<>();
-				for (int i = 0; i < splited.length; i++) {
-					int id = Integer.valueOf(splited[i]);
-					parameters.add(listOfWater.get(id));
-				}
-				// merge list of watermass
-				Method method = processes.getClass().getMethod(nameFunction, List.class);
-				WaterMass w3 = (WaterMass) method.invoke(processes, parameters);
-				if (w3 != null) {
-					jManager.addWatermassIndividual(w3);
-					System.out.println("New Water Mass Merged : " + w3.toString());
-				} else
-					System.out.println("Not Merged");
+	/**
+	 * Mezcla de aguas
+	 */
+	public void mergeWatermass() throws Exception {
+		String nameFunction = getFunctionOfProcess("MergeWater");
+		if (nameFunction != null) {
+			System.out.println("Name of Function : " + nameFunction);
+			// parametros masas de agua
+			System.out.println("-Chose list of Watermasses-");
+			List<WaterMass> listOfWater = jManager.getAllWatermassIndividuals();
+			for (int i = 0; i < listOfWater.size(); i++)
+				System.out.println(i + ". " + listOfWater.get(i).toString());
+			sc.nextLine();
+			System.out.print("List of ids [0 1 4 5 . . .] : ");
+			String ids = sc.nextLine();
+			String[] splited = ids.split("\\s+");
+			List<WaterMass> parameters = new ArrayList<>();
+			for (int i = 0; i < splited.length; i++) {
+				int id = Integer.valueOf(splited[i]);
+				parameters.add(listOfWater.get(id));
 			}
-		} catch (Exception e) {
-			System.out.print("Error : ");
-			e.printStackTrace();
+			// merge list of watermass
+			WaterMass w3 = null;
+			Method method = processes.getClass().getMethod(nameFunction, List.class);
+			w3 = (WaterMass) method.invoke(processes, parameters);
+			if (w3 != null) {
+				jManager.addWatermassIndividual(w3);
+				System.out.println("New Water Mass Merged : " + w3.toString());
+			} else
+				System.out.println("Not Merged");
+		}
+
+	}
+
+	public void classificationOfWatermass() throws Exception {
+		String nameFunction = getFunctionOfProcess("GenerateIndustryWaterMass");
+		if (nameFunction != null) {
+			System.out.println("Name of Function : " + nameFunction);
+			// TODO
+			System.out.println("TODO");
 		}
 	}
 
-	public void classificationOfWatermass() {
-		System.out.println();
+	public void purificationOfWatermass() throws Exception {
+		String nameFunction = getFunctionOfProcess("GenerateIndustryWaterMass");
+		if (nameFunction != null) {
+			System.out.println("Name of Function : " + nameFunction);
+			// TODO
+			System.out.println("TODO");
+		}
 	}
 
-	public void purificationOfWatermass() {
-		System.out.println();
+	public void timeToPurifyWatermass() throws Exception {
+		String nameFunction = getFunctionOfProcess("GenerateIndustryWaterMass");
+		if (nameFunction != null) {
+			System.out.println("Name of Function : " + nameFunction);
+			// TODO
+			System.out.println("TODO");
+		}
 	}
 
-	public void timeToPurifyWatermass() {
-		System.out.println();
+	public void efficienfyOfPlant() throws Exception {
+		String nameFunction = getFunctionOfProcess("GenerateIndustryWaterMass");
+		if (nameFunction != null) {
+			System.out.println("Name of Function : " + nameFunction);
+			// TODO
+			System.out.println("TODO");
+		}
 	}
 
-	public void efficienfyOfPlant() {
-		System.out.println();
-	}
-
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) throws Exception {
 		System.out.println("---------------------- Starting program ----------------------");
 		System.out.println();
 		Main main = new Main();

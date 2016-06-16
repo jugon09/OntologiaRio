@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.apache.jena.ontology.Individual;
+import org.apache.jena.ontology.ObjectProperty;
 import org.apache.jena.ontology.OntClass;
 import org.apache.jena.ontology.OntDocumentManager;
 import org.apache.jena.ontology.OntModel;
@@ -87,23 +88,41 @@ public class JenaManager {
 		return new WaterMass(volum, dbo, 0);
 	}
 
-	private WaterMass getFactoryFromIndividual(Individual water) {
-		// Volum
-		Property propertyVolum = mModel.getProperty(NAMING_CONTEXT + "hasVolume");
-		RDFNode nodeVolume = water.getPropertyValue(propertyVolum);
-		double volum = nodeVolume.asLiteral().getDouble();
+	public List<Factory> getAllFactoryIndividuals() {
+		List<Factory> result = new ArrayList<Factory>();
+		OntClass watermassClass = mModel.getOntClass(NAMING_CONTEXT + "Factory");
+		for (Iterator<Individual> i = mModel.listIndividuals(watermassClass); i.hasNext();) {
+			Individual ind = i.next();
+			result.add(getFactoryFromIndividual(ind));
+		}
+		return result;
+	}
+
+	private Factory getFactoryFromIndividual(Individual factory) {
+		// Industry
+		ObjectProperty propertyBelongTo = mModel.getObjectProperty(NAMING_CONTEXT + "BelongTo");
+		Individual ind = factory.getProperty(propertyBelongTo).getObject().as(Individual.class);
+		Industry industry = getIndustryFromIndividual(ind);
+		// Capacity
+		ObjectProperty propertyHas = mModel.getObjectProperty(NAMING_CONTEXT + "has");
+		
+		Individual tank = factory.getProperty(propertyHas).getObject().as(Individual.class);
+		Property propertyCapacity = mModel.getProperty(NAMING_CONTEXT + "hasCapacity");
+		RDFNode nodeCapacity = tank.getPropertyValue(propertyCapacity);
+		double capacity = nodeCapacity.asLiteral().getDouble();
+		return new Factory(capacity, industry);
+	}
+
+	private Industry getIndustryFromIndividual(Individual industry) {
 		// DBO
-		Property propertyDBO = mModel.getProperty(NAMING_CONTEXT + "hasDBO");
-		RDFNode nodeDBO = water.getPropertyValue(propertyDBO);
-		double dbo = nodeDBO.asLiteral().getDouble();
-		// DBQ
-		/*
-		 * Property propertyDQO = mModel.getProperty(NAMING_CONTEXT + "hasDQO");
-		 * RDFNode nodeDQO = water.getPropertyValue(propertyDQO); double dqo =
-		 * nodeDQO.asLiteral().getDouble();
-		 */
-		// WaterMass
-		return new WaterMass(volum, dbo, 0);
+		Property propertyDBO = mModel.getProperty(NAMING_CONTEXT + "produceDBO");
+		RDFNode nodeDBO = industry.getPropertyValue(propertyDBO);
+		double produceDBO = nodeDBO.asLiteral().getDouble();
+		// DQO
+		Property propertyDQO = mModel.getProperty(NAMING_CONTEXT + "produceDQO");
+		RDFNode nodeDQO = industry.getPropertyValue(propertyDQO);
+		double produceDQO = nodeDQO.asLiteral().getDouble();
+		return new Industry(produceDBO, produceDQO);
 	}
 
 	public void addWatermassIndividual(WaterMass w) {

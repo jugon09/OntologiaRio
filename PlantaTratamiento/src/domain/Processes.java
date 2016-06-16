@@ -35,4 +35,11 @@ public class Processes {
 		return result;
 	}
 
+	public WaterMass generateIndustryWaterMassSimple(Factory factory) {
+		double volum = factory.capacity;
+		double DBO = volum * factory.industry.produceDBO;
+		double DQO = volum * factory.industry.produceDQO;
+		return new WaterMass(volum, DBO, DQO);
+	}
+
 }

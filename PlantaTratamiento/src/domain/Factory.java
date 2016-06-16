@@ -3,15 +3,15 @@ package domain;
 public class Factory {
 
 	public double capacity;
-	public Industry indutry;
+	public Industry industry;
 
-	public Factory(double capacity, Industry indutry) {
+	public Factory(double capacity, Industry industry) {
 		this.capacity = capacity;
-		this.indutry = indutry;
+		this.industry = industry;
 	}
 
 	public String toString() {
-		return "Facorty with capacity " + this.capacity + " of industry : " + indutry.toString();
+		return "Facorty with capacity " + this.capacity + " of industry : " + industry.toString();
 	}
 
 }
