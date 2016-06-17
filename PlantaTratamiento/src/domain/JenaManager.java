@@ -183,17 +183,15 @@ public class JenaManager {
 			System.out.println(ind.getURI());
 			trs.add(getAllTreatmentFromTreatmentPlant(ind));
 		}
-		// DQO
-		/*Property propertyDQO = mModel.getProperty(NAMING_CONTEXT + "produceDQO");
-		RDFNode nodeDQO = industry.getPropertyValue(propertyDQO);
-		double produceDQO = nodeDQO.asLiteral().getDouble();
-		*/return res;
+		res = new TreatmentPlant(trs);
+		return res;
 	}
 	
 	public Treatment getAllTreatmentFromTreatmentPlant(Individual tp) {
 		Treatment res = null;
-		/*Property propertyDBO = mModel.getProperty(NAMING_CONTEXT + "produceDBO");
-		RDFNode nodeDBO = industry.getPropertyValue(propertyDBO);
+		Property propertyTime = mModel.getProperty(NAMING_CONTEXT + "takes");
+		RDFNode nodeTime = tp.getPropertyValue(propertyTime);
+		/*
 		double produceDBO = nodeDBO.asLiteral().getDouble();
 		// DQO
 		Property propertyDQO = mModel.getProperty(NAMING_CONTEXT + "produceDQO");
