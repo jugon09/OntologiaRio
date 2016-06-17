@@ -22,6 +22,7 @@ import org.apache.jena.query.ResultSet;
 import org.apache.jena.query.ResultSetFactory;
 import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.NodeIterator;
 import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.RDFNode;
 
@@ -160,6 +161,44 @@ public class JenaManager {
 			qe.close();
 			return functions;
 		}
+	}
+	
+	public List<TreatmentPlant> getAllTreatmentPlantIndividuals() {
+		List<TreatmentPlant> res = new ArrayList<TreatmentPlant>();
+		OntClass treatmentplantClass = mModel.getOntClass(NAMING_CONTEXT + "TreatmentPlant");
+		for (Iterator<Individual> i = mModel.listIndividuals(treatmentplantClass); i.hasNext();) {
+			Individual tp = i.next();
+			res.add(getTreatmentPlantFromIndividual(tp));
+		}
+		return res;
+	}
+	
+	public TreatmentPlant getTreatmentPlantFromIndividual(Individual tp) {
+		TreatmentPlant res = null;
+		Property propertyApply = mModel.getProperty(NAMING_CONTEXT + "applies");
+		ArrayList<Treatment> trs = new ArrayList<Treatment>();
+		for (NodeIterator it = tp.listPropertyValues(propertyApply);it.hasNext();) {
+			RDFNode node = it.next();
+			Individual ind = (Individual) node.asResource();
+			trs.add(getAllTreatmentFromTreatmentPlant(ind));
+		}
+		// DQO
+		/*Property propertyDQO = mModel.getProperty(NAMING_CONTEXT + "produceDQO");
+		RDFNode nodeDQO = industry.getPropertyValue(propertyDQO);
+		double produceDQO = nodeDQO.asLiteral().getDouble();
+		*/return res;
+	}
+	
+	public Treatment getAllTreatmentFromTreatmentPlant(Individual tp) {
+		Treatment res = null;
+		/*Property propertyDBO = mModel.getProperty(NAMING_CONTEXT + "produceDBO");
+		RDFNode nodeDBO = industry.getPropertyValue(propertyDBO);
+		double produceDBO = nodeDBO.asLiteral().getDouble();
+		// DQO
+		Property propertyDQO = mModel.getProperty(NAMING_CONTEXT + "produceDQO");
+		RDFNode nodeDQO = industry.getPropertyValue(propertyDQO);
+		double produceDQO = nodeDQO.asLiteral().getDouble();*/
+		return res;
 	}
 
 }

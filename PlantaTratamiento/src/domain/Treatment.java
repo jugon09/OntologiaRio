@@ -3,7 +3,6 @@ package domain;
 import java.util.Date;
 
 public abstract class Treatment {
-	private WaterMass wm;
 	private Date duracion;
 	
 	public Treatment(Date d) {
@@ -16,9 +15,8 @@ public abstract class Treatment {
 	public void setDuracion(Date duracion) {
 		this.duracion = duracion;
 	}
-	public String toString() {
-		return "Treatment applied to " + wm.toString() + " and duration " + duracion.toString();
-	}
+	
+	public abstract String toString();
 	
 	public abstract WaterMass treatWaterMass(WaterMass w);
 }

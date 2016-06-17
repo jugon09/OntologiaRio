@@ -22,4 +22,10 @@ public class TreatmentPlant {
 		for (Treatment t: tratamientos) res = t.treatWaterMass(res);
 		return res;
 	}
+	
+	public WaterMass applyTreatment(WaterMass w,String t) {
+		WaterMass res = new WaterMass(w);
+		
+		return res;
+	}
 }

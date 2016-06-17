@@ -1,7 +1,10 @@
 package domain;
 
 import java.lang.reflect.Method;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -179,7 +182,10 @@ public class Main {
 		String nameFunction = getFunctionOfProcess("GenerateIndustryWaterMass");
 		if (nameFunction != null) {
 			System.out.println("Name of Function : " + nameFunction);
-			// TODO
+			SimpleDateFormat formato = new SimpleDateFormat("hh:mm:ss");
+			Date res = formato.parse("00:00:00");
+			Calendar c = Calendar.getInstance();
+			c.setTime(res);
 			System.out.println("TODO");
 		}
 	}
