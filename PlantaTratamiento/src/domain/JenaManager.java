@@ -138,12 +138,21 @@ public class JenaManager {
 		Property propertyVolum = mModel.getProperty(NAMING_CONTEXT + "hasVolume");
 		Property propertyDBO = mModel.getProperty(NAMING_CONTEXT + "hasDBO");
 		Property propertyDQO = mModel.getProperty(NAMING_CONTEXT + "hasDQO");
+		Property propertySST = mModel.getProperty(NAMING_CONTEXT + "hasSST");
+		Property propertyNIT = mModel.getProperty(NAMING_CONTEXT + "hasNitrates");
+		Property propertyPHO = mModel.getProperty(NAMING_CONTEXT + "hasPhosphates");
 		Literal volum = mModel.createTypedLiteral(new Float(w.volume));
 		Literal DBO = mModel.createTypedLiteral(new Float(w.DBO));
 		Literal DQO = mModel.createTypedLiteral(new Float(w.DQO));
+		Literal SST = mModel.createTypedLiteral(new Float(w.SST));
+		Literal NIT = mModel.createTypedLiteral(new Float(w.Nitrates));
+		Literal PHO = mModel.createTypedLiteral(new Float(w.Phosphates));
 		particularWatermass.addLiteral(propertyVolum, volum);
 		particularWatermass.addLiteral(propertyDBO, DBO);
 		particularWatermass.addLiteral(propertyDQO, DQO);
+		particularWatermass.addLiteral(propertySST, SST);
+		particularWatermass.addLiteral(propertyNIT, NIT);
+		particularWatermass.addLiteral(propertyPHO, PHO);
 	}
 
 	/************************ Factory ************************/
@@ -179,12 +188,35 @@ public class JenaManager {
 		// DBO
 		Property propertyDBO = mModel.getProperty(NAMING_CONTEXT + "produceDBO");
 		RDFNode nodeDBO = industry.getPropertyValue(propertyDBO);
-		double produceDBO = nodeDBO.asLiteral().getDouble();
-		// DQO
+		double dbo = 0;
+		if (nodeDBO != null && nodeDBO.isLiteral())
+			dbo = nodeDBO.asLiteral().getDouble();
+		// DBQ
 		Property propertyDQO = mModel.getProperty(NAMING_CONTEXT + "produceDQO");
 		RDFNode nodeDQO = industry.getPropertyValue(propertyDQO);
-		double produceDQO = nodeDQO.asLiteral().getDouble();
-		return new Industry(produceDBO, produceDQO);
+		double dqo = 0;
+		if (nodeDQO != null && nodeDQO.isLiteral())
+			dqo = nodeDQO.asLiteral().getDouble();
+		// SST
+		Property propertySST = mModel.getProperty(NAMING_CONTEXT + "produceSST");
+		RDFNode nodeSST = industry.getPropertyValue(propertySST);
+		double sst = 0;
+		if (nodeSST != null && nodeSST.isLiteral())
+			sst = nodeSST.asLiteral().getDouble();
+		// Nitrates
+		Property propertyNit = mModel.getProperty(NAMING_CONTEXT + "produceNitrates");
+		RDFNode nodeNit = industry.getPropertyValue(propertyNit);
+		double nit = 0;
+		if (nodeNit != null && nodeNit.isLiteral())
+			nit = nodeNit.asLiteral().getDouble();
+		// Phosphates
+		Property propertyPho = mModel.getProperty(NAMING_CONTEXT + "producePhosphates");
+		RDFNode nodePho = industry.getPropertyValue(propertyPho);
+		double pho = 0;
+		if (nodePho != null && nodePho.isLiteral())
+			pho = nodePho.asLiteral().getDouble();
+		// WaterMass
+		return new Industry(dbo, dqo, sst, nit, pho);
 	}
 
 	/************************ TreatmentPlant ************************/

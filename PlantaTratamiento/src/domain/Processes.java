@@ -11,12 +11,18 @@ public class Processes {
 		double dbo = ((w1.DBO * w1.volume) + (w2.DBO * w2.volume)) / volum;
 		// Merge DBQ
 		double dqo = ((w1.DQO * w1.volume) + (w2.DQO * w2.volume)) / volum;
+		// Merge SST
+		double sst = ((w1.SST * w1.volume) + (w2.SST * w2.volume)) / volum;
+		// Merge Nitrates
+		double nit = ((w1.Nitrates * w1.volume) + (w2.Nitrates * w2.volume)) / volum;
+		// Merge Phosphates
+		double pho = ((w1.Phosphates * w1.volume) + (w2.Phosphates * w2.volume)) / volum;
 		// Watermass result
-		return new WaterMass(volum, dbo, dqo, 0, 0, 0);
+		return new WaterMass(volum, dbo, dqo, sst, nit, pho);
 	}
 
 	public WaterMass mergeWater(List<WaterMass> listOfWater) {
-		WaterMass result = null;
+		WaterMass result = listOfWater.get(0);
 		WaterMass tmp = listOfWater.get(0);
 		for (int i = 1; i < listOfWater.size(); i++) {
 			result = mergeWater(tmp, listOfWater.get(i));
