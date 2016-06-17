@@ -43,9 +43,12 @@ public class Processes {
 
 	public WaterMass generateIndustryWaterMassSimple(Factory factory) {
 		double volum = factory.capacity;
-		double DBO = volum * factory.industry.produceDBO;
-		double DQO = volum * factory.industry.produceDQO;
-		return new WaterMass(volum, DBO, DQO, 0, 0, 0);
+		double DBO = factory.industry.produceDBO;
+		double DQO = factory.industry.produceDQO;
+		double SST = factory.industry.produceSST;
+		double NIT = factory.industry.produceNitrates;
+		double PHO = factory.industry.producePhosphates;
+		return new WaterMass(volum, DBO, DQO, SST, NIT, PHO);
 	}
 
 	public WaterMass purifyWater(TreatmentPlant tp, WaterMass wm) {
@@ -82,6 +85,9 @@ public class Processes {
 		for (Normative normative : norms) {
 			boolean comply = w.DBO <= normative.DBOLimit;
 			comply = comply && w.DQO <= normative.DQOLimit;
+			comply = comply && w.SST <= normative.SSTLimit;
+			comply = comply && w.Nitrates <= normative.NitratesLimit;
+			comply = comply && w.Phosphates <= normative.PhosphatesLimit;
 			if (comply)
 				System.out.println("\tComply with Normative : " + normative);
 			else

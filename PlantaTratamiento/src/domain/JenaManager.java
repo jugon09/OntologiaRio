@@ -288,18 +288,43 @@ public class JenaManager {
 	}
 
 	private Normative getNormativeFromIndividual(Individual normative) {
-		Property propertyRDBO = mModel.getProperty(NAMING_CONTEXT + "hasDBOLimit");
-		RDFNode nodeRDBO = normative.getPropertyValue(propertyRDBO);
-		double DBOL = nodeRDBO.asLiteral().getDouble();
-		Property propertyRDQO = mModel.getProperty(NAMING_CONTEXT + "hasDQOLimit");
-		RDFNode nodeRDQO = normative.getPropertyValue(propertyRDQO);
-		double DQOL = nodeRDQO.asLiteral().getDouble();
+		// DBO
+		Property propertyDBO = mModel.getProperty(NAMING_CONTEXT + "hasDBOLimit");
+		RDFNode nodeDBO = normative.getPropertyValue(propertyDBO);
+		double dbo = 0;
+		if (nodeDBO != null && nodeDBO.isLiteral())
+			dbo = nodeDBO.asLiteral().getDouble();
+		// DBQ
+		Property propertyDQO = mModel.getProperty(NAMING_CONTEXT + "hasDQOLimit");
+		RDFNode nodeDQO = normative.getPropertyValue(propertyDQO);
+		double dqo = 0;
+		if (nodeDQO != null && nodeDQO.isLiteral())
+			dqo = nodeDQO.asLiteral().getDouble();
+		// SST
+		Property propertySST = mModel.getProperty(NAMING_CONTEXT + "hasSSTLimit");
+		RDFNode nodeSST = normative.getPropertyValue(propertySST);
+		double sst = 0;
+		if (nodeSST != null && nodeSST.isLiteral())
+			sst = nodeSST.asLiteral().getDouble();
+		// Nitrates
+		Property propertyNit = mModel.getProperty(NAMING_CONTEXT + "hasNitratesLimit");
+		RDFNode nodeNit = normative.getPropertyValue(propertyNit);
+		double nit = 0;
+		if (nodeNit != null && nodeNit.isLiteral())
+			nit = nodeNit.asLiteral().getDouble();
+		// Phosphates
+		Property propertyPho = mModel.getProperty(NAMING_CONTEXT + "hasPhosphatesLimit");
+		RDFNode nodePho = normative.getPropertyValue(propertyPho);
+		double pho = 0;
+		if (nodePho != null && nodePho.isLiteral())
+			pho = nodePho.asLiteral().getDouble();
+		// Name
 		Property propertyName = mModel.getProperty(NAMING_CONTEXT + "hasName");
 		RDFNode nodeName = normative.getPropertyValue(propertyName);
 		String name = "Unknow";
 		if (nodeName != null && nodeName.isLiteral())
 			name = nodeName.asLiteral().getString();
-		return new Normative(name, DBOL, DQOL);
+		return new Normative(name, dbo, dqo, sst, nit, pho);
 	}
 
 }
