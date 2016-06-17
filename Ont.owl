@@ -43,6 +43,15 @@
     
 
 
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#applies -->
+
+    <ObjectProperty rdf:about="&ontologiaRio;applies">
+        <rdfs:range rdf:resource="&ontologiaRio;Treatment"/>
+        <rdfs:domain rdf:resource="&ontologiaRio;TreatmentPlant"/>
+    </ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#has -->
 
     <ObjectProperty rdf:about="&ontologiaRio;has">
@@ -95,6 +104,26 @@
         <rdfs:domain rdf:resource="&ontologiaRio;Factory"/>
         <rdfs:range rdf:resource="&ontologiaRio;PouredWater"/>
         <inverseOf rdf:resource="&ontologiaRio;isMadeBy"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#takes -->
+
+    <ObjectProperty rdf:about="&ontologiaRio;takes">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ontologiaRio;Treatment"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#DurationDescription"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#treats -->
+
+    <ObjectProperty rdf:about="&ontologiaRio;treats">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ontologiaRio;Treatment"/>
+        <rdfs:range rdf:resource="&ontologiaRio;WaterMass"/>
     </ObjectProperty>
     
 
@@ -241,7 +270,7 @@
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#reducePollutant -->
 
     <DatatypeProperty rdf:about="&ontologiaRio;reducePollutant">
-        <rdfs:domain rdf:resource="&ontologiaRio;TreatmentPlant"/>
+        <rdfs:domain rdf:resource="&ontologiaRio;Treatment"/>
     </DatatypeProperty>
     
 
@@ -372,20 +401,18 @@
 
     <Class rdf:about="&ontologiaRio;Factory">
         <equivalentClass>
-            <Class>
-                <intersectionOf rdf:parseType="Collection">
-                    <Restriction>
-                        <onProperty rdf:resource="&ontologiaRio;BelongTo"/>
-                        <onClass rdf:resource="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
-                        <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minQualifiedCardinality>
-                    </Restriction>
-                    <Restriction>
-                        <onProperty rdf:resource="&ontologiaRio;has"/>
-                        <onClass rdf:resource="&ontologiaRio;Tank"/>
-                        <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minQualifiedCardinality>
-                    </Restriction>
-                </intersectionOf>
-            </Class>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;has"/>
+                <onClass rdf:resource="&ontologiaRio;Tank"/>
+                <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minQualifiedCardinality>
+            </Restriction>
+        </equivalentClass>
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;BelongTo"/>
+                <onClass rdf:resource="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+                <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minQualifiedCardinality>
+            </Restriction>
         </equivalentClass>
     </Class>
     
@@ -487,10 +514,10 @@
                                 <onDatatype rdf:resource="&xsd;double"/>
                                 <withRestrictions rdf:parseType="Collection">
                                     <rdf:Description>
-                                        <xsd:minExclusive rdf:datatype="&xsd;double">0.4</xsd:minExclusive>
+                                        <xsd:maxInclusive rdf:datatype="&xsd;double">100.0</xsd:maxInclusive>
                                     </rdf:Description>
                                     <rdf:Description>
-                                        <xsd:maxInclusive rdf:datatype="&xsd;double">100.0</xsd:maxInclusive>
+                                        <xsd:minExclusive rdf:datatype="&xsd;double">0.4</xsd:minExclusive>
                                     </rdf:Description>
                                 </withRestrictions>
                             </rdfs:Datatype>
@@ -528,23 +555,23 @@
 
     <Class rdf:about="&ontologiaRio;Process">
         <equivalentClass>
-            <Class>
-                <intersectionOf rdf:parseType="Collection">
-                    <Restriction>
-                        <onProperty rdf:resource="&ontologiaRio;hasInput"/>
-                        <minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minCardinality>
-                    </Restriction>
-                    <Restriction>
-                        <onProperty rdf:resource="&ontologiaRio;hasOutput"/>
-                        <cardinality rdf:datatype="&xsd;nonNegativeInteger">1</cardinality>
-                    </Restriction>
-                    <Restriction>
-                        <onProperty rdf:resource="&ontologiaRio;hasCode"/>
-                        <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
-                        <onDataRange rdf:resource="&xsd;string"/>
-                    </Restriction>
-                </intersectionOf>
-            </Class>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;hasOutput"/>
+                <cardinality rdf:datatype="&xsd;nonNegativeInteger">1</cardinality>
+            </Restriction>
+        </equivalentClass>
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;hasCode"/>
+                <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
+                <onDataRange rdf:resource="&xsd;string"/>
+            </Restriction>
+        </equivalentClass>
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;hasInput"/>
+                <minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minCardinality>
+            </Restriction>
         </equivalentClass>
     </Class>
     
@@ -609,13 +636,6 @@
                 </allValuesFrom>
             </Restriction>
         </equivalentClass>
-        <equivalentClass>
-            <Restriction>
-                <onProperty rdf:resource="&ontologiaRio;BelongTo"/>
-                <onClass rdf:resource="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
-                <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minQualifiedCardinality>
-            </Restriction>
-        </equivalentClass>
     </Class>
     
 
@@ -653,40 +673,109 @@
     
 
 
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#Treatment -->
+
+    <Class rdf:about="&ontologiaRio;Treatment">
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;reducePollutant"/>
+                <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
+                <onDataRange rdf:resource="&xsd;double"/>
+            </Restriction>
+        </equivalentClass>
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;takes"/>
+                <onClass rdf:resource="http://www.w3.org/2006/time#DurationDescription"/>
+                <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minQualifiedCardinality>
+            </Restriction>
+        </equivalentClass>
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;treats"/>
+                <allValuesFrom rdf:resource="&ontologiaRio;WaterMass"/>
+            </Restriction>
+        </equivalentClass>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#TreatmentDBO -->
+
+    <Class rdf:about="&ontologiaRio;TreatmentDBO">
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;reduceDBO"/>
+                <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
+                <onDataRange rdf:resource="&xsd;double"/>
+            </Restriction>
+        </equivalentClass>
+        <rdfs:subClassOf rdf:resource="&ontologiaRio;Treatment"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#TreatmentDQO -->
+
+    <Class rdf:about="&ontologiaRio;TreatmentDQO">
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;reduceDQO"/>
+                <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
+                <onDataRange rdf:resource="&xsd;double"/>
+            </Restriction>
+        </equivalentClass>
+        <rdfs:subClassOf rdf:resource="&ontologiaRio;Treatment"/>
+    </Class>
+    
+
+
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#TreatmentPlant -->
 
     <Class rdf:about="&ontologiaRio;TreatmentPlant">
         <equivalentClass>
-            <Class>
-                <intersectionOf rdf:parseType="Collection">
-                    <Restriction>
-                        <onProperty rdf:resource="&ontologiaRio;reduceDBO"/>
-                        <allValuesFrom>
-                            <rdfs:Datatype>
-                                <onDatatype rdf:resource="&xsd;double"/>
-                                <withRestrictions rdf:parseType="Collection">
-                                    <rdf:Description>
-                                        <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
-                                    </rdf:Description>
-                                </withRestrictions>
-                            </rdfs:Datatype>
-                        </allValuesFrom>
-                    </Restriction>
-                    <Restriction>
-                        <onProperty rdf:resource="&ontologiaRio;reduceDQO"/>
-                        <allValuesFrom>
-                            <rdfs:Datatype>
-                                <onDatatype rdf:resource="&xsd;double"/>
-                                <withRestrictions rdf:parseType="Collection">
-                                    <rdf:Description>
-                                        <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
-                                    </rdf:Description>
-                                </withRestrictions>
-                            </rdfs:Datatype>
-                        </allValuesFrom>
-                    </Restriction>
-                </intersectionOf>
-            </Class>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;reduceDBO"/>
+                <allValuesFrom>
+                    <rdfs:Datatype>
+                        <onDatatype rdf:resource="&xsd;double"/>
+                        <withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
+                            </rdf:Description>
+                        </withRestrictions>
+                    </rdfs:Datatype>
+                </allValuesFrom>
+            </Restriction>
+        </equivalentClass>
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;applies"/>
+                <onClass rdf:resource="&ontologiaRio;Treatment"/>
+                <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minQualifiedCardinality>
+            </Restriction>
+        </equivalentClass>
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;reduceDQO"/>
+                <allValuesFrom>
+                    <rdfs:Datatype>
+                        <onDatatype rdf:resource="&xsd;double"/>
+                        <withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
+                            </rdf:Description>
+                        </withRestrictions>
+                    </rdfs:Datatype>
+                </allValuesFrom>
+            </Restriction>
+        </equivalentClass>
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;has"/>
+                <onClass rdf:resource="&ontologiaRio;Tank"/>
+                <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minQualifiedCardinality>
+            </Restriction>
         </equivalentClass>
     </Class>
     
@@ -747,7 +836,21 @@
                 </allValuesFrom>
             </Restriction>
         </equivalentClass>
-        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;hasDBO"/>
+                <allValuesFrom>
+                    <rdfs:Datatype>
+                        <onDatatype rdf:resource="&xsd;double"/>
+                        <withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
+                            </rdf:Description>
+                        </withRestrictions>
+                    </rdfs:Datatype>
+                </allValuesFrom>
+            </Restriction>
+        </equivalentClass>
     </Class>
     
 

@@ -11,6 +11,12 @@ public class WaterMass {
 		this.DBO = dbo;
 		this.DQO = dqo;
 	}
+	
+	public WaterMass(WaterMass w) {
+		this.volume = w.volume;
+		this.DBO = w.DBO;
+		this.DQO = w.DQO;
+	}
 
 	public String toString() {
 		return "Water mass with volume " + this.volume + " and DBO: " + this.DBO + " and DQO: " + this.DQO;
