@@ -231,7 +231,12 @@ public class JenaManager {
 		Property propertyRDQO = mModel.getProperty(NAMING_CONTEXT + "hasDQOLimit");
 		RDFNode nodeRDQO = normative.getPropertyValue(propertyRDQO);
 		double DQOL = nodeRDQO.asLiteral().getDouble();
-		return new Normative(DBOL, DQOL);
+		Property propertyName = mModel.getProperty(NAMING_CONTEXT + "hasName");
+		RDFNode nodeName = normative.getPropertyValue(propertyName);
+		String name = "Unknow";
+		if (nodeName != null && nodeName.isLiteral())
+			name = nodeName.asLiteral().getString();
+		return new Normative(name, DBOL, DQOL);
 	}
 
 }

@@ -4,13 +4,13 @@ public class Tank {
 	private WaterMass wm;
 	private double capacity;
 	private double usedCapacity;
-	
+
 	public Tank(WaterMass w, double c) {
 		wm = w;
 		capacity = c;
 		usedCapacity = wm.volume;
 	}
-	
+
 	public Tank(double c) {
 		capacity = c;
 		wm = null;
@@ -20,7 +20,7 @@ public class Tank {
 	public WaterMass getWm() {
 		return wm;
 	}
-	
+
 	public boolean hasEnoughCapacity(WaterMass wm) {
 		return usedCapacity + wm.volume <= capacity;
 	}
@@ -32,5 +32,10 @@ public class Tank {
 
 	public double getCapacity() {
 		return capacity;
+	}
+
+	@Override
+	public String toString() {
+		return "Tank with Capacity " + capacity;
 	}
 }

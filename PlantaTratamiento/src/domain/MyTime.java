@@ -1,6 +1,7 @@
 package domain;
 
 public class MyTime {
+
 	private int tiempo;
 
 	public MyTime(int t) {

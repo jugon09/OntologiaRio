@@ -11,7 +11,7 @@ public class Factory {
 	}
 
 	public String toString() {
-		return "Facorty with capacity " + this.capacity + " of industry : " + industry.toString();
+		return "Factory with capacity " + this.capacity + " of industry : " + industry.toString();
 	}
 
 }

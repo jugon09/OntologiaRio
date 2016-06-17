@@ -11,7 +11,7 @@ public class WaterMass {
 		this.DBO = dbo;
 		this.DQO = dqo;
 	}
-	
+
 	public WaterMass(WaterMass w) {
 		this.volume = w.volume;
 		this.DBO = w.DBO;
