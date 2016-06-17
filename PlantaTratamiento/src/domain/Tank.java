@@ -5,13 +5,13 @@ public class Tank {
 	private double capacity;
 	private double usedCapacity;
 	
-	public Tank(WaterMass w, int c) {
+	public Tank(WaterMass w, double c) {
 		wm = w;
 		capacity = c;
 		usedCapacity = wm.volume;
 	}
 	
-	public Tank(int c) {
+	public Tank(double c) {
 		capacity = c;
 		wm = null;
 		usedCapacity = 0;

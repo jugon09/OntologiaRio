@@ -175,16 +175,31 @@ public class JenaManager {
 	
 	public TreatmentPlant getTreatmentPlantFromIndividual(Individual tp) {
 		TreatmentPlant res = null;
-		Property propertyApply = mModel.getProperty(NAMING_CONTEXT + "applies");
+		ObjectProperty propertyApply = mModel.getObjectProperty(NAMING_CONTEXT + "applies");
 		ArrayList<Treatment> trs = new ArrayList<Treatment>();
 		for (NodeIterator it = tp.listPropertyValues(propertyApply);it.hasNext();) {
 			RDFNode node = it.next();
-			Individual ind = (Individual) node.asResource();
+			Individual ind = node.as(Individual.class);
 			System.out.println(ind.getURI());
 			trs.add(getTreatmentFromTreatmentPlant(ind));
 		}
-		res = new TreatmentPlant(trs);
+		ArrayList<Tank> tqs = new ArrayList<Tank>();
+		ObjectProperty propertyHas = mModel.getObjectProperty(NAMING_CONTEXT + "has");
+		for (NodeIterator it = tp.listPropertyValues(propertyHas);it.hasNext();) {
+			RDFNode node = it.next();
+			Individual ind = node.as(Individual.class);
+			System.out.println(ind.getURI());
+			tqs.add(getTankFromTreatmentPlant(ind));
+		}
+		res = new TreatmentPlant(trs,tqs);
 		return res;
+	}
+	
+	public Tank getTankFromTreatmentPlant(Individual tank) {
+		Property propertyCapacity = mModel.getProperty(NAMING_CONTEXT + "hasCapacity");
+		RDFNode nodeCapacity = tank.getPropertyValue(propertyCapacity);
+		double cap = nodeCapacity.asLiteral().getDouble();
+		return new Tank(cap);
 	}
 	
 	public Treatment getTreatmentFromTreatmentPlant(Individual tp) {
