@@ -66,8 +66,10 @@ public class Processes {
 		double volumDiff = inWater.volume - tp.getTotalapacity();
 		if (volumDiff > 0) {
 			// Watermass remaining
-			WaterMass remainingWater = new WaterMass(volumDiff, inWater.DBO, inWater.DQO, 0, 0, 0);
-			WaterMass procesedWater = new WaterMass(tp.getTotalapacity(), inWater.DBO, inWater.DQO, 0, 0, 0);
+			WaterMass remainingWater = new WaterMass(volumDiff, inWater.DBO, inWater.DQO, inWater.SST, inWater.Nitrates,
+					inWater.Phosphates);
+			WaterMass procesedWater = new WaterMass(tp.getTotalapacity(), inWater.DBO, inWater.DQO, inWater.SST,
+					inWater.Nitrates, inWater.Phosphates);
 			WaterMass purifiedWater = purifyWater(tp, procesedWater);
 			outWater = mergeWater(purifiedWater, remainingWater);
 		} else {
@@ -78,6 +80,12 @@ public class Processes {
 		System.out.println("DBO efficiency : " + DBO + "%");
 		int DQO = (int) (((inWater.DQO - outWater.DQO) / inWater.DQO) * 100);
 		System.out.println("DQO efficiency : " + DQO + "%");
+		int SST = (int) (((inWater.SST - outWater.SST) / inWater.SST) * 100);
+		System.out.println("SST efficiency : " + SST + "%");
+		int NIT = (int) (((inWater.Nitrates - outWater.Nitrates) / inWater.Nitrates) * 100);
+		System.out.println("Nitrates efficiency : " + NIT + "%");
+		int PHO = (int) (((inWater.Phosphates - outWater.Phosphates) / inWater.Phosphates) * 100);
+		System.out.println("Phosphates efficiency : " + PHO + "%");
 	}
 
 	public void classifyWaterNormative(WaterMass w, List<Normative> norms) {

@@ -55,13 +55,13 @@ public class TreatmentPlant {
 	}
 
 	public String toString() {
-		String s = "";
+		String s = "TreatmentPlant With :\n";
 		for (Treatment t : tratamientos) {
-			s += t.toString();
+			s += "\t" + t.toString();
 			s += "\n";
 		}
 		for (Tank t : tanques) {
-			s += t.toString();
+			s += "\t" + t.toString();
 			s += "\n";
 		}
 		return s;
