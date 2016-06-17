@@ -22,7 +22,6 @@
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Prefix name="ontologiaRio" IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#"/>
-    <Import>http://www.w3.org/2006/time</Import>
     <Declaration>
         <Class IRI="#Chemical"/>
     </Declaration>
@@ -84,12 +83,6 @@
         <Class IRI="#Treatment"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#TreatmentDBO"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#TreatmentDQO"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#TreatmentPlant"/>
     </Declaration>
     <Declaration>
@@ -127,12 +120,6 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#madeA"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#takes"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#treats"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#Volume"/>
@@ -180,6 +167,15 @@
         <DataProperty IRI="#reducePollutant"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#takesHours"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://www.w3.org/2006/time#week"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://www.w3.org/2006/time#weeks"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#clean_1"/>
     </Declaration>
     <Declaration>
@@ -204,7 +200,19 @@
         <NamedIndividual IRI="#polluted_2"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#purify_watermass_1"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#tank_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#treatment_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#treatment_plant_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#treatment_plant_efficiency_1"/>
     </Declaration>
     <EquivalentClasses>
         <Class IRI="#Chemical"/>
@@ -214,11 +222,11 @@
                 <DataProperty IRI="#produceDBO"/>
                 <DatatypeRestriction>
                     <Datatype abbreviatedIRI="xsd:double"/>
-                    <FacetRestriction facet="&xsd;minInclusive">
-                        <Literal datatypeIRI="&xsd;double">0.0</Literal>
-                    </FacetRestriction>
                     <FacetRestriction facet="&xsd;maxInclusive">
                         <Literal datatypeIRI="&xsd;double">0.4</Literal>
+                    </FacetRestriction>
+                    <FacetRestriction facet="&xsd;minInclusive">
+                        <Literal datatypeIRI="&xsd;double">0.0</Literal>
                     </FacetRestriction>
                 </DatatypeRestriction>
             </DataAllValuesFrom>
@@ -226,11 +234,11 @@
                 <DataProperty IRI="#produceDQO"/>
                 <DatatypeRestriction>
                     <Datatype abbreviatedIRI="xsd:double"/>
-                    <FacetRestriction facet="&xsd;minInclusive">
-                        <Literal datatypeIRI="&xsd;double">0.0</Literal>
-                    </FacetRestriction>
                     <FacetRestriction facet="&xsd;maxInclusive">
                         <Literal datatypeIRI="&xsd;double">0.4</Literal>
+                    </FacetRestriction>
+                    <FacetRestriction facet="&xsd;minInclusive">
+                        <Literal datatypeIRI="&xsd;double">0.0</Literal>
                     </FacetRestriction>
                 </DatatypeRestriction>
             </DataAllValuesFrom>
@@ -258,11 +266,11 @@
                 <DataProperty IRI="#hasDBO"/>
                 <DatatypeRestriction>
                     <Datatype abbreviatedIRI="xsd:double"/>
-                    <FacetRestriction facet="&xsd;minInclusive">
-                        <Literal datatypeIRI="&xsd;double">0.0</Literal>
-                    </FacetRestriction>
                     <FacetRestriction facet="&xsd;maxInclusive">
                         <Literal datatypeIRI="&xsd;double">0.4</Literal>
+                    </FacetRestriction>
+                    <FacetRestriction facet="&xsd;minInclusive">
+                        <Literal datatypeIRI="&xsd;double">0.0</Literal>
                     </FacetRestriction>
                 </DatatypeRestriction>
             </DataAllValuesFrom>
@@ -363,11 +371,15 @@
             <Class IRI="#Process"/>
             <ObjectExactCardinality cardinality="1">
                 <ObjectProperty IRI="#hasInput"/>
-                <Class IRI="#PouredWater"/>
+                <Class IRI="#TreatmentPlant"/>
+            </ObjectExactCardinality>
+            <ObjectExactCardinality cardinality="1">
+                <ObjectProperty IRI="#hasInput"/>
+                <Class IRI="#WaterMass"/>
             </ObjectExactCardinality>
             <ObjectExactCardinality cardinality="1">
                 <ObjectProperty IRI="#hasOutput"/>
-                <Class IRI="#PurifiedWaterMass"/>
+                <Class IRI="#WaterMass"/>
             </ObjectExactCardinality>
         </ObjectIntersectionOf>
     </EquivalentClasses>
@@ -384,52 +396,24 @@
         </DataAllValuesFrom>
     </EquivalentClasses>
     <EquivalentClasses>
-        <Class IRI="#TimeToReducePollutant"/>
-        <ObjectIntersectionOf>
-            <Class IRI="#Process"/>
-            <ObjectExactCardinality cardinality="1">
-                <ObjectProperty IRI="#hasInput"/>
-                <Class IRI="#WaterMass"/>
-            </ObjectExactCardinality>
-            <ObjectExactCardinality cardinality="1">
-                <ObjectProperty IRI="#hasOutput"/>
-                <Class IRI="http://www.w3.org/2006/time#DurationDescription"/>
-            </ObjectExactCardinality>
-        </ObjectIntersectionOf>
-    </EquivalentClasses>
-    <EquivalentClasses>
         <Class IRI="#Treatment"/>
-        <ObjectAllValuesFrom>
-            <ObjectProperty IRI="#treats"/>
-            <Class IRI="#WaterMass"/>
-        </ObjectAllValuesFrom>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="#Treatment"/>
-        <ObjectMinCardinality cardinality="1">
-            <ObjectProperty IRI="#takes"/>
-            <Class IRI="http://www.w3.org/2006/time#DurationDescription"/>
-        </ObjectMinCardinality>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="#Treatment"/>
-        <DataExactCardinality cardinality="1">
-            <DataProperty IRI="#reducePollutant"/>
-            <Datatype abbreviatedIRI="xsd:double"/>
-        </DataExactCardinality>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="#TreatmentDBO"/>
         <DataExactCardinality cardinality="1">
             <DataProperty IRI="#reduceDBO"/>
             <Datatype abbreviatedIRI="xsd:double"/>
         </DataExactCardinality>
     </EquivalentClasses>
     <EquivalentClasses>
-        <Class IRI="#TreatmentDQO"/>
+        <Class IRI="#Treatment"/>
         <DataExactCardinality cardinality="1">
             <DataProperty IRI="#reduceDQO"/>
             <Datatype abbreviatedIRI="xsd:double"/>
+        </DataExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Treatment"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#takesHours"/>
+            <Datatype abbreviatedIRI="xsd:int"/>
         </DataExactCardinality>
     </EquivalentClasses>
     <EquivalentClasses>
@@ -447,30 +431,6 @@
         </ObjectMinCardinality>
     </EquivalentClasses>
     <EquivalentClasses>
-        <Class IRI="#TreatmentPlant"/>
-        <DataAllValuesFrom>
-            <DataProperty IRI="#reduceDBO"/>
-            <DatatypeRestriction>
-                <Datatype abbreviatedIRI="xsd:double"/>
-                <FacetRestriction facet="&xsd;minInclusive">
-                    <Literal datatypeIRI="&xsd;double">0.0</Literal>
-                </FacetRestriction>
-            </DatatypeRestriction>
-        </DataAllValuesFrom>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="#TreatmentPlant"/>
-        <DataAllValuesFrom>
-            <DataProperty IRI="#reduceDQO"/>
-            <DatatypeRestriction>
-                <Datatype abbreviatedIRI="xsd:double"/>
-                <FacetRestriction facet="&xsd;minInclusive">
-                    <Literal datatypeIRI="&xsd;double">0.0</Literal>
-                </FacetRestriction>
-            </DatatypeRestriction>
-        </DataAllValuesFrom>
-    </EquivalentClasses>
-    <EquivalentClasses>
         <Class IRI="#TreatmentPlantEfficiency"/>
         <ObjectIntersectionOf>
             <Class IRI="#Process"/>
@@ -482,11 +442,11 @@
                 <DataProperty IRI="#hasOutputDouble"/>
                 <DatatypeRestriction>
                     <Datatype abbreviatedIRI="xsd:double"/>
-                    <FacetRestriction facet="&xsd;minInclusive">
-                        <Literal datatypeIRI="&xsd;double">0.0</Literal>
-                    </FacetRestriction>
                     <FacetRestriction facet="&xsd;maxInclusive">
                         <Literal datatypeIRI="&xsd;double">100.0</Literal>
+                    </FacetRestriction>
+                    <FacetRestriction facet="&xsd;minInclusive">
+                        <Literal datatypeIRI="&xsd;double">0.0</Literal>
                     </FacetRestriction>
                 </DatatypeRestriction>
             </DataExactCardinality>
@@ -577,14 +537,6 @@
         <Class IRI="#Process"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#TreatmentDBO"/>
-        <Class IRI="#Treatment"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#TreatmentDQO"/>
-        <Class IRI="#Treatment"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#TreatmentPlantEfficiency"/>
         <Class IRI="#Process"/>
     </SubClassOf>
@@ -633,8 +585,24 @@
         <NamedIndividual IRI="#polluted_2"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#PurifyWater"/>
+        <NamedIndividual IRI="#purify_watermass_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Tank"/>
         <NamedIndividual IRI="#tank_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Treatment"/>
+        <NamedIndividual IRI="#treatment_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TreatmentPlant"/>
+        <NamedIndividual IRI="#treatment_plant_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TreatmentPlantEfficiency"/>
+        <NamedIndividual IRI="#treatment_plant_efficiency_1"/>
     </ClassAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#BelongTo"/>
@@ -646,15 +614,25 @@
         <NamedIndividual IRI="#factory_food_1"/>
         <NamedIndividual IRI="#tank_1"/>
     </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#applies"/>
+        <NamedIndividual IRI="#treatment_plant_1"/>
+        <NamedIndividual IRI="#treatment_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#has"/>
+        <NamedIndividual IRI="#treatment_plant_1"/>
+        <NamedIndividual IRI="#tank_1"/>
+    </ObjectPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasDBO"/>
         <NamedIndividual IRI="#clean_1"/>
-        <Literal datatypeIRI="&xsd;double">0.3</Literal>
+        <Literal datatypeIRI="&xsd;double">10.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasVolume"/>
         <NamedIndividual IRI="#clean_1"/>
-        <Literal datatypeIRI="&xsd;double">600.0</Literal>
+        <Literal datatypeIRI="&xsd;double">500.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCode"/>
@@ -684,12 +662,12 @@
     <DataPropertyAssertion>
         <DataProperty IRI="#hasDBO"/>
         <NamedIndividual IRI="#polluted_1"/>
-        <Literal datatypeIRI="&xsd;double">45.0</Literal>
+        <Literal datatypeIRI="&xsd;double">30.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasVolume"/>
         <NamedIndividual IRI="#polluted_1"/>
-        <Literal datatypeIRI="&xsd;double">2000.0</Literal>
+        <Literal datatypeIRI="&xsd;double">300.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasDBO"/>
@@ -699,12 +677,32 @@
     <DataPropertyAssertion>
         <DataProperty IRI="#hasVolume"/>
         <NamedIndividual IRI="#polluted_2"/>
-        <Literal datatypeIRI="&xsd;double">5000.0</Literal>
+        <Literal datatypeIRI="&xsd;double">400.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCapacity"/>
         <NamedIndividual IRI="#tank_1"/>
-        <Literal datatypeIRI="&xsd;double">100.0</Literal>
+        <Literal datatypeIRI="&xsd;double">1000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#reduceDBO"/>
+        <NamedIndividual IRI="#treatment_1"/>
+        <Literal datatypeIRI="&xsd;double">20.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#reduceDQO"/>
+        <NamedIndividual IRI="#treatment_1"/>
+        <Literal datatypeIRI="&xsd;double">30.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#takesHours"/>
+        <NamedIndividual IRI="#treatment_1"/>
+        <Literal datatypeIRI="&xsd;int">1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCode"/>
+        <NamedIndividual IRI="#treatment_plant_efficiency_1"/>
+        <Literal datatypeIRI="&xsd;string">treatmentPlantEfficiency</Literal>
     </DataPropertyAssertion>
     <InverseObjectProperties>
         <ObjectProperty IRI="#madeA"/>
@@ -712,12 +710,6 @@
     </InverseObjectProperties>
     <FunctionalObjectProperty>
         <ObjectProperty IRI="#isMadeBy"/>
-    </FunctionalObjectProperty>
-    <FunctionalObjectProperty>
-        <ObjectProperty IRI="#takes"/>
-    </FunctionalObjectProperty>
-    <FunctionalObjectProperty>
-        <ObjectProperty IRI="#treats"/>
     </FunctionalObjectProperty>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#BelongTo"/>
@@ -751,14 +743,6 @@
         <ObjectProperty IRI="#madeA"/>
         <Class IRI="#Factory"/>
     </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#takes"/>
-        <Class IRI="#Treatment"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#treats"/>
-        <Class IRI="#Treatment"/>
-    </ObjectPropertyDomain>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#BelongTo"/>
         <Class IRI="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
@@ -790,14 +774,6 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="#madeA"/>
         <Class IRI="#PouredWater"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#takes"/>
-        <Class IRI="http://www.w3.org/2006/time#DurationDescription"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#treats"/>
-        <Class IRI="#WaterMass"/>
     </ObjectPropertyRange>
     <SubDataPropertyOf>
         <DataProperty IRI="#hasCapacity"/>
@@ -856,6 +832,9 @@
     <FunctionalDataProperty>
         <DataProperty IRI="#hasVolume"/>
     </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#takesHours"/>
+    </FunctionalDataProperty>
     <DataPropertyDomain>
         <DataProperty IRI="#Volume"/>
         <Class abbreviatedIRI="owl:Thing"/>
@@ -886,6 +865,10 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#reducePollutant"/>
+        <Class IRI="#Treatment"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#takesHours"/>
         <Class IRI="#Treatment"/>
     </DataPropertyDomain>
     <DataPropertyRange>
@@ -920,6 +903,20 @@
         <DataProperty IRI="#reduceDQO"/>
         <Datatype abbreviatedIRI="xsd:double"/>
     </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#takesHours"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Factory</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">La clase fábrica pertenece a mínimo una industria y contiene minímo un tanque. Así, cada fábrica le añade los contaminantes pertenecientes a su industria a la masa de agua que genera y la almacena en un tanque para que luego esta masa sea tratada por la planta de tratamiento.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">La clase industria es la superclase de cada uno de los tipos de industria que hemos encontrado que se pueden encontrar en el Besos. Cada subclase contiene la aportación de cada contaminante especifico de cada industria a las masas de agua que generan sus fábricas.</Literal>
+    </AnnotationAssertion>
 </Ontology>
 
 
