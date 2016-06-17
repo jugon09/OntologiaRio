@@ -12,7 +12,7 @@ public class Processes {
 		// Merge DBQ
 		double dqo = ((w1.DQO * w1.volume) + (w2.DQO * w2.volume)) / volum;
 		// Watermass result
-		return new WaterMass(volum, dbo, dqo);
+		return new WaterMass(volum, dbo, dqo, 0, 0, 0);
 	}
 
 	public WaterMass mergeWater(List<WaterMass> listOfWater) {
@@ -39,7 +39,7 @@ public class Processes {
 		double volum = factory.capacity;
 		double DBO = volum * factory.industry.produceDBO;
 		double DQO = volum * factory.industry.produceDQO;
-		return new WaterMass(volum, DBO, DQO);
+		return new WaterMass(volum, DBO, DQO, 0, 0, 0);
 	}
 
 	public WaterMass purifyWater(TreatmentPlant tp, WaterMass wm) {
@@ -57,8 +57,8 @@ public class Processes {
 		double volumDiff = inWater.volume - tp.getTotalapacity();
 		if (volumDiff > 0) {
 			// Watermass remaining
-			WaterMass remainingWater = new WaterMass(volumDiff, inWater.DBO, inWater.DQO);
-			WaterMass procesedWater = new WaterMass(tp.getTotalapacity(), inWater.DBO, inWater.DQO);
+			WaterMass remainingWater = new WaterMass(volumDiff, inWater.DBO, inWater.DQO, 0, 0, 0);
+			WaterMass procesedWater = new WaterMass(tp.getTotalapacity(), inWater.DBO, inWater.DQO, 0, 0, 0);
 			WaterMass purifiedWater = purifyWater(tp, procesedWater);
 			outWater = mergeWater(purifiedWater, remainingWater);
 		} else {

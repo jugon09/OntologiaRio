@@ -56,9 +56,29 @@ public class JenaManager {
 		}
 	}
 
-	public WaterMass getWatermassIndividual(String URI) {
-		return getWatermassFromIndividual(mModel.getIndividual(URI));
+	public List<String> findAllProcessesOf(String nameProcess) {
+		String queryString = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
+				+ "PREFIX owl: <http://www.w3.org/2002/07/owl#> " + "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> "
+				+ "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> " + "PREFIX prac: <" + NAMING_CONTEXT + "> "
+				+ "SELECT ?functionName " + "WHERE { " + "?s a prac:" + nameProcess + " . "
+				+ "?s prac:hasCode ?functionName }";
+		Query query = QueryFactory.create(queryString);
+		try (QueryExecution qe = QueryExecutionFactory.create(query, mModel)) {
+			ResultSet results = qe.execSelect();
+			results = ResultSetFactory.copyResults(results);
+			List<String> functions = new ArrayList<>();
+			while (results.hasNext()) {
+				QuerySolution sol = results.next();
+				RDFNode n = sol.get("functionName");
+				if (n.isLiteral())
+					functions.add(n.asLiteral().toString());
+			}
+			qe.close();
+			return functions;
+		}
 	}
+
+	/************************ WaterMass ************************/
 
 	public List<WaterMass> getAllWatermassIndividuals() {
 		List<WaterMass> result = new ArrayList<WaterMass>();
@@ -74,20 +94,59 @@ public class JenaManager {
 		// Volum
 		Property propertyVolum = mModel.getProperty(NAMING_CONTEXT + "hasVolume");
 		RDFNode nodeVolume = water.getPropertyValue(propertyVolum);
-		double volum = nodeVolume.asLiteral().getDouble();
+		double volum = 0;
+		if (nodeVolume != null && nodeVolume.isLiteral())
+			volum = nodeVolume.asLiteral().getDouble();
 		// DBO
 		Property propertyDBO = mModel.getProperty(NAMING_CONTEXT + "hasDBO");
 		RDFNode nodeDBO = water.getPropertyValue(propertyDBO);
-		double dbo = nodeDBO.asLiteral().getDouble();
+		double dbo = 0;
+		if (nodeDBO != null && nodeDBO.isLiteral())
+			dbo = nodeDBO.asLiteral().getDouble();
 		// DBQ
-		/*
-		 * Property propertyDQO = mModel.getProperty(NAMING_CONTEXT + "hasDQO");
-		 * RDFNode nodeDQO = water.getPropertyValue(propertyDQO); double dqo =
-		 * nodeDQO.asLiteral().getDouble();
-		 */
+		Property propertyDQO = mModel.getProperty(NAMING_CONTEXT + "hasDQO");
+		RDFNode nodeDQO = water.getPropertyValue(propertyDQO);
+		double dqo = 0;
+		if (nodeDQO != null && nodeDQO.isLiteral())
+			dqo = nodeDQO.asLiteral().getDouble();
+		// SST
+		Property propertySST = mModel.getProperty(NAMING_CONTEXT + "hasSST");
+		RDFNode nodeSST = water.getPropertyValue(propertySST);
+		double sst = 0;
+		if (nodeSST != null && nodeSST.isLiteral())
+			sst = nodeSST.asLiteral().getDouble();
+		// Nitrates
+		Property propertyNit = mModel.getProperty(NAMING_CONTEXT + "hasNitrates");
+		RDFNode nodeNit = water.getPropertyValue(propertyNit);
+		double nit = 0;
+		if (nodeNit != null && nodeNit.isLiteral())
+			nit = nodeNit.asLiteral().getDouble();
+		// Phosphates
+		Property propertyPho = mModel.getProperty(NAMING_CONTEXT + "hasPhosphates");
+		RDFNode nodePho = water.getPropertyValue(propertyPho);
+		double pho = 0;
+		if (nodePho != null && nodePho.isLiteral())
+			pho = nodePho.asLiteral().getDouble();
 		// WaterMass
-		return new WaterMass(volum, dbo, 0);
+		return new WaterMass(volum, dbo, dqo, sst, nit, pho);
 	}
+
+	public void addWatermassIndividual(WaterMass w) {
+		OntClass watermassClass = mModel.getOntClass(NAMING_CONTEXT + "WaterMass");
+		Individual particularWatermass = watermassClass
+				.createIndividual(NAMING_CONTEXT + "watermass_" + UUID.randomUUID());
+		Property propertyVolum = mModel.getProperty(NAMING_CONTEXT + "hasVolume");
+		Property propertyDBO = mModel.getProperty(NAMING_CONTEXT + "hasDBO");
+		Property propertyDQO = mModel.getProperty(NAMING_CONTEXT + "hasDQO");
+		Literal volum = mModel.createTypedLiteral(new Float(w.volume));
+		Literal DBO = mModel.createTypedLiteral(new Float(w.DBO));
+		Literal DQO = mModel.createTypedLiteral(new Float(w.DQO));
+		particularWatermass.addLiteral(propertyVolum, volum);
+		particularWatermass.addLiteral(propertyDBO, DBO);
+		particularWatermass.addLiteral(propertyDQO, DQO);
+	}
+
+	/************************ Factory ************************/
 
 	public List<Factory> getAllFactoryIndividuals() {
 		List<Factory> result = new ArrayList<Factory>();
@@ -114,6 +173,8 @@ public class JenaManager {
 		return new Factory(capacity, industry);
 	}
 
+	/************************ Industry ************************/
+
 	private Industry getIndustryFromIndividual(Individual industry) {
 		// DBO
 		Property propertyDBO = mModel.getProperty(NAMING_CONTEXT + "produceDBO");
@@ -126,42 +187,7 @@ public class JenaManager {
 		return new Industry(produceDBO, produceDQO);
 	}
 
-	public void addWatermassIndividual(WaterMass w) {
-		OntClass watermassClass = mModel.getOntClass(NAMING_CONTEXT + "WaterMass");
-		Individual particularWatermass = watermassClass
-				.createIndividual(NAMING_CONTEXT + "watermass_" + UUID.randomUUID());
-		Property propertyVolum = mModel.getProperty(NAMING_CONTEXT + "hasVolume");
-		Property propertyDBO = mModel.getProperty(NAMING_CONTEXT + "hasDBO");
-		Property propertyDQO = mModel.getProperty(NAMING_CONTEXT + "hasDQO");
-		Literal volum = mModel.createTypedLiteral(new Float(w.volume));
-		Literal DBO = mModel.createTypedLiteral(new Float(w.DBO));
-		Literal DQO = mModel.createTypedLiteral(new Float(w.DQO));
-		particularWatermass.addLiteral(propertyVolum, volum);
-		particularWatermass.addLiteral(propertyDBO, DBO);
-		particularWatermass.addLiteral(propertyDQO, DQO);
-	}
-
-	public List<String> findAllProcessesOf(String nameProcess) {
-		String queryString = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
-				+ "PREFIX owl: <http://www.w3.org/2002/07/owl#> " + "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> "
-				+ "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> " + "PREFIX prac: <" + NAMING_CONTEXT + "> "
-				+ "SELECT ?functionName " + "WHERE { " + "?s a prac:" + nameProcess + " . "
-				+ "?s prac:hasCode ?functionName }";
-		Query query = QueryFactory.create(queryString);
-		try (QueryExecution qe = QueryExecutionFactory.create(query, mModel)) {
-			ResultSet results = qe.execSelect();
-			results = ResultSetFactory.copyResults(results);
-			List<String> functions = new ArrayList<>();
-			while (results.hasNext()) {
-				QuerySolution sol = results.next();
-				RDFNode n = sol.get("functionName");
-				if (n.isLiteral())
-					functions.add(n.asLiteral().toString());
-			}
-			qe.close();
-			return functions;
-		}
-	}
+	/************************ TreatmentPlant ************************/
 
 	public List<TreatmentPlant> getAllTreatmentPlantIndividuals() {
 		List<TreatmentPlant> res = new ArrayList<TreatmentPlant>();
@@ -193,12 +219,16 @@ public class JenaManager {
 		return res;
 	}
 
+	/************************ Tank ************************/
+
 	public Tank getTankFromTreatmentPlant(Individual tank) {
 		Property propertyCapacity = mModel.getProperty(NAMING_CONTEXT + "hasCapacity");
 		RDFNode nodeCapacity = tank.getPropertyValue(propertyCapacity);
 		double cap = nodeCapacity.asLiteral().getDouble();
 		return new Tank(cap);
 	}
+
+	/************************ Treatment ************************/
 
 	public Treatment getTreatmentFromTreatmentPlant(Individual tp) {
 		Property propertyTime = mModel.getProperty(NAMING_CONTEXT + "takesHours");
@@ -213,7 +243,8 @@ public class JenaManager {
 		return new Treatment(tiempo, rDQO, rDBO);
 	}
 
-	// Retrieve Normatives
+	/************************ Normatives ************************/
+
 	public List<Normative> getAllNormativeIndividuals() {
 		List<Normative> result = new ArrayList<Normative>();
 		OntClass normativeClass = mModel.getOntClass(NAMING_CONTEXT + "Normative");
