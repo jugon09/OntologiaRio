@@ -442,6 +442,7 @@
             </Class>
         </equivalentClass>
         <rdfs:subClassOf rdf:resource="&ontologiaRio;Process"/>
+        <rdfs:comment>Esta función recibe como parámetro una fábrica y devueve una masa de agua que tiene añadidos los niveles de contaminantes especificos de las industrias a las que pertenece aquella fábrica.</rdfs:comment>
     </Class>
     
 
@@ -747,21 +748,6 @@
     <Class rdf:about="&ontologiaRio;WaterMass">
         <equivalentClass>
             <Restriction>
-                <onProperty rdf:resource="&ontologiaRio;hasDBO"/>
-                <allValuesFrom>
-                    <rdfs:Datatype>
-                        <onDatatype rdf:resource="&xsd;double"/>
-                        <withRestrictions rdf:parseType="Collection">
-                            <rdf:Description>
-                                <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
-                            </rdf:Description>
-                        </withRestrictions>
-                    </rdfs:Datatype>
-                </allValuesFrom>
-            </Restriction>
-        </equivalentClass>
-        <equivalentClass>
-            <Restriction>
                 <onProperty rdf:resource="&ontologiaRio;hasVolume"/>
                 <allValuesFrom>
                     <rdfs:Datatype>
@@ -888,6 +874,9 @@
 
     <NamedIndividual rdf:about="&ontologiaRio;purify_watermass_1">
         <rdf:type rdf:resource="&ontologiaRio;PurifyWater"/>
+        <ontologiaRio:hasCode rdf:datatype="&xsd;string">purify_water_mass</ontologiaRio:hasCode>
+        <ontologiaRio:hasInput rdf:resource="&ontologiaRio;polluted_1"/>
+        <ontologiaRio:hasInput rdf:resource="&ontologiaRio;treatment_plant_1"/>
     </NamedIndividual>
     
 
@@ -918,6 +907,16 @@
         <rdf:type rdf:resource="&ontologiaRio;TreatmentPlant"/>
         <ontologiaRio:has rdf:resource="&ontologiaRio;tank_1"/>
         <ontologiaRio:applies rdf:resource="&ontologiaRio;treatment_1"/>
+        <ontologiaRio:hasOutput rdf:resource="&ontologiaRio;waterMass_1"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#waterMass_1 -->
+
+    <NamedIndividual rdf:about="&ontologiaRio;waterMass_1">
+        <rdf:type rdf:resource="&ontologiaRio;WaterMass"/>
+        <ontologiaRio:hasVolume rdf:datatype="&xsd;double">50.0</ontologiaRio:hasVolume>
     </NamedIndividual>
 </rdf:RDF>
 
