@@ -19,13 +19,20 @@ public class TreatmentPlant {
 	
 	public WaterMass applyAllTreatments(WaterMass w) {
 		WaterMass res = new WaterMass(w);
-		for (Treatment t: tratamientos) res = t.treatWaterMass(res);
+		for (Treatment t: tratamientos) t.treatWaterMass(res);
 		return res;
 	}
 	
-	public WaterMass applyTreatment(WaterMass w,String t) {
+	public WaterMass applyTreatment(WaterMass w,WaterMass obj) {
 		WaterMass res = new WaterMass(w);
-		
+		int i = 0;
+		int n = tratamientos.size();
+		if (n > 0) {
+			while (res.DBO > obj.DBO && res.DQO > obj.DQO) {
+				tratamientos.get(i%n).treatWaterMass(res);
+				++i;
+			}
+		}
 		return res;
 	}
 }

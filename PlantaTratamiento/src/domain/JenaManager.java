@@ -181,23 +181,23 @@ public class JenaManager {
 			RDFNode node = it.next();
 			Individual ind = (Individual) node.asResource();
 			System.out.println(ind.getURI());
-			trs.add(getAllTreatmentFromTreatmentPlant(ind));
+			trs.add(getTreatmentFromTreatmentPlant(ind));
 		}
 		res = new TreatmentPlant(trs);
 		return res;
 	}
 	
-	public Treatment getAllTreatmentFromTreatmentPlant(Individual tp) {
-		Treatment res = null;
-		Property propertyTime = mModel.getProperty(NAMING_CONTEXT + "takes");
+	public Treatment getTreatmentFromTreatmentPlant(Individual tp) {
+		Property propertyTime = mModel.getProperty(NAMING_CONTEXT + "takesHours");
 		RDFNode nodeTime = tp.getPropertyValue(propertyTime);
-		/*
-		double produceDBO = nodeDBO.asLiteral().getDouble();
-		// DQO
-		Property propertyDQO = mModel.getProperty(NAMING_CONTEXT + "produceDQO");
-		RDFNode nodeDQO = industry.getPropertyValue(propertyDQO);
-		double produceDQO = nodeDQO.asLiteral().getDouble();*/
-		return res;
+		int tiempo = nodeTime.asLiteral().getInt();
+		Property propertyRDBO = mModel.getProperty(NAMING_CONTEXT + "reducesDBO");
+		RDFNode nodeRDBO = tp.getPropertyValue(propertyRDBO);
+		double rDBO = nodeRDBO.asLiteral().getDouble();
+		Property propertyRDQO = mModel.getProperty(NAMING_CONTEXT + "reducesDQO");
+		RDFNode nodeRDQO = tp.getPropertyValue(propertyRDQO);
+		double rDQO = nodeRDQO.asLiteral().getDouble();
+		return new Treatment(tiempo,rDQO,rDBO);
 	}
 
 }
