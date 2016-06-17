@@ -810,8 +810,8 @@
 
     <NamedIndividual rdf:about="&ontologiaRio;clean_1">
         <rdf:type rdf:resource="&ontologiaRio;WaterMass"/>
-        <ontologiaRio:hasDBO rdf:datatype="&xsd;double">0.3</ontologiaRio:hasDBO>
-        <ontologiaRio:hasVolume rdf:datatype="&xsd;double">600.0</ontologiaRio:hasVolume>
+        <ontologiaRio:hasDBO rdf:datatype="&xsd;double">10.0</ontologiaRio:hasDBO>
+        <ontologiaRio:hasVolume rdf:datatype="&xsd;double">500.0</ontologiaRio:hasVolume>
     </NamedIndividual>
     
 
@@ -868,8 +868,8 @@
     <NamedIndividual rdf:about="&ontologiaRio;polluted_1">
         <rdf:type rdf:resource="&ontologiaRio;PollutedWaterMass"/>
         <rdf:type rdf:resource="&ontologiaRio;WaterMass"/>
-        <ontologiaRio:hasVolume rdf:datatype="&xsd;double">2000.0</ontologiaRio:hasVolume>
-        <ontologiaRio:hasDBO rdf:datatype="&xsd;double">45.0</ontologiaRio:hasDBO>
+        <ontologiaRio:hasDBO rdf:datatype="&xsd;double">30.0</ontologiaRio:hasDBO>
+        <ontologiaRio:hasVolume rdf:datatype="&xsd;double">300.0</ontologiaRio:hasVolume>
     </NamedIndividual>
     
 
@@ -878,7 +878,7 @@
 
     <NamedIndividual rdf:about="&ontologiaRio;polluted_2">
         <rdf:type rdf:resource="&ontologiaRio;WaterMass"/>
-        <ontologiaRio:hasVolume rdf:datatype="&xsd;double">5000.0</ontologiaRio:hasVolume>
+        <ontologiaRio:hasVolume rdf:datatype="&xsd;double">400.0</ontologiaRio:hasVolume>
         <ontologiaRio:hasDBO rdf:datatype="&xsd;double">80.0</ontologiaRio:hasDBO>
     </NamedIndividual>
     
@@ -896,7 +896,7 @@
 
     <NamedIndividual rdf:about="&ontologiaRio;tank_1">
         <rdf:type rdf:resource="&ontologiaRio;Tank"/>
-        <ontologiaRio:hasCapacity rdf:datatype="&xsd;double">100.0</ontologiaRio:hasCapacity>
+        <ontologiaRio:hasCapacity rdf:datatype="&xsd;double">1000.0</ontologiaRio:hasCapacity>
     </NamedIndividual>
     
 
