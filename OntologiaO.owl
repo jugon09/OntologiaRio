@@ -47,6 +47,9 @@
         <Class IRI="#Metallurgy"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Normative"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Paper"/>
     </Declaration>
     <Declaration>
@@ -134,13 +137,28 @@
         <DataProperty IRI="#hasDBO"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#hasDBOLimit"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#hasDQO"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasDQOLimit"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#hasInternalPurifyingPlant"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#hasLimit"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasName"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#hasOutputDouble"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasOutputTime"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#hasPollutant"/>
@@ -176,6 +194,9 @@
         <DataProperty IRI="http://www.w3.org/2006/time#weeks"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#classify_water_normative_1"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#clean_1"/>
     </Declaration>
     <Declaration>
@@ -194,6 +215,9 @@
         <NamedIndividual IRI="#merge_water_2"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#normative_DIRECTIVA91-271-CEE"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#polluted_1"/>
     </Declaration>
     <Declaration>
@@ -206,6 +230,9 @@
         <NamedIndividual IRI="#tank_1"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#time_to_reduce_pollutant"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#treatment_1"/>
     </Declaration>
     <Declaration>
@@ -213,6 +240,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#treatment_plant_efficiency_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#water_mass_1"/>
     </Declaration>
     <EquivalentClasses>
         <Class IRI="#Chemical"/>
@@ -396,6 +426,23 @@
         </DataAllValuesFrom>
     </EquivalentClasses>
     <EquivalentClasses>
+        <Class IRI="#TimeToReducePollutant"/>
+        <ObjectIntersectionOf>
+            <ObjectExactCardinality cardinality="2">
+                <ObjectProperty IRI="#hasInput"/>
+                <Class IRI="#WaterMass"/>
+            </ObjectExactCardinality>
+            <ObjectExactCardinality cardinality="1">
+                <ObjectProperty IRI="#hasOutput"/>
+                <Class IRI="#WaterMass"/>
+            </ObjectExactCardinality>
+            <DataExactCardinality cardinality="1">
+                <DataProperty IRI="#hasOutputTime"/>
+                <Datatype abbreviatedIRI="xsd:int"/>
+            </DataExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
         <Class IRI="#Treatment"/>
         <DataExactCardinality cardinality="1">
             <DataProperty IRI="#reduceDBO"/>
@@ -549,6 +596,10 @@
         <Class IRI="#PollutedWaterMass"/>
     </DisjointClasses>
     <ClassAssertion>
+        <Class IRI="#ClassifyWaterNormative"/>
+        <NamedIndividual IRI="#classify_water_normative_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#WaterMass"/>
         <NamedIndividual IRI="#clean_1"/>
     </ClassAssertion>
@@ -573,6 +624,10 @@
         <NamedIndividual IRI="#merge_water_2"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Normative"/>
+        <NamedIndividual IRI="#normative_DIRECTIVA91-271-CEE"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#PollutedWaterMass"/>
         <NamedIndividual IRI="#polluted_1"/>
     </ClassAssertion>
@@ -591,6 +646,10 @@
     <ClassAssertion>
         <Class IRI="#Tank"/>
         <NamedIndividual IRI="#tank_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TimeToReducePollutant"/>
+        <NamedIndividual IRI="#time_to_reduce_pollutant"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Treatment"/>
@@ -615,6 +674,21 @@
         <NamedIndividual IRI="#tank_1"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasInput"/>
+        <NamedIndividual IRI="#purify_watermass_1"/>
+        <NamedIndividual IRI="#polluted_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasInput"/>
+        <NamedIndividual IRI="#purify_watermass_1"/>
+        <NamedIndividual IRI="#treatment_plant_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasOutput"/>
+        <NamedIndividual IRI="#purify_watermass_1"/>
+        <NamedIndividual IRI="#water_mass_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#applies"/>
         <NamedIndividual IRI="#treatment_plant_1"/>
         <NamedIndividual IRI="#treatment_1"/>
@@ -624,6 +698,11 @@
         <NamedIndividual IRI="#treatment_plant_1"/>
         <NamedIndividual IRI="#tank_1"/>
     </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCode"/>
+        <NamedIndividual IRI="#classify_water_normative_1"/>
+        <Literal datatypeIRI="&xsd;string">classifyWaterNormative</Literal>
+    </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasDBO"/>
         <NamedIndividual IRI="#clean_1"/>
@@ -660,6 +739,21 @@
         <Literal datatypeIRI="&xsd;string">mergeWaterEfficient</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasDBOLimit"/>
+        <NamedIndividual IRI="#normative_DIRECTIVA91-271-CEE"/>
+        <Literal datatypeIRI="&xsd;double">25.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDQOLimit"/>
+        <NamedIndividual IRI="#normative_DIRECTIVA91-271-CEE"/>
+        <Literal datatypeIRI="&xsd;double">125.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasName"/>
+        <NamedIndividual IRI="#normative_DIRECTIVA91-271-CEE"/>
+        <Literal datatypeIRI="&xsd;string">DIRECTIVA 91/271/CEE</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#hasDBO"/>
         <NamedIndividual IRI="#polluted_1"/>
         <Literal datatypeIRI="&xsd;double">30.0</Literal>
@@ -680,9 +774,19 @@
         <Literal datatypeIRI="&xsd;double">400.0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasCode"/>
+        <NamedIndividual IRI="#purify_watermass_1"/>
+        <Literal datatypeIRI="&xsd;string">purifyWater</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#hasCapacity"/>
         <NamedIndividual IRI="#tank_1"/>
         <Literal datatypeIRI="&xsd;double">1000.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCode"/>
+        <NamedIndividual IRI="#time_to_reduce_pollutant"/>
+        <Literal datatypeIRI="&xsd;string">timeToReducePollutant</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#reduceDBO"/>
@@ -704,9 +808,19 @@
         <NamedIndividual IRI="#treatment_plant_efficiency_1"/>
         <Literal datatypeIRI="&xsd;string">treatmentPlantEfficiency</Literal>
     </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDBO"/>
+        <NamedIndividual IRI="#water_mass_1"/>
+        <Literal datatypeIRI="&xsd;double">0.2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasVolume"/>
+        <NamedIndividual IRI="#water_mass_1"/>
+        <Literal datatypeIRI="&xsd;double">500.0</Literal>
+    </DataPropertyAssertion>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#madeA"/>
         <ObjectProperty IRI="#isMadeBy"/>
+        <ObjectProperty IRI="#madeA"/>
     </InverseObjectProperties>
     <FunctionalObjectProperty>
         <ObjectProperty IRI="#isMadeBy"/>
@@ -784,8 +898,16 @@
         <DataProperty IRI="#hasPollutant"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
+        <DataProperty IRI="#hasDBOLimit"/>
+        <DataProperty IRI="#hasLimit"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
         <DataProperty IRI="#hasDQO"/>
         <DataProperty IRI="#hasPollutant"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasDQOLimit"/>
+        <DataProperty IRI="#hasLimit"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
         <DataProperty IRI="#hasVolume"/>
@@ -827,6 +949,9 @@
         <DataProperty IRI="#hasInternalPurifyingPlant"/>
     </FunctionalDataProperty>
     <FunctionalDataProperty>
+        <DataProperty IRI="#hasLimit"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
         <DataProperty IRI="#hasPollutant"/>
     </FunctionalDataProperty>
     <FunctionalDataProperty>
@@ -848,8 +973,20 @@
         <Class IRI="#Factory"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
+        <DataProperty IRI="#hasLimit"/>
+        <Class IRI="#Normative"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasName"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
         <DataProperty IRI="#hasOutputDouble"/>
         <Class IRI="#Process"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasOutputTime"/>
+        <Class IRI="#TimeToReducePollutant"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#hasPollutant"/>
@@ -884,8 +1021,20 @@
         <Datatype abbreviatedIRI="xsd:boolean"/>
     </DataPropertyRange>
     <DataPropertyRange>
+        <DataProperty IRI="#hasLimit"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
         <DataProperty IRI="#hasOutputDouble"/>
         <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasOutputTime"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#hasPollutant"/>

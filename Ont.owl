@@ -199,6 +199,15 @@
     
 
 
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#hasName -->
+
+    <DatatypeProperty rdf:about="&ontologiaRio;hasName">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </DatatypeProperty>
+    
+
+
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#hasOutputDouble -->
 
     <DatatypeProperty rdf:about="&ontologiaRio;hasOutputDouble">
@@ -431,15 +440,15 @@
     <Class rdf:about="&ontologiaRio;Factory">
         <equivalentClass>
             <Restriction>
-                <onProperty rdf:resource="&ontologiaRio;BelongTo"/>
-                <onClass rdf:resource="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+                <onProperty rdf:resource="&ontologiaRio;has"/>
+                <onClass rdf:resource="&ontologiaRio;Tank"/>
                 <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minQualifiedCardinality>
             </Restriction>
         </equivalentClass>
         <equivalentClass>
             <Restriction>
-                <onProperty rdf:resource="&ontologiaRio;has"/>
-                <onClass rdf:resource="&ontologiaRio;Tank"/>
+                <onProperty rdf:resource="&ontologiaRio;BelongTo"/>
+                <onClass rdf:resource="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
                 <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minQualifiedCardinality>
             </Restriction>
         </equivalentClass>
@@ -592,9 +601,8 @@
     <Class rdf:about="&ontologiaRio;Process">
         <equivalentClass>
             <Restriction>
-                <onProperty rdf:resource="&ontologiaRio;hasCode"/>
-                <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
-                <onDataRange rdf:resource="&xsd;string"/>
+                <onProperty rdf:resource="&ontologiaRio;hasInput"/>
+                <minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minCardinality>
             </Restriction>
         </equivalentClass>
         <equivalentClass>
@@ -605,8 +613,9 @@
         </equivalentClass>
         <equivalentClass>
             <Restriction>
-                <onProperty rdf:resource="&ontologiaRio;hasInput"/>
-                <minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minCardinality>
+                <onProperty rdf:resource="&ontologiaRio;hasCode"/>
+                <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
+                <onDataRange rdf:resource="&xsd;string"/>
             </Restriction>
         </equivalentClass>
     </Class>
@@ -723,13 +732,6 @@
     <Class rdf:about="&ontologiaRio;Treatment">
         <equivalentClass>
             <Restriction>
-                <onProperty rdf:resource="&ontologiaRio;reduceDQO"/>
-                <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
-                <onDataRange rdf:resource="&xsd;double"/>
-            </Restriction>
-        </equivalentClass>
-        <equivalentClass>
-            <Restriction>
                 <onProperty rdf:resource="&ontologiaRio;takesHours"/>
                 <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
                 <onDataRange rdf:resource="&xsd;int"/>
@@ -738,6 +740,13 @@
         <equivalentClass>
             <Restriction>
                 <onProperty rdf:resource="&ontologiaRio;reduceDBO"/>
+                <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
+                <onDataRange rdf:resource="&xsd;double"/>
+            </Restriction>
+        </equivalentClass>
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;reduceDQO"/>
                 <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
                 <onDataRange rdf:resource="&xsd;double"/>
             </Restriction>
@@ -751,15 +760,15 @@
     <Class rdf:about="&ontologiaRio;TreatmentPlant">
         <equivalentClass>
             <Restriction>
-                <onProperty rdf:resource="&ontologiaRio;has"/>
-                <onClass rdf:resource="&ontologiaRio;Tank"/>
+                <onProperty rdf:resource="&ontologiaRio;applies"/>
+                <onClass rdf:resource="&ontologiaRio;Treatment"/>
                 <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minQualifiedCardinality>
             </Restriction>
         </equivalentClass>
         <equivalentClass>
             <Restriction>
-                <onProperty rdf:resource="&ontologiaRio;applies"/>
-                <onClass rdf:resource="&ontologiaRio;Treatment"/>
+                <onProperty rdf:resource="&ontologiaRio;has"/>
+                <onClass rdf:resource="&ontologiaRio;Tank"/>
                 <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minQualifiedCardinality>
             </Restriction>
         </equivalentClass>
@@ -940,6 +949,7 @@
         <rdf:type rdf:resource="&ontologiaRio;Normative"/>
         <ontologiaRio:hasDQOLimit rdf:datatype="&xsd;double">125.0</ontologiaRio:hasDQOLimit>
         <ontologiaRio:hasDBOLimit rdf:datatype="&xsd;double">25.0</ontologiaRio:hasDBOLimit>
+        <ontologiaRio:hasName rdf:datatype="&xsd;string">DIRECTIVA 91/271/CEE</ontologiaRio:hasName>
     </NamedIndividual>
     
 
