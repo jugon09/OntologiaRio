@@ -180,6 +180,7 @@ public class JenaManager {
 		for (NodeIterator it = tp.listPropertyValues(propertyApply);it.hasNext();) {
 			RDFNode node = it.next();
 			Individual ind = (Individual) node.asResource();
+			System.out.println(ind.getURI());
 			trs.add(getAllTreatmentFromTreatmentPlant(ind));
 		}
 		// DQO

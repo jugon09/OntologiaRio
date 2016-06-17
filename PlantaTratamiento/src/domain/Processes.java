@@ -41,5 +41,9 @@ public class Processes {
 		double DQO = volum * factory.industry.produceDQO;
 		return new WaterMass(volum, DBO, DQO);
 	}
+	
+	public WaterMass purifyWater(TreatmentPlant tp, WaterMass wm) {
+		return tp.applyAllTreatments(wm);
+	}
 
 }

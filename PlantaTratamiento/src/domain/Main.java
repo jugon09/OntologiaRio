@@ -170,10 +170,32 @@ public class Main {
 	}
 
 	public void purificationOfWatermass() throws Exception {
-		String nameFunction = getFunctionOfProcess("GenerateIndustryWaterMass");
+		String nameFunction = getFunctionOfProcess("PurifyWater");
 		if (nameFunction != null) {
 			System.out.println("Name of Function : " + nameFunction);
-			// TODO
+			System.out.println("-Choose list of Watermasses-");
+			List<WaterMass> listOfWater = jManager.getAllWatermassIndividuals();
+			for (int i = 0; i < listOfWater.size(); i++)
+				System.out.println(i + ". " + listOfWater.get(i).toString());
+			System.out.println("Choose number of waterMass");
+			int id = sc.nextInt();
+			WaterMass wm = listOfWater.get(id);
+			System.out.println("Choose list of treatmentPlant");
+			List<TreatmentPlant> ltp = jManager.getAllTreatmentPlantIndividuals();
+			for (int i = 0; i < ltp.size(); ++i) {
+				System.out.println(i + ". " + ltp.get(i).toString());
+			}
+			System.out.println("Choose number of treatmentPlant");
+			int id1 = sc.nextInt();
+			TreatmentPlant tp = ltp.get(id1);
+			WaterMass res = null;
+			Method method = processes.getClass().getMethod(nameFunction, TreatmentPlant.class,WaterMass.class);
+			res = (WaterMass) method.invoke(processes, tp,wm);
+			if (res != null) {
+				jManager.addWatermassIndividual(res);
+				System.out.println("New Water Mass Purified : " + res.toString());
+			}
+			else System.out.println("Not Purified");
 			System.out.println("TODO");
 		}
 	}
