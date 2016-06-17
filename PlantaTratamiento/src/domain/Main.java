@@ -189,13 +189,13 @@ public class Main {
 			int id1 = sc.nextInt();
 			TreatmentPlant tp = ltp.get(id1);
 			WaterMass res = null;
-			Method method = processes.getClass().getMethod(nameFunction, TreatmentPlant.class,WaterMass.class);
-			res = (WaterMass) method.invoke(processes, tp,wm);
+			Method method = processes.getClass().getMethod(nameFunction, TreatmentPlant.class, WaterMass.class);
+			res = (WaterMass) method.invoke(processes, tp, wm);
 			if (res != null) {
 				jManager.addWatermassIndividual(res);
 				System.out.println("New Water Mass Purified : " + res.toString());
-			}
-			else System.out.println("Not Purified");
+			} else
+				System.out.println("Not Purified");
 			System.out.println("TODO");
 		}
 	}
@@ -213,11 +213,38 @@ public class Main {
 	}
 
 	public void efficienfyOfPlant() throws Exception {
-		String nameFunction = getFunctionOfProcess("GenerateIndustryWaterMass");
+		String nameFunction = getFunctionOfProcess("TreatmentPlantEfficiency");
 		if (nameFunction != null) {
 			System.out.println("Name of Function : " + nameFunction);
-			// TODO
-			System.out.println("TODO");
+			// Chose de Treatment Plant paramater
+			System.out.println("-Choose list of treatmentPlant-");
+			List<TreatmentPlant> trmtsPlants = jManager.getAllTreatmentPlantIndividuals();
+			if (trmtsPlants.isEmpty()) {
+				System.out.println("No Treatment Plants");
+				return;
+			}
+			for (int i = 0; i < trmtsPlants.size(); ++i)
+				System.out.println(i + ". " + trmtsPlants.get(i).toString());
+			System.out.print("Choose number of treatmentPlant : ");
+			int idTP = sc.nextInt();
+			sc.nextLine();
+			TreatmentPlant tp = trmtsPlants.get(idTP);
+			// parametros masas de agua
+			System.out.println("-Chose list of Watermasses-");
+			List<WaterMass> listOfWater = jManager.getAllWatermassIndividuals();
+			for (int i = 0; i < listOfWater.size(); i++)
+				System.out.println(i + ". " + listOfWater.get(i).toString());
+			System.out.print("List of ids [0 1 4 5 . . .] : ");
+			String ids = sc.nextLine();
+			String[] splited = ids.split("\\s+");
+			List<WaterMass> parameters = new ArrayList<>();
+			for (int i = 0; i < splited.length; i++) {
+				int id = Integer.valueOf(splited[i]);
+				parameters.add(listOfWater.get(id));
+			}
+			// effeciency of TP with paramaters as input watermasses
+			Method method = processes.getClass().getMethod(nameFunction, TreatmentPlant.class, List.class);
+			method.invoke(processes, tp, parameters);
 		}
 	}
 

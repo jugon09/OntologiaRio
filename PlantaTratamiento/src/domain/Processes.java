@@ -26,7 +26,7 @@ public class Processes {
 	}
 
 	public WaterMass mergeWaterEfficient(List<WaterMass> listOfWater) {
-		WaterMass result = null;
+		WaterMass result = listOfWater.get(0);
 		WaterMass tmp = listOfWater.get(0);
 		for (int i = 1; i < listOfWater.size(); i++) {
 			result = mergeWater(tmp, listOfWater.get(i));
@@ -41,9 +41,29 @@ public class Processes {
 		double DQO = volum * factory.industry.produceDQO;
 		return new WaterMass(volum, DBO, DQO);
 	}
-	
+
 	public WaterMass purifyWater(TreatmentPlant tp, WaterMass wm) {
 		return tp.applyAllTreatments(wm);
+	}
+
+	public void treatmentPlantEfficiency(TreatmentPlant tp, List<WaterMass> listOfWater) {
+		WaterMass inWater = mergeWater(listOfWater);
+		WaterMass outWater = null;
+		double volumDiff = inWater.volume - tp.getTotalapacity();
+		if (volumDiff > 0) {
+			// Watermass remaining
+			WaterMass remainingWater = new WaterMass(volumDiff, inWater.DBO, inWater.DQO);
+			WaterMass procesedWater = new WaterMass(tp.getTotalapacity(), inWater.DBO, inWater.DQO);
+			WaterMass purifiedWater = purifyWater(tp, procesedWater);
+			outWater = mergeWater(purifiedWater, remainingWater);
+		} else {
+			outWater = purifyWater(tp, inWater);
+		}
+		// Efficiency
+		int DBO = (int) (((inWater.DBO - outWater.DBO) / inWater.DBO) * 100);
+		System.out.println("DBO efficiency : " + DBO + "%");
+		int DQO = (int) (((inWater.DQO - outWater.DQO) / inWater.DQO) * 100);
+		System.out.println("DQO efficiency : " + DQO + "%");
 	}
 
 }

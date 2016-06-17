@@ -206,10 +206,10 @@ public class JenaManager {
 		Property propertyTime = mModel.getProperty(NAMING_CONTEXT + "takesHours");
 		RDFNode nodeTime = tp.getPropertyValue(propertyTime);
 		int tiempo = nodeTime.asLiteral().getInt();
-		Property propertyRDBO = mModel.getProperty(NAMING_CONTEXT + "reducesDBO");
+		Property propertyRDBO = mModel.getProperty(NAMING_CONTEXT + "reduceDBO");
 		RDFNode nodeRDBO = tp.getPropertyValue(propertyRDBO);
 		double rDBO = nodeRDBO.asLiteral().getDouble();
-		Property propertyRDQO = mModel.getProperty(NAMING_CONTEXT + "reducesDQO");
+		Property propertyRDQO = mModel.getProperty(NAMING_CONTEXT + "reduceDQO");
 		RDFNode nodeRDQO = tp.getPropertyValue(propertyRDQO);
 		double rDQO = nodeRDQO.asLiteral().getDouble();
 		return new Treatment(tiempo,rDQO,rDBO);
