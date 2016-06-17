@@ -1,10 +1,7 @@
 package domain;
 
 import java.lang.reflect.Method;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -167,11 +164,12 @@ public class Main {
 			List<WaterMass> listOfWater = jManager.getAllWatermassIndividuals();
 			for (int i = 0; i < listOfWater.size(); i++)
 				System.out.println(i + ". " + listOfWater.get(i).toString());
-			System.out.print("Choose number of waterMass");
+			System.out.print("Choose number of waterMass :");
 			int id = sc.nextInt();
-			sc.next();
-			// TODO
-			return;
+			// effeciency of TP with paramaters as input watermasses
+			Method method = processes.getClass().getMethod(nameFunction, WaterMass.class, List.class);
+			method.invoke(processes, listOfWater.get(id), jManager.getAllNormativeIndividuals());
+			sc.nextLine();
 		}
 
 	}

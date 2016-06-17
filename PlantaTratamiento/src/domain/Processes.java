@@ -2,7 +2,6 @@ package domain;
 
 import java.util.List;
 
-
 public class Processes {
 
 	private WaterMass mergeWater(WaterMass w1, WaterMass w2) {
@@ -46,9 +45,9 @@ public class Processes {
 	public WaterMass purifyWater(TreatmentPlant tp, WaterMass wm) {
 		return tp.applyAllTreatments(wm);
 	}
-	
-	public WaterMass timeToReducePollutant(TreatmentPlant tp,WaterMass wm, WaterMass obj,MyTime duracion) {
-		tp.applyTreatment(wm,obj,duracion);
+
+	public WaterMass timeToReducePollutant(TreatmentPlant tp, WaterMass wm, WaterMass obj, MyTime duracion) {
+		tp.applyTreatment(wm, obj, duracion);
 		return wm;
 	}
 
@@ -70,6 +69,20 @@ public class Processes {
 		System.out.println("DBO efficiency : " + DBO + "%");
 		int DQO = (int) (((inWater.DQO - outWater.DQO) / inWater.DQO) * 100);
 		System.out.println("DQO efficiency : " + DQO + "%");
+	}
+
+	public void classifyWaterNormative(WaterMass w, List<Normative> norms) {
+		System.out.println("The " + w);
+		for (Normative normative : norms) {
+			boolean comply = w.DBO <= normative.DBOLimit;
+			comply = comply && w.DQO <= normative.DQOLimit;
+			if (comply)
+				System.out.println("\tComply with Normative : " + normative);
+			else
+				System.out.println("\tNot Comply with Normative : " + normative);
+
+		}
+
 	}
 
 }

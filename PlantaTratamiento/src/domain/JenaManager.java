@@ -106,7 +106,7 @@ public class JenaManager {
 		Industry industry = getIndustryFromIndividual(ind);
 		// Capacity
 		ObjectProperty propertyHas = mModel.getObjectProperty(NAMING_CONTEXT + "has");
-		
+
 		Individual tank = factory.getProperty(propertyHas).getObject().as(Individual.class);
 		Property propertyCapacity = mModel.getProperty(NAMING_CONTEXT + "hasCapacity");
 		RDFNode nodeCapacity = tank.getPropertyValue(propertyCapacity);
@@ -162,7 +162,7 @@ public class JenaManager {
 			return functions;
 		}
 	}
-	
+
 	public List<TreatmentPlant> getAllTreatmentPlantIndividuals() {
 		List<TreatmentPlant> res = new ArrayList<TreatmentPlant>();
 		OntClass treatmentplantClass = mModel.getOntClass(NAMING_CONTEXT + "TreatmentPlant");
@@ -172,34 +172,34 @@ public class JenaManager {
 		}
 		return res;
 	}
-	
+
 	public TreatmentPlant getTreatmentPlantFromIndividual(Individual tp) {
 		TreatmentPlant res = null;
 		ObjectProperty propertyApply = mModel.getObjectProperty(NAMING_CONTEXT + "applies");
 		ArrayList<Treatment> trs = new ArrayList<Treatment>();
-		for (NodeIterator it = tp.listPropertyValues(propertyApply);it.hasNext();) {
+		for (NodeIterator it = tp.listPropertyValues(propertyApply); it.hasNext();) {
 			RDFNode node = it.next();
 			Individual ind = node.as(Individual.class);
 			trs.add(getTreatmentFromTreatmentPlant(ind));
 		}
 		ArrayList<Tank> tqs = new ArrayList<Tank>();
 		ObjectProperty propertyHas = mModel.getObjectProperty(NAMING_CONTEXT + "has");
-		for (NodeIterator it = tp.listPropertyValues(propertyHas);it.hasNext();) {
+		for (NodeIterator it = tp.listPropertyValues(propertyHas); it.hasNext();) {
 			RDFNode node = it.next();
 			Individual ind = node.as(Individual.class);
 			tqs.add(getTankFromTreatmentPlant(ind));
 		}
-		res = new TreatmentPlant(trs,tqs);
+		res = new TreatmentPlant(trs, tqs);
 		return res;
 	}
-	
+
 	public Tank getTankFromTreatmentPlant(Individual tank) {
 		Property propertyCapacity = mModel.getProperty(NAMING_CONTEXT + "hasCapacity");
 		RDFNode nodeCapacity = tank.getPropertyValue(propertyCapacity);
 		double cap = nodeCapacity.asLiteral().getDouble();
 		return new Tank(cap);
 	}
-	
+
 	public Treatment getTreatmentFromTreatmentPlant(Individual tp) {
 		Property propertyTime = mModel.getProperty(NAMING_CONTEXT + "takesHours");
 		RDFNode nodeTime = tp.getPropertyValue(propertyTime);
@@ -210,7 +210,28 @@ public class JenaManager {
 		Property propertyRDQO = mModel.getProperty(NAMING_CONTEXT + "reduceDQO");
 		RDFNode nodeRDQO = tp.getPropertyValue(propertyRDQO);
 		double rDQO = nodeRDQO.asLiteral().getDouble();
-		return new Treatment(tiempo,rDQO,rDBO);
+		return new Treatment(tiempo, rDQO, rDBO);
+	}
+
+	// Retrieve Normatives
+	public List<Normative> getAllNormativeIndividuals() {
+		List<Normative> result = new ArrayList<Normative>();
+		OntClass normativeClass = mModel.getOntClass(NAMING_CONTEXT + "Normative");
+		for (Iterator<Individual> i = mModel.listIndividuals(normativeClass); i.hasNext();) {
+			Individual ind = i.next();
+			result.add(getNormativeFromIndividual(ind));
+		}
+		return result;
+	}
+
+	private Normative getNormativeFromIndividual(Individual normative) {
+		Property propertyRDBO = mModel.getProperty(NAMING_CONTEXT + "hasDBOLimit");
+		RDFNode nodeRDBO = normative.getPropertyValue(propertyRDBO);
+		double DBOL = nodeRDBO.asLiteral().getDouble();
+		Property propertyRDQO = mModel.getProperty(NAMING_CONTEXT + "hasDQOLimit");
+		RDFNode nodeRDQO = normative.getPropertyValue(propertyRDQO);
+		double DQOL = nodeRDQO.asLiteral().getDouble();
+		return new Normative(DBOL, DQOL);
 	}
 
 }
