@@ -190,27 +190,54 @@ public class Main {
 			TreatmentPlant tp = ltp.get(id1);
 			WaterMass res = null;
 			Method method = processes.getClass().getMethod(nameFunction, TreatmentPlant.class, WaterMass.class);
-			res = (WaterMass) method.invoke(processes, tp, wm);
+			res = (WaterMass) method.invoke(processes, tp,wm);
 			if (res != null) {
 				jManager.addWatermassIndividual(res);
 				System.out.println("New Water Mass Purified : " + res.toString());
 			} else
 				System.out.println("Not Purified");
-			System.out.println("TODO");
 		}
 	}
 
 	public void timeToPurifyWatermass() throws Exception {
-		String nameFunction = getFunctionOfProcess("GenerateIndustryWaterMass");
+		String nameFunction = getFunctionOfProcess("TimeToReducePollutant");
 		if (nameFunction != null) {
 			System.out.println("Name of Function : " + nameFunction);
-			SimpleDateFormat formato = new SimpleDateFormat("hh:mm:ss");
-			Date res = formato.parse("00:00:00");
-			Calendar c = Calendar.getInstance();
-			c.setTime(res);
-			System.out.println("TODO");
+			System.out.println("Choose level of DBO");
+			double dbo = sc.nextDouble();
+			System.out.println("Choose level of DQO");
+			double dqo = sc.nextDouble();
+			System.out.println("-Choose list of Watermasses-");
+			List<WaterMass> listOfWater = jManager.getAllWatermassIndividuals();
+			for (int i = 0; i < listOfWater.size(); i++)
+				System.out.println(i + ". " + listOfWater.get(i).toString());
+			System.out.println("Choose number of waterMass");
+			int id = sc.nextInt();
+			WaterMass wm = listOfWater.get(id);
+			System.out.println("Choose list of treatmentPlant");
+			List<TreatmentPlant> ltp = jManager.getAllTreatmentPlantIndividuals();
+			for (int i = 0; i < ltp.size(); ++i) {
+				System.out.println(i + ". " + ltp.get(i).toString());
+			}
+			System.out.println("Choose number of treatmentPlant");
+			int id1 = sc.nextInt();
+			TreatmentPlant tp = ltp.get(id1);
+			WaterMass obj = new WaterMass(wm.volume,dbo,dqo);
+			WaterMass res = null;
+			MyTime duracion = new MyTime(0);
+			Method method = processes.getClass().getMethod(nameFunction, TreatmentPlant.class, WaterMass.class, WaterMass.class,MyTime.class);
+			res = (WaterMass) method.invoke(processes, tp,wm,obj,duracion);
+			if (res != null) {
+				jManager.addWatermassIndividual(res);
+				System.out.println("WaterMass objective :" + obj.toString());
+				System.out.println("New Water Mass Purified : " + res.toString());
+				System.out.println("Take " + duracion.getTime() + " hours");
+			} 
+			else
+				System.out.println("Not Purified");
 		}
 	}
+	
 
 	public void efficienfyOfPlant() throws Exception {
 		String nameFunction = getFunctionOfProcess("TreatmentPlantEfficiency");

@@ -180,7 +180,6 @@ public class JenaManager {
 		for (NodeIterator it = tp.listPropertyValues(propertyApply);it.hasNext();) {
 			RDFNode node = it.next();
 			Individual ind = node.as(Individual.class);
-			System.out.println(ind.getURI());
 			trs.add(getTreatmentFromTreatmentPlant(ind));
 		}
 		ArrayList<Tank> tqs = new ArrayList<Tank>();
@@ -188,7 +187,6 @@ public class JenaManager {
 		for (NodeIterator it = tp.listPropertyValues(propertyHas);it.hasNext();) {
 			RDFNode node = it.next();
 			Individual ind = node.as(Individual.class);
-			System.out.println(ind.getURI());
 			tqs.add(getTankFromTreatmentPlant(ind));
 		}
 		res = new TreatmentPlant(trs,tqs);

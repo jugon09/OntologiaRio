@@ -37,6 +37,7 @@ public class Treatment {
 	}
 	
 	public void treatWaterMass(WaterMass w) {
+		//System.out.println("tratando masa de agua" + w.toString() + " y aplicando tratamiento que dura " + duracion);
 		w.DBO = w.DBO * (1 - reduccionDBO/100);
 		w.DQO = w.DQO * (1 - reduccionDQO/100);
 	}

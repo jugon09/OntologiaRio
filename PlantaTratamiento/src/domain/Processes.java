@@ -2,6 +2,7 @@ package domain;
 
 import java.util.List;
 
+
 public class Processes {
 
 	private WaterMass mergeWater(WaterMass w1, WaterMass w2) {
@@ -44,6 +45,11 @@ public class Processes {
 
 	public WaterMass purifyWater(TreatmentPlant tp, WaterMass wm) {
 		return tp.applyAllTreatments(wm);
+	}
+	
+	public WaterMass timeToReducePollutant(TreatmentPlant tp,WaterMass wm, WaterMass obj,MyTime duracion) {
+		tp.applyTreatment(wm,obj,duracion);
+		return wm;
 	}
 
 	public void treatmentPlantEfficiency(TreatmentPlant tp, List<WaterMass> listOfWater) {
