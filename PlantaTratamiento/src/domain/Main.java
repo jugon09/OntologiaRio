@@ -234,7 +234,6 @@ public class Main {
 			List<WaterMass> listOfWater = jManager.getAllWatermassIndividuals();
 			for (int i = 0; i < listOfWater.size(); i++)
 				System.out.println(i + ". " + listOfWater.get(i).toString());
-			sc.nextLine();
 			System.out.print("List of ids [0 1 4 5 . . .] : ");
 			String ids = sc.nextLine();
 			String[] splited = ids.split("\\s+");

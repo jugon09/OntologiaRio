@@ -302,10 +302,10 @@
                                 <onDatatype rdf:resource="&xsd;double"/>
                                 <withRestrictions rdf:parseType="Collection">
                                     <rdf:Description>
-                                        <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
+                                        <xsd:maxInclusive rdf:datatype="&xsd;double">0.4</xsd:maxInclusive>
                                     </rdf:Description>
                                     <rdf:Description>
-                                        <xsd:maxInclusive rdf:datatype="&xsd;double">0.4</xsd:maxInclusive>
+                                        <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
                                     </rdf:Description>
                                 </withRestrictions>
                             </rdfs:Datatype>
@@ -318,10 +318,10 @@
                                 <onDatatype rdf:resource="&xsd;double"/>
                                 <withRestrictions rdf:parseType="Collection">
                                     <rdf:Description>
-                                        <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
+                                        <xsd:maxInclusive rdf:datatype="&xsd;double">0.4</xsd:maxInclusive>
                                     </rdf:Description>
                                     <rdf:Description>
-                                        <xsd:maxInclusive rdf:datatype="&xsd;double">0.4</xsd:maxInclusive>
+                                        <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
                                     </rdf:Description>
                                 </withRestrictions>
                             </rdfs:Datatype>
@@ -374,10 +374,10 @@
                                 <onDatatype rdf:resource="&xsd;double"/>
                                 <withRestrictions rdf:parseType="Collection">
                                     <rdf:Description>
-                                        <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
+                                        <xsd:maxInclusive rdf:datatype="&xsd;double">0.4</xsd:maxInclusive>
                                     </rdf:Description>
                                     <rdf:Description>
-                                        <xsd:maxInclusive rdf:datatype="&xsd;double">0.4</xsd:maxInclusive>
+                                        <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
                                     </rdf:Description>
                                 </withRestrictions>
                             </rdfs:Datatype>
@@ -396,15 +396,15 @@
     <Class rdf:about="&ontologiaRio;Factory">
         <equivalentClass>
             <Restriction>
-                <onProperty rdf:resource="&ontologiaRio;has"/>
-                <onClass rdf:resource="&ontologiaRio;Tank"/>
+                <onProperty rdf:resource="&ontologiaRio;BelongTo"/>
+                <onClass rdf:resource="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
                 <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minQualifiedCardinality>
             </Restriction>
         </equivalentClass>
         <equivalentClass>
             <Restriction>
-                <onProperty rdf:resource="&ontologiaRio;BelongTo"/>
-                <onClass rdf:resource="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+                <onProperty rdf:resource="&ontologiaRio;has"/>
+                <onClass rdf:resource="&ontologiaRio;Tank"/>
                 <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minQualifiedCardinality>
             </Restriction>
         </equivalentClass>
@@ -551,8 +551,8 @@
     <Class rdf:about="&ontologiaRio;Process">
         <equivalentClass>
             <Restriction>
-                <onProperty rdf:resource="&ontologiaRio;hasOutput"/>
-                <cardinality rdf:datatype="&xsd;nonNegativeInteger">1</cardinality>
+                <onProperty rdf:resource="&ontologiaRio;hasInput"/>
+                <minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minCardinality>
             </Restriction>
         </equivalentClass>
         <equivalentClass>
@@ -564,8 +564,8 @@
         </equivalentClass>
         <equivalentClass>
             <Restriction>
-                <onProperty rdf:resource="&ontologiaRio;hasInput"/>
-                <minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minCardinality>
+                <onProperty rdf:resource="&ontologiaRio;hasOutput"/>
+                <cardinality rdf:datatype="&xsd;nonNegativeInteger">1</cardinality>
             </Restriction>
         </equivalentClass>
     </Class>
@@ -668,14 +668,14 @@
         </equivalentClass>
         <equivalentClass>
             <Restriction>
-                <onProperty rdf:resource="&ontologiaRio;reduceDQO"/>
+                <onProperty rdf:resource="&ontologiaRio;reduceDBO"/>
                 <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
                 <onDataRange rdf:resource="&xsd;double"/>
             </Restriction>
         </equivalentClass>
         <equivalentClass>
             <Restriction>
-                <onProperty rdf:resource="&ontologiaRio;reduceDBO"/>
+                <onProperty rdf:resource="&ontologiaRio;reduceDQO"/>
                 <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
                 <onDataRange rdf:resource="&xsd;double"/>
             </Restriction>
@@ -725,10 +725,10 @@
                                 <onDatatype rdf:resource="&xsd;double"/>
                                 <withRestrictions rdf:parseType="Collection">
                                     <rdf:Description>
-                                        <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
+                                        <xsd:maxInclusive rdf:datatype="&xsd;double">100.0</xsd:maxInclusive>
                                     </rdf:Description>
                                     <rdf:Description>
-                                        <xsd:maxInclusive rdf:datatype="&xsd;double">100.0</xsd:maxInclusive>
+                                        <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
                                     </rdf:Description>
                                 </withRestrictions>
                             </rdfs:Datatype>
@@ -747,13 +747,13 @@
     <Class rdf:about="&ontologiaRio;WaterMass">
         <equivalentClass>
             <Restriction>
-                <onProperty rdf:resource="&ontologiaRio;hasDBO"/>
+                <onProperty rdf:resource="&ontologiaRio;hasVolume"/>
                 <allValuesFrom>
                     <rdfs:Datatype>
                         <onDatatype rdf:resource="&xsd;double"/>
                         <withRestrictions rdf:parseType="Collection">
                             <rdf:Description>
-                                <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
+                                <xsd:minExclusive rdf:datatype="&xsd;double">0.0</xsd:minExclusive>
                             </rdf:Description>
                         </withRestrictions>
                     </rdfs:Datatype>
@@ -762,13 +762,13 @@
         </equivalentClass>
         <equivalentClass>
             <Restriction>
-                <onProperty rdf:resource="&ontologiaRio;hasVolume"/>
+                <onProperty rdf:resource="&ontologiaRio;hasDBO"/>
                 <allValuesFrom>
                     <rdfs:Datatype>
                         <onDatatype rdf:resource="&xsd;double"/>
                         <withRestrictions rdf:parseType="Collection">
                             <rdf:Description>
-                                <xsd:minExclusive rdf:datatype="&xsd;double">0.0</xsd:minExclusive>
+                                <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
                             </rdf:Description>
                         </withRestrictions>
                     </rdfs:Datatype>
@@ -918,6 +918,15 @@
         <rdf:type rdf:resource="&ontologiaRio;TreatmentPlant"/>
         <ontologiaRio:has rdf:resource="&ontologiaRio;tank_1"/>
         <ontologiaRio:applies rdf:resource="&ontologiaRio;treatment_1"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#treatment_plant_efficiency_1 -->
+
+    <NamedIndividual rdf:about="&ontologiaRio;treatment_plant_efficiency_1">
+        <rdf:type rdf:resource="&ontologiaRio;TreatmentPlantEfficiency"/>
+        <ontologiaRio:hasCode rdf:datatype="&xsd;string">treatmentPlantEfficiency</ontologiaRio:hasCode>
     </NamedIndividual>
 </rdf:RDF>
 
