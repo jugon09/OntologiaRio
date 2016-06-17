@@ -4,9 +4,11 @@ import java.util.ArrayList;
 
 public class TreatmentPlant {
 	private ArrayList<Treatment> tratamientos;
+	private ArrayList<Tank> tanques;
 	
-	public TreatmentPlant(ArrayList<Treatment> t) {
+	public TreatmentPlant(ArrayList<Treatment> t, ArrayList<Tank> tan) {
 		tratamientos = t;
+		tanques = tan;
 	}
 
 	public ArrayList<Treatment> getTratamientos() {
@@ -17,6 +19,14 @@ public class TreatmentPlant {
 		this.tratamientos = tratamientos;
 	}
 	
+	public ArrayList<Tank> getTanques() {
+		return tanques;
+	}
+
+	public void setTanques(ArrayList<Tank> tanques) {
+		this.tanques = tanques;
+	}
+
 	public WaterMass applyAllTreatments(WaterMass w) {
 		WaterMass res = new WaterMass(w);
 		for (Treatment t: tratamientos) t.treatWaterMass(res);
