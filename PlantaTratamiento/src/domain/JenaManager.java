@@ -215,7 +215,7 @@ public class JenaManager {
 		double pho = 0;
 		if (nodePho != null && nodePho.isLiteral())
 			pho = nodePho.asLiteral().getDouble();
-		// WaterMass
+		// Industry
 		return new Industry(dbo, dqo, sst, nit, pho);
 	}
 
@@ -266,13 +266,37 @@ public class JenaManager {
 		Property propertyTime = mModel.getProperty(NAMING_CONTEXT + "takesHours");
 		RDFNode nodeTime = tp.getPropertyValue(propertyTime);
 		int tiempo = nodeTime.asLiteral().getInt();
-		Property propertyRDBO = mModel.getProperty(NAMING_CONTEXT + "reduceDBO");
-		RDFNode nodeRDBO = tp.getPropertyValue(propertyRDBO);
-		double rDBO = nodeRDBO.asLiteral().getDouble();
-		Property propertyRDQO = mModel.getProperty(NAMING_CONTEXT + "reduceDQO");
-		RDFNode nodeRDQO = tp.getPropertyValue(propertyRDQO);
-		double rDQO = nodeRDQO.asLiteral().getDouble();
-		return new Treatment(tiempo, rDQO, rDBO);
+		// DBO
+		Property propertyDBO = mModel.getProperty(NAMING_CONTEXT + "reduceDBO");
+		RDFNode nodeDBO = tp.getPropertyValue(propertyDBO);
+		double dbo = 0;
+		if (nodeDBO != null && nodeDBO.isLiteral())
+			dbo = nodeDBO.asLiteral().getDouble();
+		// DBQ
+		Property propertyDQO = mModel.getProperty(NAMING_CONTEXT + "reduceDQO");
+		RDFNode nodeDQO = tp.getPropertyValue(propertyDQO);
+		double dqo = 0;
+		if (nodeDQO != null && nodeDQO.isLiteral())
+			dqo = nodeDQO.asLiteral().getDouble();
+		// SST
+		Property propertySST = mModel.getProperty(NAMING_CONTEXT + "reduceSST");
+		RDFNode nodeSST = tp.getPropertyValue(propertySST);
+		double sst = 0;
+		if (nodeSST != null && nodeSST.isLiteral())
+			sst = nodeSST.asLiteral().getDouble();
+		// Nitrates
+		Property propertyNit = mModel.getProperty(NAMING_CONTEXT + "reduceNitrates");
+		RDFNode nodeNit = tp.getPropertyValue(propertyNit);
+		double nit = 0;
+		if (nodeNit != null && nodeNit.isLiteral())
+			nit = nodeNit.asLiteral().getDouble();
+		// Phosphates
+		Property propertyPho = mModel.getProperty(NAMING_CONTEXT + "reducePhosphates");
+		RDFNode nodePho = tp.getPropertyValue(propertyPho);
+		double pho = 0;
+		if (nodePho != null && nodePho.isLiteral())
+			pho = nodePho.asLiteral().getDouble();
+		return new Treatment(tiempo, dbo, dqo, sst, nit, pho);
 	}
 
 	/************************ Normatives ************************/
