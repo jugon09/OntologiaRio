@@ -120,7 +120,6 @@
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#Volume -->
 
     <DatatypeProperty rdf:about="&ontologiaRio;Volume">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:range rdf:resource="&xsd;double"/>
         <rdfs:domain rdf:resource="&owl;Thing"/>
     </DatatypeProperty>
@@ -131,7 +130,10 @@
 
     <DatatypeProperty rdf:about="&ontologiaRio;hasCapacity">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ontologiaRio;Tank"/>
         <rdfs:subPropertyOf rdf:resource="&ontologiaRio;Volume"/>
+        <propertyDisjointWith rdf:resource="&ontologiaRio;hasVolume"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
     </DatatypeProperty>
     
 
@@ -149,7 +151,9 @@
 
     <DatatypeProperty rdf:about="&ontologiaRio;hasDBO">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ontologiaRio;WaterMass"/>
         <rdfs:subPropertyOf rdf:resource="&ontologiaRio;hasPollutant"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
     </DatatypeProperty>
     
 
@@ -157,7 +161,9 @@
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#hasDBOLimit -->
 
     <DatatypeProperty rdf:about="&ontologiaRio;hasDBOLimit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:subPropertyOf rdf:resource="&ontologiaRio;hasLimit"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
     </DatatypeProperty>
     
 
@@ -166,7 +172,9 @@
 
     <DatatypeProperty rdf:about="&ontologiaRio;hasDQO">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ontologiaRio;WaterMass"/>
         <rdfs:subPropertyOf rdf:resource="&ontologiaRio;hasPollutant"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
     </DatatypeProperty>
     
 
@@ -174,7 +182,9 @@
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#hasDQOLimit -->
 
     <DatatypeProperty rdf:about="&ontologiaRio;hasDQOLimit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:subPropertyOf rdf:resource="&ontologiaRio;hasLimit"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
     </DatatypeProperty>
     
 
@@ -192,9 +202,7 @@
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#hasLimit -->
 
     <DatatypeProperty rdf:about="&ontologiaRio;hasLimit">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:domain rdf:resource="&ontologiaRio;Normative"/>
-        <rdfs:range rdf:resource="&xsd;double"/>
     </DatatypeProperty>
     
 
@@ -208,10 +216,21 @@
     
 
 
-    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#hasOutputDouble -->
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#hasNitrates -->
 
-    <DatatypeProperty rdf:about="&ontologiaRio;hasOutputDouble">
-        <rdfs:domain rdf:resource="&ontologiaRio;Process"/>
+    <DatatypeProperty rdf:about="&ontologiaRio;hasNitrates">
+        <rdfs:domain rdf:resource="&ontologiaRio;WaterMass"/>
+        <rdfs:subPropertyOf rdf:resource="&ontologiaRio;hasPollutant"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#hasNitratesLimit -->
+
+    <DatatypeProperty rdf:about="&ontologiaRio;hasNitratesLimit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&ontologiaRio;hasLimit"/>
         <rdfs:range rdf:resource="&xsd;double"/>
     </DatatypeProperty>
     
@@ -226,11 +245,50 @@
     
 
 
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#hasPhosphates -->
+
+    <DatatypeProperty rdf:about="&ontologiaRio;hasPhosphates">
+        <rdfs:domain rdf:resource="&ontologiaRio;WaterMass"/>
+        <rdfs:subPropertyOf rdf:resource="&ontologiaRio;hasPollutant"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#hasPhosphatesLimit -->
+
+    <DatatypeProperty rdf:about="&ontologiaRio;hasPhosphatesLimit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&ontologiaRio;hasLimit"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </DatatypeProperty>
+    
+
+
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#hasPollutant -->
 
     <DatatypeProperty rdf:about="&ontologiaRio;hasPollutant">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:domain rdf:resource="&ontologiaRio;WaterMass"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#hasSST -->
+
+    <DatatypeProperty rdf:about="&ontologiaRio;hasSST">
+        <rdfs:domain rdf:resource="&ontologiaRio;WaterMass"/>
+        <rdfs:subPropertyOf rdf:resource="&ontologiaRio;hasPollutant"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#hasSSTLimit -->
+
+    <DatatypeProperty rdf:about="&ontologiaRio;hasSSTLimit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&ontologiaRio;hasLimit"/>
         <rdfs:range rdf:resource="&xsd;double"/>
     </DatatypeProperty>
     
@@ -250,6 +308,8 @@
 
     <DatatypeProperty rdf:about="&ontologiaRio;produceDBO">
         <rdfs:subPropertyOf rdf:resource="&ontologiaRio;producePollutant"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
     </DatatypeProperty>
     
 
@@ -258,6 +318,28 @@
 
     <DatatypeProperty rdf:about="&ontologiaRio;produceDQO">
         <rdfs:subPropertyOf rdf:resource="&ontologiaRio;producePollutant"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#produceNitrates -->
+
+    <DatatypeProperty rdf:about="&ontologiaRio;produceNitrates">
+        <rdfs:subPropertyOf rdf:resource="&ontologiaRio;producePollutant"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#producePhosphates -->
+
+    <DatatypeProperty rdf:about="&ontologiaRio;producePhosphates">
+        <rdfs:subPropertyOf rdf:resource="&ontologiaRio;producePollutant"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
     </DatatypeProperty>
     
 
@@ -265,6 +347,15 @@
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#producePollutant -->
 
     <DatatypeProperty rdf:about="&ontologiaRio;producePollutant">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#produceSST -->
+
+    <DatatypeProperty rdf:about="&ontologiaRio;produceSST">
+        <rdfs:subPropertyOf rdf:resource="&ontologiaRio;producePollutant"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
         <rdfs:range rdf:resource="&xsd;double"/>
     </DatatypeProperty>
@@ -274,6 +365,7 @@
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#reduceDBO -->
 
     <DatatypeProperty rdf:about="&ontologiaRio;reduceDBO">
+        <rdfs:domain rdf:resource="&ontologiaRio;Treatment"/>
         <rdfs:subPropertyOf rdf:resource="&ontologiaRio;reducePollutant"/>
         <rdfs:range rdf:resource="&xsd;double"/>
     </DatatypeProperty>
@@ -283,6 +375,27 @@
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#reduceDQO -->
 
     <DatatypeProperty rdf:about="&ontologiaRio;reduceDQO">
+        <rdfs:domain rdf:resource="&ontologiaRio;Treatment"/>
+        <rdfs:subPropertyOf rdf:resource="&ontologiaRio;reducePollutant"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#reduceNitrates -->
+
+    <DatatypeProperty rdf:about="&ontologiaRio;reduceNitrates">
+        <rdfs:domain rdf:resource="&ontologiaRio;Treatment"/>
+        <rdfs:subPropertyOf rdf:resource="&ontologiaRio;reducePollutant"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#reducePhosphates -->
+
+    <DatatypeProperty rdf:about="&ontologiaRio;reducePhosphates">
+        <rdfs:domain rdf:resource="&ontologiaRio;Treatment"/>
         <rdfs:subPropertyOf rdf:resource="&ontologiaRio;reducePollutant"/>
         <rdfs:range rdf:resource="&xsd;double"/>
     </DatatypeProperty>
@@ -292,7 +405,18 @@
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#reducePollutant -->
 
     <DatatypeProperty rdf:about="&ontologiaRio;reducePollutant">
+        <rdfs:comment rdf:datatype="&xsd;string">Pensamos en hacer una generalización de cada uno de los contaminantes porque las medidas en las que se tomaban quizás no son uniformes.</rdfs:comment>
         <rdfs:domain rdf:resource="&ontologiaRio;Treatment"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#reduceSST -->
+
+    <DatatypeProperty rdf:about="&ontologiaRio;reduceSST">
+        <rdfs:domain rdf:resource="&ontologiaRio;Treatment"/>
+        <rdfs:subPropertyOf rdf:resource="&ontologiaRio;reducePollutant"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
     </DatatypeProperty>
     
 
@@ -304,20 +428,6 @@
         <rdfs:domain rdf:resource="&ontologiaRio;Treatment"/>
         <rdfs:range rdf:resource="&xsd;int"/>
     </DatatypeProperty>
-    
-
-
-    <!-- http://www.w3.org/2006/time#week -->
-
-    <DatatypeProperty rdf:about="http://www.w3.org/2006/time#week">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2006/time#weeks"/>
-    </DatatypeProperty>
-    
-
-
-    <!-- http://www.w3.org/2006/time#weeks -->
-
-    <DatatypeProperty rdf:about="http://www.w3.org/2006/time#weeks"/>
     
 
 
@@ -346,10 +456,10 @@
                                 <onDatatype rdf:resource="&xsd;double"/>
                                 <withRestrictions rdf:parseType="Collection">
                                     <rdf:Description>
-                                        <xsd:maxInclusive rdf:datatype="&xsd;double">0.4</xsd:maxInclusive>
+                                        <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
                                     </rdf:Description>
                                     <rdf:Description>
-                                        <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
+                                        <xsd:maxInclusive rdf:datatype="&xsd;double">0.4</xsd:maxInclusive>
                                     </rdf:Description>
                                 </withRestrictions>
                             </rdfs:Datatype>
@@ -362,10 +472,10 @@
                                 <onDatatype rdf:resource="&xsd;double"/>
                                 <withRestrictions rdf:parseType="Collection">
                                     <rdf:Description>
-                                        <xsd:maxInclusive rdf:datatype="&xsd;double">0.4</xsd:maxInclusive>
+                                        <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
                                     </rdf:Description>
                                     <rdf:Description>
-                                        <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
+                                        <xsd:maxInclusive rdf:datatype="&xsd;double">0.4</xsd:maxInclusive>
                                     </rdf:Description>
                                 </withRestrictions>
                             </rdfs:Datatype>
@@ -418,10 +528,10 @@
                                 <onDatatype rdf:resource="&xsd;double"/>
                                 <withRestrictions rdf:parseType="Collection">
                                     <rdf:Description>
-                                        <xsd:maxInclusive rdf:datatype="&xsd;double">0.4</xsd:maxInclusive>
+                                        <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
                                     </rdf:Description>
                                     <rdf:Description>
-                                        <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
+                                        <xsd:maxInclusive rdf:datatype="&xsd;double">0.4</xsd:maxInclusive>
                                     </rdf:Description>
                                 </withRestrictions>
                             </rdfs:Datatype>
@@ -430,6 +540,7 @@
                 </intersectionOf>
             </Class>
         </equivalentClass>
+        <rdfs:subClassOf rdf:resource="&ontologiaRio;WaterMass"/>
         <disjointWith rdf:resource="&ontologiaRio;PollutedWaterMass"/>
     </Class>
     
@@ -440,18 +551,19 @@
     <Class rdf:about="&ontologiaRio;Factory">
         <equivalentClass>
             <Restriction>
-                <onProperty rdf:resource="&ontologiaRio;has"/>
-                <onClass rdf:resource="&ontologiaRio;Tank"/>
-                <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minQualifiedCardinality>
-            </Restriction>
-        </equivalentClass>
-        <equivalentClass>
-            <Restriction>
                 <onProperty rdf:resource="&ontologiaRio;BelongTo"/>
                 <onClass rdf:resource="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry"/>
                 <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minQualifiedCardinality>
             </Restriction>
         </equivalentClass>
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;has"/>
+                <onClass rdf:resource="&ontologiaRio;Tank"/>
+                <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minQualifiedCardinality>
+            </Restriction>
+        </equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
         <rdfs:comment>La clase fábrica pertenece a mínimo una industria y contiene minímo un tanque. Así, cada fábrica le añade los contaminantes pertenecientes a su industria a la masa de agua que genera y la almacena en un tanque para que luego esta masa sea tratada por la planta de tratamiento.</rdfs:comment>
     </Class>
     
@@ -525,7 +637,38 @@
 
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#Normative -->
 
-    <Class rdf:about="&ontologiaRio;Normative"/>
+    <Class rdf:about="&ontologiaRio;Normative">
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;hasNitratesLimit"/>
+                <allValuesFrom rdf:resource="&xsd;double"/>
+            </Restriction>
+        </equivalentClass>
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;hasDBOLimit"/>
+                <allValuesFrom rdf:resource="&xsd;double"/>
+            </Restriction>
+        </equivalentClass>
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;hasDQOLimit"/>
+                <allValuesFrom rdf:resource="&xsd;double"/>
+            </Restriction>
+        </equivalentClass>
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;hasSSTLimit"/>
+                <allValuesFrom rdf:resource="&xsd;double"/>
+            </Restriction>
+        </equivalentClass>
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;hasPhosphatesLimit"/>
+                <allValuesFrom rdf:resource="&xsd;double"/>
+            </Restriction>
+        </equivalentClass>
+    </Class>
     
 
 
@@ -572,6 +715,7 @@
             </Class>
         </equivalentClass>
         <rdfs:subClassOf rdf:resource="&ontologiaRio;WaterMass"/>
+        <disjointWith rdf:resource="&ontologiaRio;PurifiedWaterMass"/>
     </Class>
     
 
@@ -607,15 +751,15 @@
         </equivalentClass>
         <equivalentClass>
             <Restriction>
-                <onProperty rdf:resource="&ontologiaRio;hasOutput"/>
-                <cardinality rdf:datatype="&xsd;nonNegativeInteger">1</cardinality>
+                <onProperty rdf:resource="&ontologiaRio;hasCode"/>
+                <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
+                <onDataRange rdf:resource="&xsd;string"/>
             </Restriction>
         </equivalentClass>
         <equivalentClass>
             <Restriction>
-                <onProperty rdf:resource="&ontologiaRio;hasCode"/>
-                <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
-                <onDataRange rdf:resource="&xsd;string"/>
+                <onProperty rdf:resource="&ontologiaRio;hasOutput"/>
+                <cardinality rdf:datatype="&xsd;nonNegativeInteger">1</cardinality>
             </Restriction>
         </equivalentClass>
     </Class>
@@ -732,93 +876,7 @@
     <Class rdf:about="&ontologiaRio;Treatment">
         <equivalentClass>
             <Restriction>
-                <onProperty rdf:resource="&ontologiaRio;takesHours"/>
-                <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
-                <onDataRange rdf:resource="&xsd;int"/>
-            </Restriction>
-        </equivalentClass>
-        <equivalentClass>
-            <Restriction>
                 <onProperty rdf:resource="&ontologiaRio;reduceDBO"/>
-                <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
-                <onDataRange rdf:resource="&xsd;double"/>
-            </Restriction>
-        </equivalentClass>
-        <equivalentClass>
-            <Restriction>
-                <onProperty rdf:resource="&ontologiaRio;reduceDQO"/>
-                <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
-                <onDataRange rdf:resource="&xsd;double"/>
-            </Restriction>
-        </equivalentClass>
-    </Class>
-    
-
-
-    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#TreatmentPlant -->
-
-    <Class rdf:about="&ontologiaRio;TreatmentPlant">
-        <equivalentClass>
-            <Restriction>
-                <onProperty rdf:resource="&ontologiaRio;applies"/>
-                <onClass rdf:resource="&ontologiaRio;Treatment"/>
-                <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minQualifiedCardinality>
-            </Restriction>
-        </equivalentClass>
-        <equivalentClass>
-            <Restriction>
-                <onProperty rdf:resource="&ontologiaRio;has"/>
-                <onClass rdf:resource="&ontologiaRio;Tank"/>
-                <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minQualifiedCardinality>
-            </Restriction>
-        </equivalentClass>
-    </Class>
-    
-
-
-    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#TreatmentPlantEfficiency -->
-
-    <Class rdf:about="&ontologiaRio;TreatmentPlantEfficiency">
-        <equivalentClass>
-            <Class>
-                <intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&ontologiaRio;Process"/>
-                    <Restriction>
-                        <onProperty rdf:resource="&ontologiaRio;hasInput"/>
-                        <onClass rdf:resource="&ontologiaRio;WaterMass"/>
-                        <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
-                    </Restriction>
-                    <Restriction>
-                        <onProperty rdf:resource="&ontologiaRio;hasOutputDouble"/>
-                        <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
-                        <onDataRange>
-                            <rdfs:Datatype>
-                                <onDatatype rdf:resource="&xsd;double"/>
-                                <withRestrictions rdf:parseType="Collection">
-                                    <rdf:Description>
-                                        <xsd:maxInclusive rdf:datatype="&xsd;double">100.0</xsd:maxInclusive>
-                                    </rdf:Description>
-                                    <rdf:Description>
-                                        <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
-                                    </rdf:Description>
-                                </withRestrictions>
-                            </rdfs:Datatype>
-                        </onDataRange>
-                    </Restriction>
-                </intersectionOf>
-            </Class>
-        </equivalentClass>
-        <rdfs:subClassOf rdf:resource="&ontologiaRio;Process"/>
-    </Class>
-    
-
-
-    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#WaterMass -->
-
-    <Class rdf:about="&ontologiaRio;WaterMass">
-        <equivalentClass>
-            <Restriction>
-                <onProperty rdf:resource="&ontologiaRio;hasDBO"/>
                 <allValuesFrom>
                     <rdfs:Datatype>
                         <onDatatype rdf:resource="&xsd;double"/>
@@ -831,6 +889,109 @@
                 </allValuesFrom>
             </Restriction>
         </equivalentClass>
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;reduceDQO"/>
+                <allValuesFrom>
+                    <rdfs:Datatype>
+                        <onDatatype rdf:resource="&xsd;double"/>
+                        <withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
+                            </rdf:Description>
+                        </withRestrictions>
+                    </rdfs:Datatype>
+                </allValuesFrom>
+            </Restriction>
+        </equivalentClass>
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;takesHours"/>
+                <allValuesFrom rdf:resource="&xsd;int"/>
+            </Restriction>
+        </equivalentClass>
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;reduceNitrates"/>
+                <allValuesFrom>
+                    <rdfs:Datatype>
+                        <onDatatype rdf:resource="&xsd;double"/>
+                        <withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
+                            </rdf:Description>
+                        </withRestrictions>
+                    </rdfs:Datatype>
+                </allValuesFrom>
+            </Restriction>
+        </equivalentClass>
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;reduceSST"/>
+                <allValuesFrom>
+                    <rdfs:Datatype>
+                        <onDatatype rdf:resource="&xsd;double"/>
+                        <withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
+                            </rdf:Description>
+                        </withRestrictions>
+                    </rdfs:Datatype>
+                </allValuesFrom>
+            </Restriction>
+        </equivalentClass>
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;reducePhosphates"/>
+                <allValuesFrom>
+                    <rdfs:Datatype>
+                        <onDatatype rdf:resource="&xsd;double"/>
+                        <withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
+                            </rdf:Description>
+                        </withRestrictions>
+                    </rdfs:Datatype>
+                </allValuesFrom>
+            </Restriction>
+        </equivalentClass>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#TreatmentPlant -->
+
+    <Class rdf:about="&ontologiaRio;TreatmentPlant">
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;has"/>
+                <onClass rdf:resource="&ontologiaRio;Tank"/>
+                <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minQualifiedCardinality>
+            </Restriction>
+        </equivalentClass>
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;applies"/>
+                <onClass rdf:resource="&ontologiaRio;Treatment"/>
+                <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minQualifiedCardinality>
+            </Restriction>
+        </equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#TreatmentPlantEfficiency -->
+
+    <Class rdf:about="&ontologiaRio;TreatmentPlantEfficiency">
+        <rdfs:subClassOf rdf:resource="&ontologiaRio;Process"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#WaterMass -->
+
+    <Class rdf:about="&ontologiaRio;WaterMass">
         <equivalentClass>
             <Restriction>
                 <onProperty rdf:resource="&ontologiaRio;hasVolume"/>
@@ -846,6 +1007,14 @@
                 </allValuesFrom>
             </Restriction>
         </equivalentClass>
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;hasPollutant"/>
+                <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">5</minQualifiedCardinality>
+                <onDataRange rdf:resource="&xsd;double"/>
+            </Restriction>
+        </equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
     </Class>
     
 
@@ -861,6 +1030,14 @@
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry -->
 
     <Class rdf:about="http://www.semanticweb.org/camilo/ontologies/2016/4/untitled-ontology-4#Industry">
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&ontologiaRio;producePollutant"/>
+                <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">5</minQualifiedCardinality>
+                <onDataRange rdf:resource="&xsd;double"/>
+            </Restriction>
+        </equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
         <rdfs:comment>La clase industria es la superclase de cada uno de los tipos de industria que hemos encontrado que se pueden encontrar en el Besos. Cada subclase contiene la aportación de cada contaminante especifico de cada industria a las masas de agua que generan sus fábricas.</rdfs:comment>
     </Class>
     
@@ -946,7 +1123,6 @@
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#normative_DIRECTIVA91-271-CEE -->
 
     <NamedIndividual rdf:about="&ontologiaRio;normative_DIRECTIVA91-271-CEE">
-        <rdf:type rdf:resource="&ontologiaRio;Normative"/>
         <ontologiaRio:hasDQOLimit rdf:datatype="&xsd;double">125.0</ontologiaRio:hasDQOLimit>
         <ontologiaRio:hasDBOLimit rdf:datatype="&xsd;double">25.0</ontologiaRio:hasDBOLimit>
         <ontologiaRio:hasName rdf:datatype="&xsd;string">DIRECTIVA 91/271/CEE</ontologiaRio:hasName>
@@ -1041,6 +1217,66 @@
         <ontologiaRio:hasDBO rdf:datatype="&xsd;double">0.2</ontologiaRio:hasDBO>
         <ontologiaRio:hasVolume rdf:datatype="&xsd;double">500.0</ontologiaRio:hasVolume>
     </NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointProperties"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ontologiaRio;hasDBO"/>
+            <rdf:Description rdf:about="&ontologiaRio;hasDQO"/>
+            <rdf:Description rdf:about="&ontologiaRio;hasNitrates"/>
+            <rdf:Description rdf:about="&ontologiaRio;hasPhosphates"/>
+            <rdf:Description rdf:about="&ontologiaRio;hasSST"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointProperties"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ontologiaRio;produceDBO"/>
+            <rdf:Description rdf:about="&ontologiaRio;produceDQO"/>
+            <rdf:Description rdf:about="&ontologiaRio;produceNitrates"/>
+            <rdf:Description rdf:about="&ontologiaRio;producePhosphates"/>
+            <rdf:Description rdf:about="&ontologiaRio;produceSST"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointProperties"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ontologiaRio;reduceDBO"/>
+            <rdf:Description rdf:about="&ontologiaRio;reduceDQO"/>
+            <rdf:Description rdf:about="&ontologiaRio;reduceNitrates"/>
+            <rdf:Description rdf:about="&ontologiaRio;reducePhosphates"/>
+            <rdf:Description rdf:about="&ontologiaRio;reduceSST"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointProperties"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ontologiaRio;hasDBOLimit"/>
+            <rdf:Description rdf:about="&ontologiaRio;hasDQOLimit"/>
+            <rdf:Description rdf:about="&ontologiaRio;hasNitratesLimit"/>
+            <rdf:Description rdf:about="&ontologiaRio;hasPhosphatesLimit"/>
+            <rdf:Description rdf:about="&ontologiaRio;hasSSTLimit"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointProperties"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ontologiaRio;hasLimit"/>
+            <rdf:Description rdf:about="&ontologiaRio;hasPollutant"/>
+            <rdf:Description rdf:about="&ontologiaRio;producePollutant"/>
+            <rdf:Description rdf:about="&ontologiaRio;reducePollutant"/>
+        </members>
+    </rdf:Description>
 </rdf:RDF>
 
 
