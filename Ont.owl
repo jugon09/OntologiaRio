@@ -150,7 +150,6 @@
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#hasDBO -->
 
     <DatatypeProperty rdf:about="&ontologiaRio;hasDBO">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:domain rdf:resource="&ontologiaRio;WaterMass"/>
         <rdfs:subPropertyOf rdf:resource="&ontologiaRio;hasPollutant"/>
         <rdfs:range rdf:resource="&xsd;double"/>
@@ -161,7 +160,6 @@
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#hasDBOLimit -->
 
     <DatatypeProperty rdf:about="&ontologiaRio;hasDBOLimit">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:subPropertyOf rdf:resource="&ontologiaRio;hasLimit"/>
         <rdfs:range rdf:resource="&xsd;double"/>
     </DatatypeProperty>
@@ -171,7 +169,6 @@
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#hasDQO -->
 
     <DatatypeProperty rdf:about="&ontologiaRio;hasDQO">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:domain rdf:resource="&ontologiaRio;WaterMass"/>
         <rdfs:subPropertyOf rdf:resource="&ontologiaRio;hasPollutant"/>
         <rdfs:range rdf:resource="&xsd;double"/>
@@ -182,7 +179,6 @@
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#hasDQOLimit -->
 
     <DatatypeProperty rdf:about="&ontologiaRio;hasDQOLimit">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:subPropertyOf rdf:resource="&ontologiaRio;hasLimit"/>
         <rdfs:range rdf:resource="&xsd;double"/>
     </DatatypeProperty>
@@ -229,7 +225,6 @@
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#hasNitratesLimit -->
 
     <DatatypeProperty rdf:about="&ontologiaRio;hasNitratesLimit">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:subPropertyOf rdf:resource="&ontologiaRio;hasLimit"/>
         <rdfs:range rdf:resource="&xsd;double"/>
     </DatatypeProperty>
@@ -258,7 +253,6 @@
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#hasPhosphatesLimit -->
 
     <DatatypeProperty rdf:about="&ontologiaRio;hasPhosphatesLimit">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:subPropertyOf rdf:resource="&ontologiaRio;hasLimit"/>
         <rdfs:range rdf:resource="&xsd;double"/>
     </DatatypeProperty>
@@ -287,7 +281,6 @@
     <!-- http://www.semanticweb.org/camilo/ontologies/2016/4/ontologiaRio#hasSSTLimit -->
 
     <DatatypeProperty rdf:about="&ontologiaRio;hasSSTLimit">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:subPropertyOf rdf:resource="&ontologiaRio;hasLimit"/>
         <rdfs:range rdf:resource="&xsd;double"/>
     </DatatypeProperty>
@@ -519,7 +512,7 @@
     <Class rdf:about="&ontologiaRio;CleanWaterMass">
         <equivalentClass>
             <Class>
-                <unionOf rdf:parseType="Collection">
+                <intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&ontologiaRio;WaterMass"/>
                     <Restriction>
                         <onProperty rdf:resource="&ontologiaRio;hasDBO"/>
@@ -601,7 +594,7 @@
                             </rdfs:Datatype>
                         </allValuesFrom>
                     </Restriction>
-                </unionOf>
+                </intersectionOf>
             </Class>
         </equivalentClass>
         <rdfs:subClassOf rdf:resource="&ontologiaRio;WaterMass"/>
@@ -1250,7 +1243,11 @@
         <rdf:type rdf:resource="&ontologiaRio;PollutedWaterMass"/>
         <rdf:type rdf:resource="&ontologiaRio;WaterMass"/>
         <ontologiaRio:hasDBO rdf:datatype="&xsd;double">30.0</ontologiaRio:hasDBO>
+        <ontologiaRio:hasDQO rdf:datatype="&xsd;double">300.0</ontologiaRio:hasDQO>
         <ontologiaRio:hasVolume rdf:datatype="&xsd;double">300.0</ontologiaRio:hasVolume>
+        <ontologiaRio:hasNitrates rdf:datatype="&xsd;double">50.0</ontologiaRio:hasNitrates>
+        <ontologiaRio:hasSST rdf:datatype="&xsd;double">60.0</ontologiaRio:hasSST>
+        <ontologiaRio:hasPhosphates rdf:datatype="&xsd;double">60.0</ontologiaRio:hasPhosphates>
     </NamedIndividual>
     
 
@@ -1348,36 +1345,6 @@
     <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointProperties"/>
         <members rdf:parseType="Collection">
-            <rdf:Description rdf:about="&ontologiaRio;hasDBO"/>
-            <rdf:Description rdf:about="&ontologiaRio;hasDQO"/>
-            <rdf:Description rdf:about="&ontologiaRio;hasNitrates"/>
-            <rdf:Description rdf:about="&ontologiaRio;hasPhosphates"/>
-            <rdf:Description rdf:about="&ontologiaRio;hasSST"/>
-        </members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&owl;AllDisjointProperties"/>
-        <members rdf:parseType="Collection">
-            <rdf:Description rdf:about="&ontologiaRio;produceDBO"/>
-            <rdf:Description rdf:about="&ontologiaRio;produceDQO"/>
-            <rdf:Description rdf:about="&ontologiaRio;produceNitrates"/>
-            <rdf:Description rdf:about="&ontologiaRio;producePhosphates"/>
-            <rdf:Description rdf:about="&ontologiaRio;produceSST"/>
-        </members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&owl;AllDisjointProperties"/>
-        <members rdf:parseType="Collection">
-            <rdf:Description rdf:about="&ontologiaRio;reduceDBO"/>
-            <rdf:Description rdf:about="&ontologiaRio;reduceDQO"/>
-            <rdf:Description rdf:about="&ontologiaRio;reduceNitrates"/>
-            <rdf:Description rdf:about="&ontologiaRio;reducePhosphates"/>
-            <rdf:Description rdf:about="&ontologiaRio;reduceSST"/>
-        </members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&owl;AllDisjointProperties"/>
-        <members rdf:parseType="Collection">
             <rdf:Description rdf:about="&ontologiaRio;hasDBOLimit"/>
             <rdf:Description rdf:about="&ontologiaRio;hasDQOLimit"/>
             <rdf:Description rdf:about="&ontologiaRio;hasNitratesLimit"/>
@@ -1388,10 +1355,11 @@
     <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointProperties"/>
         <members rdf:parseType="Collection">
-            <rdf:Description rdf:about="&ontologiaRio;hasLimit"/>
-            <rdf:Description rdf:about="&ontologiaRio;hasPollutant"/>
-            <rdf:Description rdf:about="&ontologiaRio;producePollutant"/>
-            <rdf:Description rdf:about="&ontologiaRio;reducePollutant"/>
+            <rdf:Description rdf:about="&ontologiaRio;reduceDBO"/>
+            <rdf:Description rdf:about="&ontologiaRio;reduceDQO"/>
+            <rdf:Description rdf:about="&ontologiaRio;reduceNitrates"/>
+            <rdf:Description rdf:about="&ontologiaRio;reducePhosphates"/>
+            <rdf:Description rdf:about="&ontologiaRio;reduceSST"/>
         </members>
     </rdf:Description>
 </rdf:RDF>
