@@ -519,7 +519,7 @@
     <Class rdf:about="&ontologiaRio;CleanWaterMass">
         <equivalentClass>
             <Class>
-                <intersectionOf rdf:parseType="Collection">
+                <unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&ontologiaRio;WaterMass"/>
                     <Restriction>
                         <onProperty rdf:resource="&ontologiaRio;hasDBO"/>
@@ -531,13 +531,77 @@
                                         <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
                                     </rdf:Description>
                                     <rdf:Description>
-                                        <xsd:maxInclusive rdf:datatype="&xsd;double">0.4</xsd:maxInclusive>
+                                        <xsd:maxInclusive rdf:datatype="&xsd;double">25.0</xsd:maxInclusive>
                                     </rdf:Description>
                                 </withRestrictions>
                             </rdfs:Datatype>
                         </allValuesFrom>
                     </Restriction>
-                </intersectionOf>
+                    <Restriction>
+                        <onProperty rdf:resource="&ontologiaRio;hasDQO"/>
+                        <allValuesFrom>
+                            <rdfs:Datatype>
+                                <onDatatype rdf:resource="&xsd;double"/>
+                                <withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
+                                    </rdf:Description>
+                                    <rdf:Description>
+                                        <xsd:maxInclusive rdf:datatype="&xsd;double">125.0</xsd:maxInclusive>
+                                    </rdf:Description>
+                                </withRestrictions>
+                            </rdfs:Datatype>
+                        </allValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="&ontologiaRio;hasNitrates"/>
+                        <allValuesFrom>
+                            <rdfs:Datatype>
+                                <onDatatype rdf:resource="&xsd;double"/>
+                                <withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxInclusive rdf:datatype="&xsd;double">15.0</xsd:maxInclusive>
+                                    </rdf:Description>
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
+                                    </rdf:Description>
+                                </withRestrictions>
+                            </rdfs:Datatype>
+                        </allValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="&ontologiaRio;hasNitrates"/>
+                        <allValuesFrom>
+                            <rdfs:Datatype>
+                                <onDatatype rdf:resource="&xsd;double"/>
+                                <withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
+                                    </rdf:Description>
+                                    <rdf:Description>
+                                        <xsd:maxInclusive rdf:datatype="&xsd;double">2.0</xsd:maxInclusive>
+                                    </rdf:Description>
+                                </withRestrictions>
+                            </rdfs:Datatype>
+                        </allValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="&ontologiaRio;hasSST"/>
+                        <allValuesFrom>
+                            <rdfs:Datatype>
+                                <onDatatype rdf:resource="&xsd;double"/>
+                                <withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="&xsd;double">0.0</xsd:minInclusive>
+                                    </rdf:Description>
+                                    <rdf:Description>
+                                        <xsd:maxInclusive rdf:datatype="&xsd;double">35.0</xsd:maxInclusive>
+                                    </rdf:Description>
+                                </withRestrictions>
+                            </rdfs:Datatype>
+                        </allValuesFrom>
+                    </Restriction>
+                </unionOf>
             </Class>
         </equivalentClass>
         <rdfs:subClassOf rdf:resource="&ontologiaRio;WaterMass"/>
@@ -693,7 +757,7 @@
     <Class rdf:about="&ontologiaRio;PollutedWaterMass">
         <equivalentClass>
             <Class>
-                <intersectionOf rdf:parseType="Collection">
+                <unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&ontologiaRio;WaterMass"/>
                     <Restriction>
                         <onProperty rdf:resource="&ontologiaRio;hasDBO"/>
@@ -702,16 +766,65 @@
                                 <onDatatype rdf:resource="&xsd;double"/>
                                 <withRestrictions rdf:parseType="Collection">
                                     <rdf:Description>
-                                        <xsd:maxInclusive rdf:datatype="&xsd;double">100.0</xsd:maxInclusive>
-                                    </rdf:Description>
-                                    <rdf:Description>
-                                        <xsd:minExclusive rdf:datatype="&xsd;double">0.4</xsd:minExclusive>
+                                        <xsd:minInclusive rdf:datatype="&xsd;double">25.0</xsd:minInclusive>
                                     </rdf:Description>
                                 </withRestrictions>
                             </rdfs:Datatype>
                         </allValuesFrom>
                     </Restriction>
-                </intersectionOf>
+                    <Restriction>
+                        <onProperty rdf:resource="&ontologiaRio;hasDQO"/>
+                        <allValuesFrom>
+                            <rdfs:Datatype>
+                                <onDatatype rdf:resource="&xsd;double"/>
+                                <withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="&xsd;double">125.0</xsd:minInclusive>
+                                    </rdf:Description>
+                                </withRestrictions>
+                            </rdfs:Datatype>
+                        </allValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="&ontologiaRio;hasNitrates"/>
+                        <allValuesFrom>
+                            <rdfs:Datatype>
+                                <onDatatype rdf:resource="&xsd;double"/>
+                                <withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="&xsd;double">15.0</xsd:minInclusive>
+                                    </rdf:Description>
+                                </withRestrictions>
+                            </rdfs:Datatype>
+                        </allValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="&ontologiaRio;hasNitrates"/>
+                        <allValuesFrom>
+                            <rdfs:Datatype>
+                                <onDatatype rdf:resource="&xsd;double"/>
+                                <withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="&xsd;double">2.0</xsd:minInclusive>
+                                    </rdf:Description>
+                                </withRestrictions>
+                            </rdfs:Datatype>
+                        </allValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="&ontologiaRio;hasSST"/>
+                        <allValuesFrom>
+                            <rdfs:Datatype>
+                                <onDatatype rdf:resource="&xsd;double"/>
+                                <withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="&xsd;double">35.0</xsd:minInclusive>
+                                    </rdf:Description>
+                                </withRestrictions>
+                            </rdfs:Datatype>
+                        </allValuesFrom>
+                    </Restriction>
+                </unionOf>
             </Class>
         </equivalentClass>
         <rdfs:subClassOf rdf:resource="&ontologiaRio;WaterMass"/>
@@ -1015,6 +1128,7 @@
             </Restriction>
         </equivalentClass>
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Las unidades estan en mg/L</rdfs:comment>
     </Class>
     
 
@@ -1188,6 +1302,9 @@
         <ontologiaRio:takesHours rdf:datatype="&xsd;int">1</ontologiaRio:takesHours>
         <ontologiaRio:reduceDBO rdf:datatype="&xsd;double">20.0</ontologiaRio:reduceDBO>
         <ontologiaRio:reduceDQO rdf:datatype="&xsd;double">30.0</ontologiaRio:reduceDQO>
+        <ontologiaRio:reducePhosphates rdf:datatype="&xsd;double">45.0</ontologiaRio:reducePhosphates>
+        <ontologiaRio:reduceNitrates rdf:datatype="&xsd;double">50.0</ontologiaRio:reduceNitrates>
+        <ontologiaRio:reduceSST rdf:datatype="&xsd;double">80.0</ontologiaRio:reduceSST>
     </NamedIndividual>
     
 
