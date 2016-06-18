@@ -226,6 +226,12 @@ public class Main {
 			double dbo = sc.nextDouble();
 			System.out.print("Choose level of DQO :");
 			double dqo = sc.nextDouble();
+			System.out.print("Choose level of SST :");
+			double sst = sc.nextDouble();
+			System.out.print("Choose level of Nitrates :");
+			double nit = sc.nextDouble();
+			System.out.print("Choose level of Phosphates :");
+			double pho = sc.nextDouble();
 			System.out.println("-Choose list of Watermasses-");
 			List<WaterMass> listOfWater = jManager.getAllWatermassIndividuals();
 			for (int i = 0; i < listOfWater.size(); i++)
@@ -241,7 +247,7 @@ public class Main {
 			System.out.print("Choose number of treatmentPlant :");
 			int id1 = sc.nextInt();
 			TreatmentPlant tp = ltp.get(id1);
-			WaterMass obj = new WaterMass(wm.volume, dbo, dqo, 0, 0, 0);
+			WaterMass obj = new WaterMass(wm.volume, dbo, dqo, sst, nit, pho);
 			WaterMass res = null;
 			MyTime duracion = new MyTime(0);
 			Method method = processes.getClass().getMethod(nameFunction, TreatmentPlant.class, WaterMass.class,

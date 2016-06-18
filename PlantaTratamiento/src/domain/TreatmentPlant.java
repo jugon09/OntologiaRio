@@ -46,7 +46,8 @@ public class TreatmentPlant {
 		int i = 0;
 		int n = tratamientos.size();
 		if (n > 0) {
-			while (w.DBO > obj.DBO || w.DQO > obj.DQO) {
+			while (w.DBO > obj.DBO || w.DQO > obj.DQO || w.SST > obj.SST || w.Nitrates > obj.Nitrates
+					|| w.Phosphates > obj.Phosphates) {
 				tratamientos.get(i % n).treatWaterMass(w);
 				duracion.addTime(tratamientos.get(i % n).getDuracion());
 				++i;
